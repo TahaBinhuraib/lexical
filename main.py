@@ -31,7 +31,7 @@ flags.DEFINE_integer("dim", 512, "trasnformer dimension")
 flags.DEFINE_integer("n_layers", 2, "number of rnn layers")
 flags.DEFINE_integer("n_batch", 512, "batch size")
 flags.DEFINE_float("gclip", 0.5, "gradient clip")
-flags.DEFINE_integer("n_epochs", 6, "number of training epochs")
+flags.DEFINE_integer("n_epochs", 2, "number of training epochs")
 flags.DEFINE_integer("beam_size", 5, "beam search size")
 flags.DEFINE_float("lr", 1.0, "learning rate")
 flags.DEFINE_float("temp", 1.0, "temperature for samplings")
@@ -49,7 +49,7 @@ flags.DEFINE_bool("bidirectional", False, "bidirectional encoders")
 flags.DEFINE_bool("attention", True, "Source Attention")
 flags.DEFINE_integer("warmup_steps", 4000, "noam warmup_steps")
 flags.DEFINE_integer("valid_steps", 500, "validation steps")
-flags.DEFINE_integer("max_step", 8000, "maximum number of steps")
+flags.DEFINE_integer("max_step", 100, "maximum number of steps")
 flags.DEFINE_integer("tolarance", 5, "early stopping tolarance")
 flags.DEFINE_integer("accum_count", 4, "grad accumulation count")
 flags.DEFINE_bool("shuffle", True, "shuffle training set")
@@ -430,15 +430,16 @@ def main(argv):
     # Use charecters to append to Vocab X and y
     # Think about how we will use the tags later!
 
-    characters = get_chars(high_i+high_o+low_i+low_o+dev_i+dev_o+test_i)
+    characters = get_chars(low_i+low_o+dev_i+dev_o+test_i)
     for c in characters:
         vocab_x.add(c)
         vocab_y.add(c)
 
     # We have to add tags to vocabx
-    tags = get_tags(high_t+low_t+dev_t+test_t)
+    tags = get_tags(low_t+dev_t+test_t)
     for tag in tags:
         vocab_x.add(tag)
+
     # Add tags to inputs
     low_train = []
     for input, tag in zip(low_i, low_t):
@@ -453,8 +454,8 @@ def main(argv):
         dev_input.append(input+tag)
 
 
-    inputs_train = low_train + high_train
-    outputs_train = low_o + high_o
+    inputs_train = low_train
+    outputs_train = low_o
     study = []
     for i, o in zip(inputs_train, outputs_train):
         study.append((i, o))
