@@ -48,15 +48,15 @@ flags.DEFINE_bool("TRANSLATE", False, "TRANSLATE experiments")
 flags.DEFINE_bool("bidirectional", False, "bidirectional encoders")
 flags.DEFINE_bool("attention", True, "Source Attention")
 flags.DEFINE_integer("warmup_steps", 4000, "noam warmup_steps")
-flags.DEFINE_integer("valid_steps", 500, "validation steps")
+flags.DEFINE_integer("valid_steps", 5, "validation steps")
 flags.DEFINE_integer("max_step", 100, "maximum number of steps")
-flags.DEFINE_integer("tolarance", 5, "early stopping tolarance")
+flags.DEFINE_integer("tolarance", 1, "early stopping tolarance")
 flags.DEFINE_integer("accum_count", 4, "grad accumulation count")
 flags.DEFINE_bool("shuffle", True, "shuffle training set")
 flags.DEFINE_bool("lr_schedule", True, "noam lr scheduler")
 flags.DEFINE_string("scan_split", "around_right", "around_right or jump")
 flags.DEFINE_bool("qxy", True, "train pretrained qxy")
-flags.DEFINE_bool("copy", False, "enable copy mechanism")
+flags.DEFINE_bool("copy", True, "enable copy mechanism")
 flags.DEFINE_bool("highdrop", False, "high drop mechanism")
 flags.DEFINE_bool("highdroptest", False, "high drop at test")
 flags.DEFINE_float("highdropvalue", 0.5, "high drop value")
@@ -129,6 +129,7 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
             steps += 1
             loss = nll / FLAGS.accum_count
             loss.backward()
+            print(f'step:: {steps}')
             train_loss += (loss.detach().item() * FLAGS.accum_count)
             train_batches += 1
             if steps % FLAGS.accum_count == 0:
