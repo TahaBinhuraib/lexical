@@ -11,7 +11,7 @@ from torch.utils.tensorboard import SummaryWriter
 import numpy as np
 
 from tqdm import tqdm
-
+import myutil
 from collections import Counter
 from nltk.translate.bleu_score import corpus_bleu
 
@@ -31,7 +31,7 @@ flags.DEFINE_integer("dim", 512, "trasnformer dimension")
 flags.DEFINE_integer("n_layers", 2, "number of rnn layers")
 flags.DEFINE_integer("n_batch", 512, "batch size")
 flags.DEFINE_float("gclip", 0.5, "gradient clip")
-flags.DEFINE_integer("n_epochs", 100, "number of training epochs")
+flags.DEFINE_integer("n_epochs", 6, "number of training epochs")
 flags.DEFINE_integer("beam_size", 5, "beam search size")
 flags.DEFINE_float("lr", 1.0, "learning rate")
 flags.DEFINE_float("temp", 1.0, "temperature for samplings")
@@ -394,177 +394,85 @@ def main(argv):
     vocab_x = Vocab()
     vocab_y = Vocab()
     references = None
+    ###########################################################################
+    # Start my code!
+    LOW_PATH = 'sample-data/kabardian-train'
+    DEV_PATH = 'sample-data/kabardian-dev'
+    TEST_PATH = 'sample-data/kabardian-test-covered'
+    L1 = 'adyghe'
+    L1s = ['adyghe']
+    HIGH_PATH = 'sample-data/adyghe-train'
 
-    if FLAGS.SCAN:
-        data = {}
-        max_len_x, max_len_y = 0, 0
-        reg = re.compile('^IN\:\s(.*?)\sOUT\: (.*?)$')
-        if FLAGS.scan_split == "around_right":
-            scan_file = "SCAN/template_split/tasks_{}_template_around_right.txt"
-        else:
-            scan_file = "SCAN/add_prim_split/tasks_{}_addprim_jump.txt"
-        for split in ("train", "test"):
-            split_data = []
-            for l in open(f"{ROOT_FOLDER}/" + scan_file.format(split), "r").readlines():
-                m = reg.match(l)
-                inp, out = m.groups(1)
-                inp, out = (inp.split(" "), out.split(" "))
-                max_len_x = max(len(inp), max_len_x)
-                max_len_y = max(len(out), max_len_y)
-                for t in inp:
-                    vocab_x.add(t)
-                for t in out:
-                    vocab_y.add(t)
-                split_data.append(encode_io((inp, out), vocab_x, vocab_y))
-            data[split] = split_data
+    low_i, low_o, low_t = myutil.read_data(LOW_PATH)
+    dev_i, dev_o, dev_t = myutil.read_data(DEV_PATH)
+    test_i, test_t = myutil.read_test_data(TEST_PATH)
+    high_i, high_o, high_t = [], [], []
+    lids_1 = [0]*len(low_i)
 
-        val_size = math.floor(len(data["train"])*0.01)
-        train_size = len(data["train"])-val_size
-        train_items, val_items = torch.utils.data.random_split(data["train"],[train_size, val_size])
-        test_items = data["test"]
+    for j, L1 in enumerate(L1s):
+        ti, to, tt = myutil.read_data(HIGH_PATH)
+        high_i += ti
+        high_o += to
+        high_t += tt
+        lids_1 += [j+1]*len(ti)
 
-        max_len_x += 1
-        max_len_y += 1
-        hlog.value("vocab_x len: ", len(vocab_x))
-        hlog.value("vocab_y len: ", len(vocab_y))
-        hlog.value("split lengts: ", [(k, len(v)) for (k, v) in data.items()])
-        if FLAGS.copy:
-            copy_translation = copy_translation_scan(vocab_x, vocab_y)
-        else:
-            copy_translation = None
-    elif FLAGS.COGS:
-        data = {}
-        max_len_x, max_len_y = 0, 0
-        for split in ("train", "dev", "test", "gen"):
-            split_data = []
-            for l in open(f"{ROOT_FOLDER}/COGS/cogs/{split}.tsv", "r").readlines():
-                text, sparse, _ = l.split("\t")
-                text, sparse = (text.split(" "), sparse.split(" "))
-                max_len_x = max(len(text), max_len_x)
-                max_len_y = max(len(sparse), max_len_y)
-                for t in text:
-                    vocab_x.add(t)
-                    vocab_y.add(t)
-                for t in sparse:
-                    vocab_y.add(t)
-                    vocab_x.add(t)
-                split_data.append(encode_io((text, sparse), vocab_x, vocab_y))
-            data[split] = split_data
-        max_len_x += 1
-        max_len_y += 1
-        hlog.value("vocab_x len: ", len(vocab_x))
-        hlog.value("vocab_y len: ", len(vocab_y))
-        hlog.value("split lengts: ", [(k, len(v)) for (k, v) in data.items()])
-        train_items = data["train"]
-        val_items = data["dev"]
-        test_items = data["gen"]
-        if FLAGS.copy:
-            copy_translation = copy_translation_cogs(vocab_x, vocab_y)
-        else:
-            copy_translation = None
-    elif FLAGS.TRANSLATE:
-        data = {}
-        max_len_x, max_len_y = 0, 0
-        count_x, count_y = Counter(), Counter()
+    # We can have multiple languages
 
-        for split in ("train", "dev", "test"):
-            split_data = []
-            if split == "train" and FLAGS.geca:
-                translate_file = f"{ROOT_FOLDER}/TRANSLATE/cmn.txt_{split}_tokenized_geca"
-            else:
-                translate_file = f"{ROOT_FOLDER}/TRANSLATE/cmn.txt_{split}_tokenized"
+    NUM_LANG = len(L1s)+1
+    def get_chars(l):
+        flat_list = [char for word in l for char in word]
+        return list(set(flat_list))
 
-            if FLAGS.lessdata and split == "train":
-                translate_file = translate_file.replace("TRANSLATE", "TRANSLATE/less") + f"_{FLAGS.seed}.tsv"
-            else:
-                translate_file = translate_file + ".tsv"
+    # Use charecters to append to Vocab X and y
+    # Think about how we will use the tags later!
 
-            datalines = open(translate_file, "r").readlines()
+    characters = get_chars(high_i+high_o+low_i+low_o+dev_i+dev_o+test_i)
+    for c in characters:
+        vocab_x.add(c)
+        vocab_y.add(c)
 
-            for l in datalines:
-                input, output = l.split("\t")
-                inp, out = (input.strip().split(" "), output.strip().split(" "))
-                max_len_x = max(len(inp), max_len_x)
-                max_len_y = max(len(out), max_len_y)
-                for t in inp:
-                    count_x[t] += 1
-                for t in out:
-                    count_y[t] += 1
-                split_data.append((inp, out))
+    inputs_train = low_i + high_i
+    outputs_train = low_i + high_o
+    study = []
+    for i, o in zip(inputs_train, outputs_train):
+        study.append((i, o))
 
-            data[split] = split_data
+    test = []
+    for i, o in zip(dev_i, dev_o):
+        test.append((i, o))
+    ################################################################################################
 
-        count_x = count_x.most_common(15000)    # threshold to 10k words
-        count_y = count_y.most_common(26000)    # threshold to 10k words
+    # input_symbols_list = set(['dax', 'lug', 'wif', 'zup', 'fep', 'blicket', 'kiki', 'tufa', 'gazzer'])
+    # output_symbols_list = set(['RED', 'YELLOW', 'GREEN', 'BLUE', 'PURPLE', 'PINK'])
+    # study, test = get_fig2_exp(input_symbols_list, output_symbols_list)
+    # # we will want to add our data here!
 
-        for (x, _) in count_x:
-            vocab_x.add(x)
-        for (y, _) in count_y:
-            vocab_y.add(y)
+    # print(f'this is the test{test}')
+    # print(f'this is the train{study}')
 
-        edata = {}
-        references = {}
-        for (split, split_data) in data.items():
-            esplit = []
-            for (inp, out) in split_data:
-                (einp, eout) = encode_io((inp, out), vocab_x, vocab_y)
-                esplit.append((einp, eout))
-                sinp = " ".join(vocab_x.decode(einp))
-                if sinp in references:
-                    references[sinp].append(out)
-                else:
-                    references[sinp] = [out]
-            edata[split] = esplit
-        data = edata
+    # test, study = study[3:4], study[0:3]
+    # for (x, y) in test+study:
+    #     for sym in x:
+    #         vocab_x.add(sym)
+    #     for sym in y:
+    #         vocab_y.add(sym)
+    max_len_x = 12
+    max_len_y = 12
 
-        max_len_x += 1
-        max_len_y += 1
-        hlog.value("vocab_x len: ", len(vocab_x))
-        hlog.value("vocab_y len: ", len(vocab_y))
-        hlog.value("split lengts: ", [(k, len(v)) for (k, v) in data.items()])
-
-        train_items = data["train"]
-        val_items = data["dev"]
-        test_items = data["test"]
-        if FLAGS.copy:
-            copy_translation = copy_translation_translate(vocab_x, vocab_y)
-        else:
-            copy_translation = None
-
+    if FLAGS.copy:
+        #vocab_y = vocab_x.merge(vocab_y)
+        copy_translation = copy_translation_mutex(vocab_x, vocab_y, study[0:4])    # FIXME: make sure they are primitives
     else:
-        input_symbols_list = set(['dax', 'lug', 'wif', 'zup', 'fep', 'blicket', 'kiki', 'tufa', 'gazzer'])
-        output_symbols_list = set(['RED', 'YELLOW', 'GREEN', 'BLUE', 'PURPLE', 'PINK'])
-        study, test = get_fig2_exp(input_symbols_list, output_symbols_list)
-        if FLAGS.full_data:
-            for sym in input_symbols_list:
-                vocab_x.add(sym)
-            for sym in output_symbols_list:
-                vocab_y.add(sym)
-            max_len_x = 7
-            max_len_y = 9
-        else:
-            test, study = study[3:4], study[0:3]
-            for (x, y) in test+study:
-                for sym in x:
-                    vocab_x.add(sym)
-                for sym in y:
-                    vocab_y.add(sym)
-            max_len_x = 2
-            max_len_y = 2
+        copy_translation = None
 
-        if FLAGS.copy:
-            #vocab_y = vocab_x.merge(vocab_y)
-            copy_translation = copy_translation_mutex(vocab_x, vocab_y, study[0:4])    # FIXME: make sure they are primitives
-        else:
-            copy_translation = None
+    train_items, test_items = encode(study, vocab_x, vocab_y), encode(test,vocab_x, vocab_y)
 
-        train_items, test_items = encode(study, vocab_x, vocab_y), encode(test,vocab_x, vocab_y)
-        val_items = test_items
+    val_items = test_items
 
-        hlog.value("vocab_x\n", vocab_x)
-        hlog.value("vocab_y\n", vocab_y)
-        hlog.value("study\n", study)
-        hlog.value("test\n", test)
+    # hlog.value("vocab_x\n", vocab_x)
+    # hlog.value("vocab_y\n", vocab_y)
+    # hlog.value("study\n", study)
+    # hlog.value("test\n", test)
 
     writer = None
     if FLAGS.tb_dir != "":
