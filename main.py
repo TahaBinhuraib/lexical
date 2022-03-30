@@ -423,6 +423,10 @@ def main(argv):
         flat_list = [char for word in l for char in word]
         return list(set(flat_list))
 
+    def get_tags(l):
+        flat_list = [tag for sublist in l for tag in sublist]
+        return list(set(flat_list))
+
     # Use charecters to append to Vocab X and y
     # Think about how we will use the tags later!
 
@@ -431,14 +435,32 @@ def main(argv):
         vocab_x.add(c)
         vocab_y.add(c)
 
-    inputs_train = low_i + high_i
-    outputs_train = low_i + high_o
+    # We have to add tags to vocabx
+    tags = get_tags(high_t+low_t+dev_t+test_t)
+    for tag in tags:
+        vocab_x.add(tag)
+    # Add tags to inputs
+    low_train = []
+    for input, tag in zip(low_i, low_t):
+        low_train.append(input+tag)
+
+    high_train = []
+    for input, tag in zip(high_i, high_t):
+        high_train.append(input+tag)
+
+    dev_input = []
+    for input, tag in zip(dev_i, dev_t):
+        dev_input.append(input+tag)
+
+
+    inputs_train = low_train + high_train
+    outputs_train = low_o + high_o
     study = []
     for i, o in zip(inputs_train, outputs_train):
         study.append((i, o))
 
     test = []
-    for i, o in zip(dev_i, dev_o):
+    for i, o in zip(dev_input, dev_o):
         test.append((i, o))
     ################################################################################################
 
