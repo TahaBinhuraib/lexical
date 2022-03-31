@@ -40,21 +40,16 @@ flags.DEFINE_string("save_model", "model.m", "model save location")
 flags.DEFINE_string("load_model", "", "load pretrained model")
 flags.DEFINE_integer("seed", 0, "random seed")
 flags.DEFINE_bool("debug", False, "debug mode")
-flags.DEFINE_bool("full_data", True, "full figure 2 experiments or simple col")
-flags.DEFINE_bool("COGS", False, "COGS experiments")
 flags.DEFINE_bool("regularize", False, "regularization")
-flags.DEFINE_bool("SCAN", False, "SCAN experiments")
-flags.DEFINE_bool("TRANSLATE", False, "TRANSLATE experiments")
 flags.DEFINE_bool("bidirectional", False, "bidirectional encoders")
 flags.DEFINE_bool("attention", True, "Source Attention")
 flags.DEFINE_integer("warmup_steps", 4000, "noam warmup_steps")
-flags.DEFINE_integer("valid_steps", 5, "validation steps")
-flags.DEFINE_integer("max_step", 100, "maximum number of steps")
+flags.DEFINE_integer("valid_steps", 500, "validation steps")
+flags.DEFINE_integer("max_step", 8000, "maximum number of steps")
 flags.DEFINE_integer("tolarance", 1, "early stopping tolarance")
 flags.DEFINE_integer("accum_count", 4, "grad accumulation count")
 flags.DEFINE_bool("shuffle", True, "shuffle training set")
 flags.DEFINE_bool("lr_schedule", True, "noam lr scheduler")
-flags.DEFINE_string("scan_split", "around_right", "around_right or jump")
 flags.DEFINE_bool("qxy", True, "train pretrained qxy")
 flags.DEFINE_bool("copy", True, "enable copy mechanism")
 flags.DEFINE_bool("highdrop", False, "high drop mechanism")
@@ -62,11 +57,9 @@ flags.DEFINE_bool("highdroptest", False, "high drop at test")
 flags.DEFINE_float("highdropvalue", 0.5, "high drop value")
 flags.DEFINE_string("aligner", "", "alignment file by fastalign")
 flags.DEFINE_bool("soft_align", False, "lexicon projection matrix")
-flags.DEFINE_bool("geca", False, "use geca files for translate")
-flags.DEFINE_bool("lessdata", False, "0.1 data for translate")
 flags.DEFINE_bool("learn_align", False, "learned lexicon projection matrix")
-flags.DEFINE_float("paug", 0.1, "augmentation ratio")
-flags.DEFINE_string("aug_file", "", "data source for augmentation")
+# flags.DEFINE_float("paug", 0.1, "augmentation ratio")
+# flags.DEFINE_string("aug_file", "", "data source for augmentation")
 flags.DEFINE_float("soft_temp", 0.2, "2 * temperature for soft lexicon")
 flags.DEFINE_string("tb_dir", "", "tb_dir")
 plt.rcParams['figure.dpi'] = 300
@@ -407,15 +400,9 @@ def main(argv):
     low_i, low_o, low_t = myutil.read_data(LOW_PATH)
     dev_i, dev_o, dev_t = myutil.read_data(DEV_PATH)
     test_i, test_t = myutil.read_test_data(TEST_PATH)
-    high_i, high_o, high_t = [], [], []
+
     lids_1 = [0]*len(low_i)
 
-    for j, L1 in enumerate(L1s):
-        ti, to, tt = myutil.read_data(HIGH_PATH)
-        high_i += ti
-        high_o += to
-        high_t += tt
-        lids_1 += [j+1]*len(ti)
 
     # We can have multiple languages
 
@@ -441,14 +428,12 @@ def main(argv):
     for tag in tags:
         vocab_x.add(tag)
 
+
     # Add tags to inputs
     low_train = []
     for input, tag in zip(low_i, low_t):
         low_train.append(input+tag)
 
-    high_train = []
-    for input, tag in zip(high_i, high_t):
-        high_train.append(input+tag)
 
     dev_input = []
     for input, tag in zip(dev_i, dev_t):
@@ -457,6 +442,7 @@ def main(argv):
 
     inputs_train = low_train
     outputs_train = low_o
+
     study = []
     for i, o in zip(inputs_train, outputs_train):
         study.append((i, o))
@@ -464,22 +450,7 @@ def main(argv):
     test = []
     for i, o in zip(dev_input, dev_o):
         test.append((i, o))
-    ################################################################################################
 
-    # input_symbols_list = set(['dax', 'lug', 'wif', 'zup', 'fep', 'blicket', 'kiki', 'tufa', 'gazzer'])
-    # output_symbols_list = set(['RED', 'YELLOW', 'GREEN', 'BLUE', 'PURPLE', 'PINK'])
-    # study, test = get_fig2_exp(input_symbols_list, output_symbols_list)
-    # # we will want to add our data here!
-
-    # print(f'this is the test{test}')
-    # print(f'this is the train{study}')
-
-    # test, study = study[3:4], study[0:3]
-    # for (x, y) in test+study:
-    #     for sym in x:
-    #         vocab_x.add(sym)
-    #     for sym in y:
-    #         vocab_y.add(sym)
     max_len_x = 12
     max_len_y = 12
 
@@ -493,10 +464,10 @@ def main(argv):
 
     val_items = test_items
 
-    # hlog.value("vocab_x\n", vocab_x)
-    # hlog.value("vocab_y\n", vocab_y)
-    # hlog.value("study\n", study)
-    # hlog.value("test\n", test)
+    hlog.value("vocab_x\n", vocab_x)
+    hlog.value("vocab_y\n", vocab_y)
+    hlog.value("study\n", study)
+    hlog.value("test\n", test)
 
     writer = None
     if FLAGS.tb_dir != "":
