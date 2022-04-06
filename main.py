@@ -1,35 +1,36 @@
-import os
-import math
-import random
-import re
 import datetime
 import json
-import torch
-from torch import nn, optim
-import torch.utils.data as torch_data
-from torch.utils.tensorboard import SummaryWriter
-import numpy as np
-
-from tqdm import tqdm
-import myutil
+import math
+import os
+import random
+import re
 from collections import Counter
-from nltk.translate.bleu_score import corpus_bleu
 
-import seaborn as sns
 import matplotlib.pyplot as plt
-
+import numpy as np
+import seaborn as sns
+import torch
+import torch.utils.data as torch_data
 from absl import app, flags
+from nltk.translate.bleu_score import corpus_bleu
+from torch import nn, optim
+from torch.utils.tensorboard import SummaryWriter
+from tqdm import tqdm
 
-from mutex import Vocab, Mutex, RecordLoss, MultiIter
-from data import encode, encode_io, collate, eval_format, get_fig2_exp
-from src import NoamLR, SoftAlign
 import hlog
+import utils.myutil as myutil
+from data import collate, encode, encode_io, eval_format, get_fig2_exp
+from mutex import MultiIter, Mutex, RecordLoss, Vocab
+from src import NoamLR, SoftAlign
+from utils.make_data import generate_data
 
 sns.set()
 FLAGS = flags.FLAGS
+flags.DEFINE_string("language_task", "morphology", "folder to find data")
+flags.DEFINE_string("language", "kabardian", "low resource language")
 flags.DEFINE_integer("dim", 512, "trasnformer dimension")
 flags.DEFINE_integer("n_layers", 2, "number of rnn layers")
-flags.DEFINE_integer("n_batch", 512, "batch size")
+flags.DEFINE_integer("n_batch", 64, "batch size")
 flags.DEFINE_float("gclip", 0.5, "gradient clip")
 flags.DEFINE_integer("n_epochs", 2, "number of training epochs")
 flags.DEFINE_integer("beam_size", 5, "beam search size")
@@ -59,10 +60,10 @@ flags.DEFINE_string("aligner", "", "alignment file by fastalign")
 flags.DEFINE_bool("soft_align", False, "lexicon projection matrix")
 flags.DEFINE_bool("learn_align", False, "learned lexicon projection matrix")
 # flags.DEFINE_float("paug", 0.1, "augmentation ratio")
-# flags.DEFINE_string("aug_file", "", "data source for augmentation")
+flags.DEFINE_string("aug_file", "", "data source for augmentation")
 flags.DEFINE_float("soft_temp", 0.2, "2 * temperature for soft lexicon")
 flags.DEFINE_string("tb_dir", "", "tb_dir")
-plt.rcParams['figure.dpi'] = 300
+plt.rcParams["figure.dpi"] = 300
 
 ROOT_FOLDER = os.path.dirname(os.path.realpath(__file__))
 DEVICE = torch.device(("cuda" if torch.cuda.is_available() else "cpu"))
@@ -90,19 +91,13 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
         aug_data = read_augmented_file(FLAGS.aug_file, model.vocab_x, model.vocab_y)
         random.shuffle(train_dataset)
         random.shuffle(aug_data)
-        titer = MultiIter(train_dataset, aug_data, 1-FLAGS.paug)
+        titer = MultiIter(train_dataset, aug_data, 1 - FLAGS.paug)
         train_loader = torch_data.DataLoader(
-            titer,
-            batch_size=FLAGS.n_batch,
-            shuffle=False,
-            collate_fn=collate
+            titer, batch_size=FLAGS.n_batch, shuffle=False, collate_fn=collate
         )
     else:
         train_loader = torch_data.DataLoader(
-            train_dataset,
-            batch_size=FLAGS.n_batch,
-            shuffle=FLAGS.shuffle,
-            collate_fn=collate
+            train_dataset, batch_size=FLAGS.n_batch, shuffle=FLAGS.shuffle, collate_fn=collate
         )
 
     tolarance = FLAGS.tolarance
@@ -122,8 +117,8 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
             steps += 1
             loss = nll / FLAGS.accum_count
             loss.backward()
-            print(f'step:: {steps}')
-            train_loss += (loss.detach().item() * FLAGS.accum_count)
+            print(f"step:: {steps}")
+            train_loss += loss.detach().item() * FLAGS.accum_count
             train_batches += 1
             if steps % FLAGS.accum_count == 0:
                 accum_steps += 1
@@ -141,7 +136,9 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
                 if accum_steps % FLAGS.valid_steps == 0:
                     with hlog.task(accum_steps):
                         hlog.value("curr loss", train_loss / train_batches)
-                        acc, f1, val_loss, bscore = validate(model, val_dataset, writer=writer, references=references)
+                        acc, f1, val_loss, bscore = validate(
+                            model, val_dataset, writer=writer, references=references
+                        )
                         model.train()
                         hlog.value("acc", acc)
                         hlog.value("f1", f1)
@@ -173,10 +170,7 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
 def validate(model, val_dataset, vis=False, final=False, writer=None, references=None):
     model.eval()
     val_loader = torch_data.DataLoader(
-        val_dataset,
-        batch_size=FLAGS.n_batch,
-        shuffle=False,
-        collate_fn=collate
+        val_dataset, batch_size=FLAGS.n_batch, shuffle=False, collate_fn=collate
     )
     total = correct = loss = tp = fp = fn = 0
     cur_references = []
@@ -185,13 +179,15 @@ def validate(model, val_dataset, vis=False, final=False, writer=None, references
         for inp, out, lens in tqdm(val_loader):
             input = inp.to(DEVICE)
             lengths = lens.to(DEVICE)
-            pred, _ = model.sample(input,
-                                   lens=lengths,
-                                   temp=1.0,
-                                   max_len=model.MAXLEN_Y,
-                                   greedy=True,
-                                   beam_size=FLAGS.beam_size * final,
-                                   calc_score=False)
+            pred, _ = model.sample(
+                input,
+                lens=lengths,
+                temp=1.0,
+                max_len=model.MAXLEN_Y,
+                greedy=True,
+                beam_size=FLAGS.beam_size * final,
+                calc_score=False,
+            )
 
             loss += model.pyx(input, out.to(DEVICE), lens=lengths).item() * input.shape[1]
             for i, seq in enumerate(pred):
@@ -201,7 +197,7 @@ def validate(model, val_dataset, vis=False, final=False, writer=None, references
                 if references is None:
                     cur_references.append([ref])
                 else:
-                    inpref = " ".join(model.vocab_x.decode(inp[0:lens[i], i].numpy().tolist()))
+                    inpref = " ".join(model.vocab_x.decode(inp[0 : lens[i], i].numpy().tolist()))
                     cur_references.append(references[inpref])
 
                 candidates.append(pred_here)
@@ -233,7 +229,7 @@ def validate(model, val_dataset, vis=False, final=False, writer=None, references
     bleu_score = corpus_bleu(cur_references, candidates)
     acc = correct / total
     loss = loss / total
-    if tp+fp > 0:
+    if tp + fp > 0:
         prec = tp / (tp + fp)
     else:
         prec = 0
@@ -246,10 +242,6 @@ def validate(model, val_dataset, vis=False, final=False, writer=None, references
     hlog.value("f1", f1)
     hlog.value("bleu", bleu_score)
     return acc, f1, loss, bleu_score
-
-
-def swap_io(items):
-    return [(y, x) for (x, y) in items]
 
 
 def tranlate_with_alignerv2(aligner, vocab_x, vocab_y, unwanted=lambda x: False, temp=0.02):
@@ -268,7 +260,7 @@ def tranlate_with_alignerv2(aligner, vocab_x, vocab_y, unwanted=lambda x: False,
                 y = vocab_y[x_key]
                 proj[x, y] = 1.0
 
-        with open(aligner, 'r') as handle:
+        with open(aligner, "r") as handle:
             word_alignment = json.load(handle)
             for (w, a) in word_alignment.items():
                 if w in vocab_x and len(a) > 0 and not unwanted(w):
@@ -276,26 +268,25 @@ def tranlate_with_alignerv2(aligner, vocab_x, vocab_y, unwanted=lambda x: False,
                     for (v, n) in a.items():
                         if not unwanted(v) and v in vocab_y:
                             y = vocab_y[v]
-                            proj[x, y] = 2*n
+                            proj[x, y] = 2 * n
 
         empty_xs = np.where(proj.sum(axis=1) == 0)[0]
         empty_ys = np.where(proj.sum(axis=0) == 0)[0]
 
         if len(empty_ys) != 0 and len(empty_xs) != 0:
             for i in empty_xs:
-                proj[i, empty_ys] = 1/len(empty_ys)
+                proj[i, empty_ys] = 1 / len(empty_ys)
 
     if FLAGS.soft_align:
-        return SoftAlign(proj/FLAGS.soft_temp, requires_grad=FLAGS.learn_align).to(DEVICE)
+        return SoftAlign(proj / FLAGS.soft_temp, requires_grad=FLAGS.learn_align).to(DEVICE)
     else:
         return np.argmax(proj, axis=1)
-
 
 
 def tranlate_with_aligner(aligner, vocab_x, vocab_y, unwanted=lambda x: False, temp=0.02):
     proj = np.identity(len(vocab_x), dtype=np.float32)
     vocab_keys = list(vocab_x._contents.keys())
-    with open(aligner, 'r') as handle:
+    with open(aligner, "r") as handle:
         word_alignment = json.load(handle)
         for (w, a) in word_alignment.items():
             if w in vocab_x and len(a) > 0 and not unwanted(w):
@@ -303,19 +294,19 @@ def tranlate_with_aligner(aligner, vocab_x, vocab_y, unwanted=lambda x: False, t
                 for (v, n) in a.items():
                     if not unwanted(v) and v in vocab_y:
                         y = vocab_keys.index(v)
-                        proj[x, y] = 2*n
+                        proj[x, y] = 2 * n
 
     if FLAGS.soft_align:
-        return SoftAlign(proj/temp, requires_grad=FLAGS.learn_align).to(DEVICE)
+        return SoftAlign(proj / temp, requires_grad=FLAGS.learn_align).to(DEVICE)
     else:
         return np.argmax(proj, axis=1)
 
 
 def copy_translation_cogs(vocab_x, vocab_y):
     if FLAGS.aligner != "":
-        return tranlate_with_alignerv2(FLAGS.aligner, vocab_x,vocab_y)
+        return tranlate_with_alignerv2(FLAGS.aligner, vocab_x, vocab_y)
     else:
-        proj = np.zeros((len(vocab_x),len(vocab_y)), dtype=np.float32)
+        proj = np.zeros((len(vocab_x), len(vocab_y)), dtype=np.float32)
         x_keys = list(vocab_x._contents.keys())
         y_keys = list(vocab_y._contents.keys())
         for (x, x_key) in enumerate(x_keys):
@@ -340,18 +331,21 @@ def copy_translation_mutex(vocab_x, vocab_y, primitives):
             proj[idx, idy] = 1
         return np.argmax(proj, axis=1)
 
+
 def copy_translation_scan(vocab_x, vocab_y):
     if FLAGS.aligner != "":
         return tranlate_with_alignerv2(FLAGS.aligner, vocab_x, vocab_y)
     else:
         proj = np.identity(len(vocab_x))
         vocab_keys = list(vocab_x._contents.keys())
-        for (x, y) in [("jump", "I_JUMP"),
-                       ("walk", "I_WALK"),
-                       ("look", "I_LOOK"),
-                       ("run", "I_RUN"),
-                       ("right", "I_TURN_RIGHT"),
-                       ("left", "I_TURN_LEFT")]:
+        for (x, y) in [
+            ("jump", "I_JUMP"),
+            ("walk", "I_WALK"),
+            ("look", "I_LOOK"),
+            ("run", "I_RUN"),
+            ("right", "I_TURN_RIGHT"),
+            ("left", "I_TURN_LEFT"),
+        ]:
 
             idx = vocab_keys.index(x)
             idy = vocab_keys.index(y)
@@ -359,6 +353,7 @@ def copy_translation_scan(vocab_x, vocab_y):
             proj[idx, idx] = 0
             proj[idx, idy] = 1
         return np.argmax(proj, axis=1)
+
 
 def copy_translation_translate(vocab_x, vocab_y):
     if FLAGS.aligner != "":
@@ -388,81 +383,55 @@ def main(argv):
     vocab_x = Vocab()
     vocab_y = Vocab()
     references = None
-    ###########################################################################
-    # Start my code!
-    LOW_PATH = 'sample-data/kabardian-train'
-    DEV_PATH = 'sample-data/kabardian-dev'
-    TEST_PATH = 'sample-data/kabardian-test-covered'
-    L1 = 'adyghe'
-    L1s = ['adyghe']
-    HIGH_PATH = 'sample-data/adyghe-train'
 
-    low_i, low_o, low_t = myutil.read_data(LOW_PATH)
-    dev_i, dev_o, dev_t = myutil.read_data(DEV_PATH)
-    test_i, test_t = myutil.read_test_data(TEST_PATH)
+    if FLAGS.language_task == "morphology":
+        train_path = f"data_2020/{FLAGS.language}/{FLAGS.language}-train"
+        dev_path = f"data_2020/{FLAGS.language}/{FLAGS.language}-dev"
+        test_path = f"data_2020/{FLAGS.language}/{FLAGS.language}-test-covered"
 
-    lids_1 = [0]*len(low_i)
+        train_input, train_output, train_tags = myutil.read_data(train_path)
+        validate_input, validate_output, validate_tags = myutil.read_data(dev_path)
+        test_input, test_tags = myutil.read_test_data(test_path)
 
+        characters = myutil.get_chars(
+            train_input + train_output + validate_input + validate_output
+        )
+        tags = myutil.get_tags(train_tags + validate_tags)
 
-    # We can have multiple languages
+        if FLAGS.copy:
+            for tag in tags:
+                vocab_x.add(tag)
+                vocab_y.add(tag)
+        else:
+            for tag in tags:
+                vocab_x.add(tag)
 
-    NUM_LANG = len(L1s)+1
-    def get_chars(l):
-        flat_list = [char for word in l for char in word]
-        return list(set(flat_list))
+        for c in characters:
+            vocab_x.add(c)
+            vocab_y.add(c)
 
-    def get_tags(l):
-        flat_list = [tag for sublist in l for tag in sublist]
-        return list(set(flat_list))
+        train_items, test_items, val_items, study, test = generate_data(
+            train_input,
+            train_tags,
+            validate_input,
+            validate_tags,
+            train_output,
+            validate_output,
+            vocab_x,
+            vocab_y,
+        )
 
-    # Use charecters to append to Vocab X and y
-    # Think about how we will use the tags later!
-
-    characters = get_chars(low_i+low_o+dev_i+dev_o+test_i)
-    for c in characters:
-        vocab_x.add(c)
-        vocab_y.add(c)
-
-    # We have to add tags to vocabx
-    tags = get_tags(low_t+dev_t+test_t)
-    for tag in tags:
-        vocab_x.add(tag)
-
-
-    # Add tags to inputs
-    low_train = []
-    for input, tag in zip(low_i, low_t):
-        low_train.append(input+tag)
-
-
-    dev_input = []
-    for input, tag in zip(dev_i, dev_t):
-        dev_input.append(input+tag)
-
-
-    inputs_train = low_train
-    outputs_train = low_o
-
-    study = []
-    for i, o in zip(inputs_train, outputs_train):
-        study.append((i, o))
-
-    test = []
-    for i, o in zip(dev_input, dev_o):
-        test.append((i, o))
-
-    max_len_x = 12
-    max_len_y = 12
+        # How to determine this length?
+        max_len_x = 12
+        max_len_y = 12
 
     if FLAGS.copy:
-        #vocab_y = vocab_x.merge(vocab_y)
-        copy_translation = copy_translation_mutex(vocab_x, vocab_y, study[0:4])    # FIXME: make sure they are primitives
+        # vocab_y = vocab_x.merge(vocab_y)
+        copy_translation = copy_translation_mutex(
+            vocab_x, vocab_y, study[0:4]
+        )  # FIXME: make sure they are primitives
     else:
         copy_translation = None
-
-    train_items, test_items = encode(study, vocab_x, vocab_y), encode(test,vocab_x, vocab_y)
-
-    val_items = test_items
 
     hlog.value("vocab_x\n", vocab_x)
     hlog.value("vocab_y\n", vocab_y)
@@ -471,32 +440,39 @@ def main(argv):
 
     writer = None
     if FLAGS.tb_dir != "":
-        tb_log_dir = FLAGS.tb_dir + f"/seed_{FLAGS.seed}_" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+        tb_log_dir = (
+            FLAGS.tb_dir
+            + f"/seed_{FLAGS.seed}_"
+            + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+        )
         writer = SummaryWriter(log_dir=tb_log_dir)
     else:
         writer = None
 
     if FLAGS.load_model == "":
-        model = Mutex(vocab_x,
-                      vocab_y,
-                      FLAGS.dim,
-                      FLAGS.dim,
-                      max_len_x=max_len_x,
-                      max_len_y=max_len_y,
-                      copy=FLAGS.copy,
-                      n_layers=FLAGS.n_layers,
-                      self_att=False,
-                      attention=FLAGS.attention,
-                      dropout=FLAGS.dropout,
-                      temp=FLAGS.temp,
-                      qxy=FLAGS.qxy,
-                      bidirectional=FLAGS.bidirectional, #TODO remember human data was bidirectional
-                      ).to(DEVICE)
+        model = Mutex(
+            vocab_x,
+            vocab_y,
+            FLAGS.dim,
+            FLAGS.dim,
+            max_len_x=max_len_x,
+            max_len_y=max_len_y,
+            copy=FLAGS.copy,
+            n_layers=FLAGS.n_layers,
+            self_att=False,
+            attention=FLAGS.attention,
+            dropout=FLAGS.dropout,
+            temp=FLAGS.temp,
+            qxy=FLAGS.qxy,
+            bidirectional=FLAGS.bidirectional,  # TODO remember human data was bidirectional
+        ).to(DEVICE)
         if copy_translation is not None:
             model.pyx.decoder.copy_translation = copy_translation
 
         with hlog.task("train model"):
-            acc, f1, bscore = train(model, train_items, val_items, writer=writer, references=references)
+            acc, f1, bscore = train(
+                model, train_items, val_items, writer=writer, references=references
+            )
     else:
         model = torch.load(FLAGS.load_model)
 
