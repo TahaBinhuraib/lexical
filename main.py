@@ -5,6 +5,7 @@ import os
 import random
 import re
 from collections import Counter
+from statistics import mean
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -16,6 +17,7 @@ from nltk.translate.bleu_score import corpus_bleu
 from torch import nn, optim
 from torch.utils.tensorboard import SummaryWriter
 from tqdm import tqdm
+from transformers.optimization import Adafactor, AdafactorSchedule
 
 import hlog
 import utils.myutil as myutil
@@ -80,9 +82,13 @@ def read_augmented_file(file, vocab_x, vocab_y):
 
 
 def train(model, train_dataset, val_dataset, writer=None, references=None):
+    # opt = Adafactor(
+    # model.parameters(), scale_parameter=True, relative_step=True, warmup_init=True, lr=FLAGS.lr
+    # )
     opt = optim.Adam(model.parameters(), lr=FLAGS.lr, betas=(0.9, 0.998))
 
     if FLAGS.lr_schedule:
+        # scheduler = AdafactorSchedule(opt)
         scheduler = NoamLR(opt, FLAGS.dim, warmup_steps=FLAGS.warmup_steps)
     else:
         scheduler = None
@@ -173,6 +179,7 @@ def validate(model, val_dataset, vis=False, final=False, writer=None, references
         val_dataset, batch_size=FLAGS.n_batch, shuffle=False, collate_fn=collate
     )
     total = correct = loss = tp = fp = fn = 0
+    acc_list = []
     cur_references = []
     candidates = []
     with torch.no_grad():
@@ -191,6 +198,7 @@ def validate(model, val_dataset, vis=False, final=False, writer=None, references
 
             loss += model.pyx(input, out.to(DEVICE), lens=lengths).item() * input.shape[1]
             for i, seq in enumerate(pred):
+                true_char = 0
                 ref = out[:, i].numpy().tolist()
                 ref = eval_format(model.vocab_y, ref)
                 pred_here = eval_format(model.vocab_y, pred[i])
@@ -199,6 +207,17 @@ def validate(model, val_dataset, vis=False, final=False, writer=None, references
                 else:
                     inpref = " ".join(model.vocab_x.decode(inp[0 : lens[i], i].numpy().tolist()))
                     cur_references.append(references[inpref])
+
+                len_ref = len(ref)
+                len_pred_here = len(pred_here)
+                N = max(len_ref, len_pred_here)
+
+                for y, y_hat in zip(ref, pred_here):
+                    if y == y_hat:
+                        true_char += 1
+
+                acc_here = true_char / N
+                acc_list.append(acc_here)
 
                 candidates.append(pred_here)
                 correct_here = pred_here == ref
@@ -223,6 +242,7 @@ def validate(model, val_dataset, vis=False, final=False, writer=None, references
 
     if writer is not None:
         writer.add_scalar(f"Loss/eval/loss", loss / total)
+        writer.add_scalar(f"Loss/eval/character_acc", mean(acc_list))
         writer.add_scalar(f"Loss/eval/accuracy", correct / total)
         writer.flush()
 
@@ -241,6 +261,7 @@ def validate(model, val_dataset, vis=False, final=False, writer=None, references
     hlog.value("acc", acc)
     hlog.value("f1", f1)
     hlog.value("bleu", bleu_score)
+    hlog.value("acc_char", mean(acc_list))
     return acc, f1, loss, bleu_score
 
 
