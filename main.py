@@ -18,7 +18,7 @@ from tqdm import tqdm
 import hlog
 import utils.myutil as myutil
 from data import collate, encode, encode_io, eval_format, get_fig2_exp
-from mutex import MultiIter, Mutex, RecordLoss, Vocab
+from mutex import EarlyStopping, MultiIter, Mutex, RecordLoss, Vocab
 from src import NoamLR, SoftAlign
 from utils.make_data import generate_data
 
@@ -43,11 +43,12 @@ flags.DEFINE_bool("regularize", False, "regularization")
 flags.DEFINE_bool("bidirectional", False, "bidirectional encoders")
 flags.DEFINE_bool("attention", True, "Source Attention")
 flags.DEFINE_integer("warmup_steps", 4000, "noam warmup_steps")
-flags.DEFINE_integer("valid_steps", 500, "validation steps")
+flags.DEFINE_integer("valid_steps", 5, "validation steps")
 flags.DEFINE_integer("max_step", 8000, "maximum number of steps")
-flags.DEFINE_integer("tolarance", 1, "early stopping tolarance")
 flags.DEFINE_integer("accum_count", 4, "grad accumulation count")
 flags.DEFINE_bool("shuffle", True, "shuffle training set")
+flags.DEFINE_bool("early_stopping", True, "earlystopping regularization")
+flags.DEFINE_integer("patience", 7, "early stopping patience")
 flags.DEFINE_bool("lr_schedule", True, "noam lr scheduler")
 flags.DEFINE_bool("qxy", True, "train pretrained qxy")
 flags.DEFINE_bool("copy", True, "enable copy mechanism")
@@ -82,7 +83,8 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
     # model.parameters(), scale_parameter=True, relative_step=True, warmup_init=True, lr=FLAGS.lr
     # )
     opt = optim.Adam(model.parameters(), lr=FLAGS.lr, betas=(0.9, 0.998))
-
+    if FLAGS.early_stopping:
+        early_stopping = EarlyStopping(patience=FLAGS.patience, verbose=True)
     if FLAGS.lr_schedule:
         # scheduler = AdafactorSchedule(opt)
         scheduler = NoamLR(opt, FLAGS.dim, warmup_steps=FLAGS.warmup_steps)
@@ -90,7 +92,9 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
         scheduler = None
 
     if FLAGS.aug_file != "":
-        aug_data = read_augmented_file(FLAGS.aug_file, model.vocab_x, model.vocab_y)
+        aug_data = read_augmented_file(
+            FLAGS.aug_file, model.vocab_x, model.vocab_y
+        )
         random.shuffle(train_dataset)
         random.shuffle(aug_data)
         titer = MultiIter(train_dataset, aug_data, 1 - FLAGS.paug)
@@ -99,15 +103,21 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
         )
     else:
         train_loader = torch_data.DataLoader(
-            train_dataset, batch_size=FLAGS.n_batch, shuffle=FLAGS.shuffle, collate_fn=collate
+            train_dataset,
+            batch_size=FLAGS.n_batch,
+            shuffle=FLAGS.shuffle,
+            collate_fn=collate,
         )
 
-    tolarance = FLAGS.tolarance
     best_f1 = best_acc = -np.inf
     best_loss = np.inf
     best_bleu = steps = accum_steps = 0
     got_nan = False
-    is_running = lambda: not got_nan and accum_steps < FLAGS.max_step and tolarance > 0
+    is_running = (
+        lambda: not got_nan
+        and accum_steps < FLAGS.max_step
+        and not early_stopping.early_stop
+    )
     while is_running():
         train_loss = train_batches = 0
         opt.zero_grad()
@@ -115,7 +125,12 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
         for inp, out, lens in tqdm(train_loader):
             if not is_running():
                 break
-            nll = model(inp.to(DEVICE), out.to(DEVICE), lens=lens.to(DEVICE), recorder=recorder)
+            nll = model(
+                inp.to(DEVICE),
+                out.to(DEVICE),
+                lens=lens.to(DEVICE),
+                recorder=recorder,
+            )
             steps += 1
             loss = nll / FLAGS.accum_count
             loss.backward()
@@ -124,7 +139,9 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
             train_batches += 1
             if steps % FLAGS.accum_count == 0:
                 accum_steps += 1
-                gnorm = nn.utils.clip_grad_norm_(model.parameters(), FLAGS.gclip)
+                gnorm = nn.utils.clip_grad_norm_(
+                    model.parameters(), FLAGS.gclip
+                )
                 if not np.isfinite(gnorm):
                     got_nan = True
                     print("=====GOT NAN=====")
@@ -139,7 +156,10 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
                     with hlog.task(accum_steps):
                         hlog.value("curr loss", train_loss / train_batches)
                         acc, f1, val_loss, bscore = validate(
-                            model, val_dataset, writer=writer, references=references
+                            model,
+                            val_dataset,
+                            writer=writer,
+                            references=references,
                         )
                         model.train()
                         hlog.value("acc", acc)
@@ -152,12 +172,11 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
                         hlog.value("best_acc", best_acc)
                         hlog.value("best_f1", best_f1)
                         hlog.value("best_bleu", best_bleu)
-                        if val_loss < best_loss:
-                            best_loss = val_loss
-                            tolarance = FLAGS.tolarance
-                        else:
-                            tolarance -= 1
-                        hlog.value("best_loss", best_loss)
+
+                        early_stopping(val_loss=val_loss, model=model)
+                        if early_stopping.early_stop:
+                            print("----Early stopping----")
+                            break
 
     hlog.value("final_acc", acc)
     hlog.value("final_f1", f1)
@@ -169,10 +188,15 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
     return acc, f1, bscore
 
 
-def validate(model, val_dataset, vis=False, final=False, writer=None, references=None):
+def validate(
+    model, val_dataset, vis=False, final=False, writer=None, references=None
+):
     model.eval()
     val_loader = torch_data.DataLoader(
-        val_dataset, batch_size=FLAGS.n_batch, shuffle=False, collate_fn=collate
+        val_dataset,
+        batch_size=FLAGS.n_batch,
+        shuffle=False,
+        collate_fn=collate,
     )
     total = correct = loss = tp = fp = fn = 0
     acc_list = []
@@ -192,7 +216,10 @@ def validate(model, val_dataset, vis=False, final=False, writer=None, references
                 calc_score=False,
             )
 
-            loss += model.pyx(input, out.to(DEVICE), lens=lengths).item() * input.shape[1]
+            loss += (
+                model.pyx(input, out.to(DEVICE), lens=lengths).item()
+                * input.shape[1]
+            )
             for i, seq in enumerate(pred):
                 true_char = 0
                 ref = out[:, i].numpy().tolist()
@@ -201,7 +228,11 @@ def validate(model, val_dataset, vis=False, final=False, writer=None, references
                 if references is None:
                     cur_references.append([ref])
                 else:
-                    inpref = " ".join(model.vocab_x.decode(inp[0 : lens[i], i].numpy().tolist()))
+                    inpref = " ".join(
+                        model.vocab_x.decode(
+                            inp[0 : lens[i], i].numpy().tolist()
+                        )
+                    )
                     cur_references.append(references[inpref])
 
                 len_ref = len(ref)
@@ -232,7 +263,9 @@ def validate(model, val_dataset, vis=False, final=False, writer=None, references
                         hlog.value("fp", fp_here)
                         hlog.value("fn", fn_here)
                         inp_lst = inp[:, i].detach().cpu().numpy().tolist()
-                        hlog.value("input", eval_format(model.vocab_x, inp_lst))
+                        hlog.value(
+                            "input", eval_format(model.vocab_x, inp_lst)
+                        )
                         hlog.value("gold", ref)
                         hlog.value("pred", pred_here)
 
@@ -261,11 +294,15 @@ def validate(model, val_dataset, vis=False, final=False, writer=None, references
     return acc, f1, loss, bleu_score
 
 
-def tranlate_with_alignerv2(aligner, vocab_x, vocab_y, unwanted=lambda x: False, temp=0.02):
+def tranlate_with_alignerv2(
+    aligner, vocab_x, vocab_y, unwanted=lambda x: False, temp=0.02
+):
     if aligner == "uniform":
         proj = np.ones((len(vocab_x), len(vocab_y)), dtype=np.float32)
     elif aligner == "random":
-        proj = np.random.default_rng().random((len(vocab_x), len(vocab_y)), dtype=np.float32)
+        proj = np.random.default_rng().random(
+            (len(vocab_x), len(vocab_y)), dtype=np.float32
+        )
     else:
         proj = np.zeros((len(vocab_x), len(vocab_y)), dtype=np.float32)
 
@@ -295,12 +332,16 @@ def tranlate_with_alignerv2(aligner, vocab_x, vocab_y, unwanted=lambda x: False,
                 proj[i, empty_ys] = 1 / len(empty_ys)
 
     if FLAGS.soft_align:
-        return SoftAlign(proj / FLAGS.soft_temp, requires_grad=FLAGS.learn_align).to(DEVICE)
+        return SoftAlign(
+            proj / FLAGS.soft_temp, requires_grad=FLAGS.learn_align
+        ).to(DEVICE)
     else:
         return np.argmax(proj, axis=1)
 
 
-def tranlate_with_aligner(aligner, vocab_x, vocab_y, unwanted=lambda x: False, temp=0.02):
+def tranlate_with_aligner(
+    aligner, vocab_x, vocab_y, unwanted=lambda x: False, temp=0.02
+):
     proj = np.identity(len(vocab_x), dtype=np.float32)
     vocab_keys = list(vocab_x._contents.keys())
     with open(aligner, "r") as handle:
@@ -314,7 +355,9 @@ def tranlate_with_aligner(aligner, vocab_x, vocab_y, unwanted=lambda x: False, t
                         proj[x, y] = 2 * n
 
     if FLAGS.soft_align:
-        return SoftAlign(proj / temp, requires_grad=FLAGS.learn_align).to(DEVICE)
+        return SoftAlign(proj / temp, requires_grad=FLAGS.learn_align).to(
+            DEVICE
+        )
     else:
         return np.argmax(proj, axis=1)
 
@@ -387,7 +430,9 @@ def copy_translation_translate(vocab_x, vocab_y):
 
 
 def copy_translation_cfq(vocab_x, vocab_y):
-    assert FLAGS.aligner != "", "Predefined aligner is needed for translate exps"
+    assert (
+        FLAGS.aligner != ""
+    ), "Predefined aligner is needed for translate exps"
     return tranlate_with_alignerv2(FLAGS.aligner, vocab_x, vocab_y)
 
 
@@ -407,7 +452,9 @@ def main(argv):
         test_path = f"data_2020/{FLAGS.language}/{FLAGS.language}.tst"
 
         train_input, train_output, train_tags = myutil.read_data(train_path)
-        validate_input, validate_output, validate_tags = myutil.read_data(dev_path)
+        validate_input, validate_output, validate_tags = myutil.read_data(
+            dev_path
+        )
         test_input, test_tags = myutil.read_test_data(test_path)
 
         characters = myutil.get_chars(
@@ -488,7 +535,11 @@ def main(argv):
 
         with hlog.task("train model"):
             acc, f1, bscore = train(
-                model, train_items, val_items, writer=writer, references=references
+                model,
+                train_items,
+                val_items,
+                writer=writer,
+                references=references,
             )
     else:
         model = torch.load(FLAGS.load_model)
@@ -500,7 +551,9 @@ def main(argv):
         validate(model, val_items, vis=True, references=references)
 
     with hlog.task("test evaluation (greedy)"):
-        validate(model, test_items, vis=True, final=False, references=references)
+        validate(
+            model, test_items, vis=True, final=False, references=references
+        )
 
     # with hlog.task("test evaluation (beam)"):
     #     validate(model, test_items, vis=False, final=True)
