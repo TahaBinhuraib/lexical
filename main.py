@@ -447,9 +447,9 @@ def main(argv):
     references = None
 
     if FLAGS.language_task == "morphology":
-        train_path = f"data_2020/{FLAGS.language}/{FLAGS.language}.trn"
+        train_path = f"data_2020/{FLAGS.language}/{FLAGS.language}.train"
         dev_path = f"data_2020/{FLAGS.language}/{FLAGS.language}.dev"
-        test_path = f"data_2020/{FLAGS.language}/{FLAGS.language}.tst"
+        test_path = f"data_2020/{FLAGS.language}/{FLAGS.language}.test"
 
         train_input, train_output, train_tags = myutil.read_data(train_path)
         validate_input, validate_output, validate_tags = myutil.read_data(
