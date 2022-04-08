@@ -42,11 +42,8 @@ conda env create --file environment.yml # creates conda env with required packag
 
 ## Data
 
-[COGS](./COGS) and [SCAN](./SCAN) datasets are provided as a submodule.   
-[TRANSLATE](./TRANSLATE) and [COLOR](./COLOR) datasets are provided as a subfolder.
-
-
-> 📋 See individual license files for each dataset under their folders.
+[SIGMORPHON](./data2020) dataset is provided as a subfolder.   
+> Data was taken from the 2020 SIGMORPHON Shared task. Please refer to: ([ref](https://github.com/sigmorphon2020/task0-data))
 
 ## Training
 
@@ -83,12 +80,6 @@ sh simple.sh $i #  $i is the seed of the experiments. You can use  `sbatch simpl
 cd exp/COGS
 sh fast.sh $i
 ```
-
-The logs can be found in the created subfolders.
-
-> 📋 Note that the experiments are tested on NVIDIA 32GB V100 Volta GPUs. For some models GPU requirements might be high.
-
-> 📋 jump(SCAN) and Color experiments are very sensitive to seeds, so any change in the code might change the results sligthly.
 
 ## Evaluation
 
