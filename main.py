@@ -25,7 +25,7 @@ from utils.make_data import generate_data
 sns.set()
 FLAGS = flags.FLAGS
 flags.DEFINE_string("language_task", "morphology", "folder to find data")
-flags.DEFINE_string("language", "kabardian", "low resource language")
+flags.DEFINE_string("language", "kongo", "low resource language")
 flags.DEFINE_integer("dim", 512, "trasnformer dimension")
 flags.DEFINE_integer("n_layers", 2, "number of rnn layers")
 flags.DEFINE_integer("n_batch", 64, "batch size")
@@ -402,9 +402,9 @@ def main(argv):
     references = None
 
     if FLAGS.language_task == "morphology":
-        train_path = f"data_2020/{FLAGS.language}/{FLAGS.language}-train"
-        dev_path = f"data_2020/{FLAGS.language}/{FLAGS.language}-dev"
-        test_path = f"data_2020/{FLAGS.language}/{FLAGS.language}-test-covered"
+        train_path = f"data_2020/{FLAGS.language}/{FLAGS.language}.trn"
+        dev_path = f"data_2020/{FLAGS.language}/{FLAGS.language}.dev"
+        test_path = f"data_2020/{FLAGS.language}/{FLAGS.language}.tst"
 
         train_input, train_output, train_tags = myutil.read_data(train_path)
         validate_input, validate_output, validate_tags = myutil.read_data(dev_path)
