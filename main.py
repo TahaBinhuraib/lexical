@@ -2,6 +2,7 @@ import datetime
 import json
 import os
 import random
+from asyncore import write
 from statistics import mean
 
 import matplotlib.pyplot as plt
@@ -25,10 +26,10 @@ from utils.make_data import generate_data
 sns.set()
 FLAGS = flags.FLAGS
 flags.DEFINE_string("language_task", "morphology", "folder to find data")
-flags.DEFINE_string("language", "kongo", "low resource language")
+flags.DEFINE_string("language", "tur", "low resource language")
 flags.DEFINE_integer("dim", 512, "trasnformer dimension")
 flags.DEFINE_integer("n_layers", 2, "number of rnn layers")
-flags.DEFINE_integer("n_batch", 64, "batch size")
+flags.DEFINE_integer("n_batch", 256, "batch size")
 flags.DEFINE_float("gclip", 0.5, "gradient clip")
 flags.DEFINE_integer("n_epochs", 2, "number of training epochs")
 flags.DEFINE_integer("beam_size", 5, "beam search size")
@@ -43,7 +44,7 @@ flags.DEFINE_bool("regularize", False, "regularization")
 flags.DEFINE_bool("bidirectional", False, "bidirectional encoders")
 flags.DEFINE_bool("attention", True, "Source Attention")
 flags.DEFINE_integer("warmup_steps", 4000, "noam warmup_steps")
-flags.DEFINE_integer("valid_steps", 5, "validation steps")
+flags.DEFINE_integer("valid_steps", 500, "validation steps")
 flags.DEFINE_integer("max_step", 8000, "maximum number of steps")
 flags.DEFINE_integer("accum_count", 4, "grad accumulation count")
 flags.DEFINE_bool("shuffle", True, "shuffle training set")
@@ -160,6 +161,7 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
                             val_dataset,
                             writer=writer,
                             references=references,
+                            vis=False,
                         )
                         model.train()
                         hlog.value("acc", acc)
@@ -202,6 +204,7 @@ def validate(
     acc_list = []
     cur_references = []
     candidates = []
+
     with torch.no_grad():
         for inp, out, lens in tqdm(val_loader):
             input = inp.to(DEVICE)
@@ -257,17 +260,24 @@ def validate(
                 fn += fn_here
                 total += 1
                 if vis:
-                    with hlog.task(total):
-                        hlog.value("label", correct_here)
-                        hlog.value("tp", tp_here)
-                        hlog.value("fp", fp_here)
-                        hlog.value("fn", fn_here)
-                        inp_lst = inp[:, i].detach().cpu().numpy().tolist()
-                        hlog.value(
-                            "input", eval_format(model.vocab_x, inp_lst)
-                        )
-                        hlog.value("gold", ref)
-                        hlog.value("pred", pred_here)
+                    with open(
+                        f"./generations/{FLAGS.language}_validation.txt", "a"
+                    ) as f:
+
+                        with hlog.task(total):
+                            hlog.value("label", correct_here)
+                            hlog.value("tp", tp_here)
+                            hlog.value("fp", fp_here)
+                            hlog.value("fn", fn_here)
+                            inp_lst = inp[:, i].detach().cpu().numpy().tolist()
+                            hlog.value(
+                                "input", eval_format(model.vocab_x, inp_lst)
+                            )
+                            hlog.value("gold", ref)
+                            hlog.value("pred", pred_here)
+                            f.write(
+                                f"\n\nGold: {ref}\nPrediction: {pred_here}"
+                            )
 
     if writer is not None:
         writer.add_scalar(f"Loss/eval/loss", loss / total)
@@ -447,9 +457,9 @@ def main(argv):
     references = None
 
     if FLAGS.language_task == "morphology":
-        train_path = f"data_2020/{FLAGS.language}/{FLAGS.language}.trn"
-        dev_path = f"data_2020/{FLAGS.language}/{FLAGS.language}.dev"
-        test_path = f"data_2020/{FLAGS.language}/{FLAGS.language}.tst"
+        train_path = f"data_2021/{FLAGS.language}/{FLAGS.language}.train"
+        dev_path = f"data_2021/{FLAGS.language}/{FLAGS.language}.dev"
+        test_path = f"data_2021/{FLAGS.language}/{FLAGS.language}.test"
 
         train_input, train_output, train_tags = myutil.read_data(train_path)
         validate_input, validate_output, validate_tags = myutil.read_data(
@@ -550,10 +560,10 @@ def main(argv):
     with hlog.task("val evaluation"):
         validate(model, val_items, vis=True, references=references)
 
-    with hlog.task("test evaluation (greedy)"):
-        validate(
-            model, test_items, vis=True, final=False, references=references
-        )
+    # with hlog.task("test evaluation (greedy)"):
+    #     validate(
+    #         model, test_items, vis=True, final=False, references=references
+    #     )
 
     # with hlog.task("test evaluation (beam)"):
     #     validate(model, test_items, vis=False, final=True)
