@@ -1,10 +1,7 @@
 import datetime
 import json
-import math
 import os
 import random
-import re
-from collections import Counter
 from statistics import mean
 
 import matplotlib.pyplot as plt
@@ -17,7 +14,6 @@ from nltk.translate.bleu_score import corpus_bleu
 from torch import nn, optim
 from torch.utils.tensorboard import SummaryWriter
 from tqdm import tqdm
-from transformers.optimization import Adafactor, AdafactorSchedule
 
 import hlog
 import utils.myutil as myutil
