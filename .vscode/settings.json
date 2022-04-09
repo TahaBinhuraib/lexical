@@ -8,7 +8,7 @@
     ],
     "python.formatting.provider": "black",
     "python.formatting.blackArgs": [
-        "--line-length=79"
+        "--line-length=99"
     ],
     "python.sortImports.args": [
         "--profile",

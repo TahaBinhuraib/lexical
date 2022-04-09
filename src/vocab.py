@@ -1,12 +1,14 @@
-from collections import namedtuple
 import json
+from collections import namedtuple
+
 
 class Vocab(object):
-    PAD = '<pad>'
-    SOS = '<s>'
-    EOS = '</s>'
-    COPY = '<copy>'
-    UNK = '<unk>'
+    PAD = "<pad>"
+    SOS = "<s>"
+    EOS = "</s>"
+    COPY = "<copy>"
+    UNK = "<unk>"
+    TOK = "</tok>"
 
     def __init__(self):
         self._contents = {}
@@ -16,6 +18,7 @@ class Vocab(object):
         self.add(self.EOS)
         self.add(self.COPY)
         self.add(self.UNK)
+        self.add(self.TOK)
 
     def add(self, sym):
         if sym not in self._contents:
@@ -58,6 +61,9 @@ class Vocab(object):
     def eos(self):
         return self._contents[self.EOS]
 
+    def tok(self):
+        return self._contents[self.TOK]
+
     def copy(self):
         return self._contents[self.COPY]
 
@@ -65,11 +71,7 @@ class Vocab(object):
         return self._contents[self.UNK]
 
     def __str__(self):
-        out = (
-            ["Vocab("]
-            + ["\t%s:\t%s" % pair for pair in self._contents.items()]
-            + [")"]
-        )
+        out = ["Vocab("] + ["\t%s:\t%s" % pair for pair in self._contents.items()] + [")"]
         return "\n".join(out)
 
     def dump(self, writer):
