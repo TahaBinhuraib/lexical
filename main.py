@@ -93,9 +93,7 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
         scheduler = None
 
     if FLAGS.aug_file != "":
-        aug_data = read_augmented_file(
-            FLAGS.aug_file, model.vocab_x, model.vocab_y
-        )
+        aug_data = read_augmented_file(FLAGS.aug_file, model.vocab_x, model.vocab_y)
         random.shuffle(train_dataset)
         random.shuffle(aug_data)
         titer = MultiIter(train_dataset, aug_data, 1 - FLAGS.paug)
@@ -115,9 +113,7 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
     best_bleu = steps = accum_steps = 0
     got_nan = False
     is_running = (
-        lambda: not got_nan
-        and accum_steps < FLAGS.max_step
-        and not early_stopping.early_stop
+        lambda: not got_nan and accum_steps < FLAGS.max_step and not early_stopping.early_stop
     )
     while is_running():
         train_loss = train_batches = 0
@@ -140,9 +136,7 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
             train_batches += 1
             if steps % FLAGS.accum_count == 0:
                 accum_steps += 1
-                gnorm = nn.utils.clip_grad_norm_(
-                    model.parameters(), FLAGS.gclip
-                )
+                gnorm = nn.utils.clip_grad_norm_(model.parameters(), FLAGS.gclip)
                 if not np.isfinite(gnorm):
                     got_nan = True
                     print("=====GOT NAN=====")
@@ -190,9 +184,7 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
     return acc, f1, bscore
 
 
-def validate(
-    model, val_dataset, vis=False, final=False, writer=None, references=None
-):
+def validate(model, val_dataset, vis=False, final=False, writer=None, references=None):
     model.eval()
     val_loader = torch_data.DataLoader(
         val_dataset,
@@ -219,23 +211,18 @@ def validate(
                 calc_score=False,
             )
 
-            loss += (
-                model.pyx(input, out.to(DEVICE), lens=lengths).item()
-                * input.shape[1]
-            )
+            loss += model.pyx(input, out.to(DEVICE), lens=lengths).item() * input.shape[1]
             for i, seq in enumerate(pred):
                 true_char = 0
+                input_ref = input[:, i].cpu().detach().numpy().tolist()
+                input_ref = eval_format(model.vocab_x, input_ref)
                 ref = out[:, i].numpy().tolist()
                 ref = eval_format(model.vocab_y, ref)
                 pred_here = eval_format(model.vocab_y, pred[i])
                 if references is None:
                     cur_references.append([ref])
                 else:
-                    inpref = " ".join(
-                        model.vocab_x.decode(
-                            inp[0 : lens[i], i].numpy().tolist()
-                        )
-                    )
+                    inpref = " ".join(model.vocab_x.decode(inp[0 : lens[i], i].numpy().tolist()))
                     cur_references.append(references[inpref])
 
                 len_ref = len(ref)
@@ -260,23 +247,18 @@ def validate(
                 fn += fn_here
                 total += 1
                 if vis:
-                    with open(
-                        f"./generations/{FLAGS.language}_validation.txt", "a"
-                    ) as f:
-
+                    with open(f"./generations/{FLAGS.language}_validation.txt", "a") as f:
                         with hlog.task(total):
                             hlog.value("label", correct_here)
                             hlog.value("tp", tp_here)
                             hlog.value("fp", fp_here)
                             hlog.value("fn", fn_here)
-                            inp_lst = inp[:, i].detach().cpu().numpy().tolist()
-                            hlog.value(
-                                "input", eval_format(model.vocab_x, inp_lst)
-                            )
+                            hlog.value("input", input_ref)
                             hlog.value("gold", ref)
                             hlog.value("pred", pred_here)
                             f.write(
-                                f"\n\nGold: {ref}\nPrediction: {pred_here}"
+                                f"\n\nInput: {''.join(input_ref)}\nGold: {''.join(ref)}\nPrediction: {''.join(pred_here)}\nchar_acc: {acc_here}\
+                                \nLevenshtein dist:{myutil.edit_distance(''.join(ref), ''.join(pred_here))}\n{'='*50}"
                             )
 
     if writer is not None:
@@ -304,15 +286,11 @@ def validate(
     return acc, f1, loss, bleu_score
 
 
-def tranlate_with_alignerv2(
-    aligner, vocab_x, vocab_y, unwanted=lambda x: False, temp=0.02
-):
+def tranlate_with_alignerv2(aligner, vocab_x, vocab_y, unwanted=lambda x: False, temp=0.02):
     if aligner == "uniform":
         proj = np.ones((len(vocab_x), len(vocab_y)), dtype=np.float32)
     elif aligner == "random":
-        proj = np.random.default_rng().random(
-            (len(vocab_x), len(vocab_y)), dtype=np.float32
-        )
+        proj = np.random.default_rng().random((len(vocab_x), len(vocab_y)), dtype=np.float32)
     else:
         proj = np.zeros((len(vocab_x), len(vocab_y)), dtype=np.float32)
 
@@ -342,16 +320,12 @@ def tranlate_with_alignerv2(
                 proj[i, empty_ys] = 1 / len(empty_ys)
 
     if FLAGS.soft_align:
-        return SoftAlign(
-            proj / FLAGS.soft_temp, requires_grad=FLAGS.learn_align
-        ).to(DEVICE)
+        return SoftAlign(proj / FLAGS.soft_temp, requires_grad=FLAGS.learn_align).to(DEVICE)
     else:
         return np.argmax(proj, axis=1)
 
 
-def tranlate_with_aligner(
-    aligner, vocab_x, vocab_y, unwanted=lambda x: False, temp=0.02
-):
+def tranlate_with_aligner(aligner, vocab_x, vocab_y, unwanted=lambda x: False, temp=0.02):
     proj = np.identity(len(vocab_x), dtype=np.float32)
     vocab_keys = list(vocab_x._contents.keys())
     with open(aligner, "r") as handle:
@@ -365,9 +339,7 @@ def tranlate_with_aligner(
                         proj[x, y] = 2 * n
 
     if FLAGS.soft_align:
-        return SoftAlign(proj / temp, requires_grad=FLAGS.learn_align).to(
-            DEVICE
-        )
+        return SoftAlign(proj / temp, requires_grad=FLAGS.learn_align).to(DEVICE)
     else:
         return np.argmax(proj, axis=1)
 
@@ -440,9 +412,7 @@ def copy_translation_translate(vocab_x, vocab_y):
 
 
 def copy_translation_cfq(vocab_x, vocab_y):
-    assert (
-        FLAGS.aligner != ""
-    ), "Predefined aligner is needed for translate exps"
+    assert FLAGS.aligner != "", "Predefined aligner is needed for translate exps"
     return tranlate_with_alignerv2(FLAGS.aligner, vocab_x, vocab_y)
 
 
@@ -462,9 +432,7 @@ def main(argv):
         test_path = f"data_2021/{FLAGS.language}/{FLAGS.language}.test"
 
         train_input, train_output, train_tags = myutil.read_data(train_path)
-        validate_input, validate_output, validate_tags = myutil.read_data(
-            dev_path
-        )
+        validate_input, validate_output, validate_tags = myutil.read_data(dev_path)
         test_input, test_tags = myutil.read_test_data(test_path)
 
         characters = myutil.get_chars(
@@ -484,7 +452,7 @@ def main(argv):
             vocab_x.add(c)
             vocab_y.add(c)
 
-        train_items, test_items, val_items, study, test = generate_data(
+        train_items, test_items, val_items, study, test, max_x, max_y = generate_data(
             train_input,
             train_tags,
             validate_input,
@@ -495,9 +463,8 @@ def main(argv):
             vocab_y,
         )
 
-        # How to determine this length?
-        max_len_x = 12
-        max_len_y = 12
+        max_len_x = max_x
+        max_len_y = max_y
 
     if FLAGS.copy:
         # vocab_y = vocab_x.merge(vocab_y)

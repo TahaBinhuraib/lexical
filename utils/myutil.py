@@ -23,6 +23,21 @@ def edit_distance(str1, str2):
     return int(table[len(str2)][len(str1)])
 
 
+def get_char_acc(lstr1, lstr2):
+    true_char = 0
+    len_ref = len(lstr1)
+    len_pred_here = len(lstr2)
+
+    N = max(len_ref, len_pred_here)
+
+    for y, y_hat in zip(lstr1, lstr1):
+        if y == y_hat:
+            true_char += 1
+
+    acc_here = true_char / N
+    return acc_here
+
+
 def read_data(filename):
     with codecs.open(filename, "r", "utf-8") as inp:
         lines = inp.readlines()
