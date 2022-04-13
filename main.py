@@ -26,6 +26,7 @@ from utils.make_data import generate_data
 sns.set()
 FLAGS = flags.FLAGS
 flags.DEFINE_string("language_task", "morphology", "folder to find data")
+flags.DEFINE_string("tag_location", "prepend", "determines if we prepend or append the tags")
 flags.DEFINE_string("language", "tur", "low resource language")
 flags.DEFINE_integer("dim", 512, "trasnformer dimension")
 flags.DEFINE_integer("n_layers", 2, "number of rnn layers")
@@ -80,9 +81,6 @@ def read_augmented_file(file, vocab_x, vocab_y):
 
 
 def train(model, train_dataset, val_dataset, writer=None, references=None):
-    # opt = Adafactor(
-    # model.parameters(), scale_parameter=True, relative_step=True, warmup_init=True, lr=FLAGS.lr
-    # )
     opt = optim.Adam(model.parameters(), lr=FLAGS.lr, betas=(0.9, 0.998))
     if FLAGS.early_stopping:
         early_stopping = EarlyStopping(patience=FLAGS.patience, verbose=True)
@@ -279,6 +277,16 @@ def validate(model, val_dataset, vis=False, final=False, writer=None, references
         f1 = 0
     else:
         f1 = 2 * prec * rec / (prec + rec)
+
+    if vis:
+        with open(f"./results/{FLAGS.language}_validation_result.txt", "a") as f:
+            f.write(
+                f'Language: {FLAGS.language}\nSeed: {FLAGS.seed}\ndim: {FLAGS.dim}\nmax_step: {FLAGS.max_step}\
+                    \nwarmup_steps: {FLAGS.warmup_steps}\nTag_location: {FLAGS.tag_location}\nn_layer: {FLAGS.n_layers}\
+                    \nn_batch: {FLAGS.n_batch}\nCopy: {FLAGS.copy}\naccuracy: {acc}\
+                    \nf1: {f1}\nbleu: {bleu_score}\ncharacter accuracy: {mean(acc_list)}\n{"="*50}\n'
+            )
+
     hlog.value("acc", acc)
     hlog.value("f1", f1)
     hlog.value("bleu", bleu_score)
@@ -344,21 +352,6 @@ def tranlate_with_aligner(aligner, vocab_x, vocab_y, unwanted=lambda x: False, t
         return np.argmax(proj, axis=1)
 
 
-def copy_translation_cogs(vocab_x, vocab_y):
-    if FLAGS.aligner != "":
-        return tranlate_with_alignerv2(FLAGS.aligner, vocab_x, vocab_y)
-    else:
-        proj = np.zeros((len(vocab_x), len(vocab_y)), dtype=np.float32)
-        x_keys = list(vocab_x._contents.keys())
-        y_keys = list(vocab_y._contents.keys())
-        for (x, x_key) in enumerate(x_keys):
-            if x_key in y_keys:
-                y = y_keys.index(x_key)
-                proj[x, y] = 1.0
-
-        return np.argmax(proj, axis=1)
-
-
 def copy_translation_mutex(vocab_x, vocab_y, primitives):
     if FLAGS.aligner != "":
         return tranlate_with_alignerv2(FLAGS.aligner, vocab_x, vocab_y)
@@ -372,48 +365,6 @@ def copy_translation_mutex(vocab_x, vocab_y, primitives):
             proj[idx, idx] = 0
             proj[idx, idy] = 1
         return np.argmax(proj, axis=1)
-
-
-def copy_translation_scan(vocab_x, vocab_y):
-    if FLAGS.aligner != "":
-        return tranlate_with_alignerv2(FLAGS.aligner, vocab_x, vocab_y)
-    else:
-        proj = np.identity(len(vocab_x))
-        vocab_keys = list(vocab_x._contents.keys())
-        for (x, y) in [
-            ("jump", "I_JUMP"),
-            ("walk", "I_WALK"),
-            ("look", "I_LOOK"),
-            ("run", "I_RUN"),
-            ("right", "I_TURN_RIGHT"),
-            ("left", "I_TURN_LEFT"),
-        ]:
-
-            idx = vocab_keys.index(x)
-            idy = vocab_keys.index(y)
-            print("x: ", x, " y: ", y, "idx: ", idx, "idy: ", idy)
-            proj[idx, idx] = 0
-            proj[idx, idy] = 1
-        return np.argmax(proj, axis=1)
-
-
-def copy_translation_translate(vocab_x, vocab_y):
-    if FLAGS.aligner != "":
-        return tranlate_with_alignerv2(FLAGS.aligner, vocab_x, vocab_y)
-    else:
-        proj = np.zeros((len(vocab_x), len(vocab_y)), dtype=np.float32)
-        x_keys = list(vocab_x._contents.keys())
-        y_keys = list(vocab_y._contents.keys())
-        for (x, x_key) in enumerate(x_keys):
-            if x_key in y_keys:
-                y = y_keys.index(x_key)
-                proj[x, y] = 1.0
-        return np.argmax(proj, axis=1)
-
-
-def copy_translation_cfq(vocab_x, vocab_y):
-    assert FLAGS.aligner != "", "Predefined aligner is needed for translate exps"
-    return tranlate_with_alignerv2(FLAGS.aligner, vocab_x, vocab_y)
 
 
 def main(argv):
@@ -461,6 +412,7 @@ def main(argv):
             validate_output,
             vocab_x,
             vocab_y,
+            FLAGS.tag_location,
         )
 
         max_len_x = max_x

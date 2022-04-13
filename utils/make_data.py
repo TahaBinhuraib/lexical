@@ -13,15 +13,23 @@ def generate_data(
     validate_output,
     vocab_x,
     vocab_y,
+    tag_location,
 ):
     """Generate the data needed for the low_resource language task"""
     x_train = []
+
     for input, tag in zip(train_input, train_tags):
-        x_train.append(input + [Vocab.TOK] + tag)
+        if tag_location == "append":
+            x_train.append(input + [Vocab.TOK] + tag)
+        if tag_location == "prepend":
+            x_train.append(tag + [Vocab.TOK] + input)
 
     x_validation = []
     for input, tag in zip(validate_input, validate_tags):
-        x_validation.append(input + [Vocab.TOK] + tag)
+        if tag_location == "append":
+            x_validation.append(input + [Vocab.TOK] + tag)
+        if tag_location == "prepend":
+            x_validation.append(tag + [Vocab.TOK] + input)
 
     study = []
     for x, y in zip(x_train, train_output):

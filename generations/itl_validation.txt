@@ -1,0 +1,6161 @@
+
+
+Input: kirviɬxet</tok>VIPFVFININDPL3PRS
+Gold: kirviɬxetqzuzeˀn
+Prediction: kirviɬxetqzuskin
+char_acc: 0.8125                                
+Levenshtein dist:3
+==================================================
+
+Input: il’čkuviji</tok>VNO3SAB1SFININDPRS
+Gold: il’čkuvijimˀiŋ
+Prediction: il’čkuvijsxin
+char_acc: 0.6428571428571429                                
+Levenshtein dist:4
+==================================================
+
+Input: kʼezzamtʼkla</tok>NNOMSG
+Gold: kʼezzamtʼklač
+Prediction: kʼezzamtʼlaa
+char_acc: 0.7692307692307693                                
+Levenshtein dist:2
+==================================================
+
+Input: krveɬxet</tok>VNO3SAB3SFININDPRS
+Gold: krveɬxetasčeˀn
+Prediction: krveɬxetznen
+char_acc: 0.5714285714285714                                
+Levenshtein dist:4
+==================================================
+
+Input: ɬanmaja</tok>VNO2SAB1SIPFVFININDPRS
+Gold: ɬanmajaqsumaŋ
+Prediction: ɬanmajaqzosxen
+char_acc: 0.5714285714285714                                
+Levenshtein dist:6
+==================================================
+
+Input: temjuŋɬxet</tok>VMSDRFHNFIN
+Gold: temjuŋɬxetkiɬχ
+Prediction: temečχiqzɬk
+char_acc: 0.2857142857142857                                
+Levenshtein dist:10
+==================================================
+
+Input: čʼmamɬ</tok>VIPFVFININDSG3PRS
+Gold: čʼmamɬqzosč
+Prediction: čʼmamɬqzusč
+char_acc: 0.9090909090909091                                
+Levenshtein dist:1
+==================================================
+
+Input: ɬŋizi</tok>VIPFVFININDSG3PRS
+Gold: ɬŋiziqzusč
+Prediction: ɬŋiziqzasen
+char_acc: 0.7272727272727273                                
+Levenshtein dist:3
+==================================================
+
+Input: čisxuŋ</tok>VNO1SAB3SFINOPTPST
+Gold: tčisxuŋaɬčeˀn
+Prediction: tčisxuŋaɬčen
+char_acc: 0.8461538461538461                                
+Levenshtein dist:1
+==================================================
+
+Input: ikʼsxu</tok>VFINOPTSG2PRS
+Gold: ikʼsxulesč
+Prediction: ikʼsxulesč
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: әnkʼsi</tok>VNO1SBE3PFININDPST
+Gold: tәnkʼsičeˀn
+Prediction: tәnkʼsičeˀn
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: vetat</tok>VIPFVFININDPL2PRS
+Gold: vetatqzussx
+Prediction: vetatsqssx
+char_acc: 0.5454545454545454                                
+Levenshtein dist:3
+==================================================
+
+Input: tajta</tok>VNO1SAB2SIPFVFININDPRS
+Gold: tajtaqzaxen
+Prediction: ttajtaqzosxen
+char_acc: 0.07692307692307693                                
+Levenshtein dist:3
+==================================================
+
+Input: kurbuskaj</tok>NNOMSG
+Gold: kurbuskaj
+Prediction: kurbuskaj
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: aɲɬom</tok>VNO3SAB1PIPFVFININDPST
+Gold: aɲɬomqzaɬomneˀn
+Prediction: aɲɬomqzoznen
+char_acc: 0.5333333333333333                                
+Levenshtein dist:4
+==================================================
+
+Input: čiˀŋini</tok>VFINIMPPL2
+Gold: qčiˀŋinisx
+Prediction: qčiˀŋinisx
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: laxɬe</tok>VNO3PBE3SITERFININDPRS
+Gold: laxɬeteskineˀn
+Prediction: laxɬeteskenan
+char_acc: 0.7142857142857143                                
+Levenshtein dist:3
+==================================================
+
+Input: χumst</tok>VIPFVFININDSG3PRS
+Gold: χumstqzusčen
+Prediction: χumstqzusč
+char_acc: 0.8333333333333334                                
+Levenshtein dist:2
+==================================================
+
+Input: kʼilek</tok>VFININDSG3PRS
+Gold: kʼilekisen
+Prediction: kʼilekesčeˀn
+char_acc: 0.5833333333333334                                
+Levenshtein dist:3
+==================================================
+
+Input: әŋqsx</tok>VNO3SBE3SIPFVFININDPRS
+Gold: әŋqsxqzuskinen
+Prediction: әŋqsxiqzusknen
+char_acc: 0.5714285714285714                                
+Levenshtein dist:2
+==================================================
+
+Input: qamzan</tok>VFINOPTSG3PST
+Gold: qamzantaɬč
+Prediction: qamzanaɬč
+char_acc: 0.6                                
+Levenshtein dist:1
+==================================================
+
+Input: ɬinnu</tok>VIPFVFININDSG1PST
+Gold: tɬinnuqsun
+Prediction: tɬinnuqsuvin
+char_acc: 0.75                                
+Levenshtein dist:2
+==================================================
+
+Input: l’iveklen</tok>VCVBNFIN
+Gold: kl’iveklenkes
+Prediction: l’iveklenki
+char_acc: 0.0                                
+Levenshtein dist:3
+==================================================
+
+Input: sχetɬ</tok>VFININDSG3PRS
+Gold: sχetɬesč
+Prediction: sχetɬsč
+char_acc: 0.625                                
+Levenshtein dist:1
+==================================================
+
+Input: ilvizi</tok>VFINIMPPL1
+Gold: mnilviziskičen
+Prediction: nilvizik
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: seŋs</tok>VACTYNO3SAB3SFININDPRS
+Gold: seŋssosen
+Prediction: seŋszoznen
+char_acc: 0.5                                
+Levenshtein dist:3
+==================================================
+
+Input: niŋj</tok>VIPFVFININDSG3PRS
+Gold: niŋjeqzusč
+Prediction: niŋjuqzusč
+char_acc: 0.9                                
+Levenshtein dist:1
+==================================================
+
+Input: čʼel</tok>VNO1PAB3SIPFVFININDFUT
+Gold: nčʼelqzaɬen
+Prediction: nčʼelqzaɬen
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: ɬiveklen</tok>VCVBNFIN
+Gold: kɬiveklenki
+Prediction: ɬiveklenkas
+char_acc: 0.0                                
+Levenshtein dist:3
+==================================================
+
+Input: ɬinmit</tok>VNO1SAB3SFINCOND
+Gold: tkʼɬinmitičen
+Prediction: mɬinmitisx
+char_acc: 0.07692307692307693                                
+Levenshtein dist:6
+==================================================
+
+Input: gurbuske</tok>NNOMPL
+Gold: gurbuskeˀn
+Prediction: gurbuskeˀn
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: әnta</tok>VFININDSG1PSTCAUS
+Gold: tәntaɬčen
+Prediction: tәnәntaɬk
+char_acc: 0.3333333333333333                                
+Levenshtein dist:5
+==================================================
+
+Input: čʼmam</tok>VFININDSG2PRS
+Gold: čʼmamsč
+Prediction: čʼmamasč
+char_acc: 0.625                                
+Levenshtein dist:1
+==================================================
+
+Input: tavol</tok>VNO2SAB1SITERFINIMP
+Gold: ktavolatәsxkmiŋ
+Prediction: tavolaɬmiŋ
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: ɬeruŋ</tok>VFININDSG3PRS
+Gold: ɬeruŋesčen
+Prediction: ɬeruŋsč
+char_acc: 0.5                                
+Levenshtein dist:3
+==================================================
+
+Input: χeni</tok>VNO3SBE3SIPFVFININDPRS
+Gold: χeniqzuskinen
+Prediction: χeniqsuskinen
+char_acc: 0.9230769230769231                                
+Levenshtein dist:1
+==================================================
+
+Input: qetet</tok>VFININDPL1FUT
+Gold: nqetetaɬk
+Prediction: nqetetaɬk
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: әnkʼ</tok>VACTYNO2SAB1SIPFVFINIMP
+Gold: qәnkʼzuqzumiŋ
+Prediction: qәnkʼqzusx
+char_acc: 0.38461538461538464                                
+Levenshtein dist:5
+==================================================
+
+Input: kʼekʼfe</tok>NDIMNOMPL
+Gold: kʼekʼfeˀɲč
+Prediction: kʼekʼfeˀɲč
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: sxese</tok>VFININDSG3PST
+Gold: sxesevin
+Prediction: sxesevin
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: čʼamzanl</tok>NNOMPL
+Gold: čʼamzanlaˀn
+Prediction: čʼamzanlaˀn
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: əlfč</tok>VITERFININDSG2PRS
+Gold: əlfčtesč
+Prediction: əlfčatesč
+char_acc: 0.4444444444444444                                
+Levenshtein dist:1
+==================================================
+
+Input: sxzuv</tok>VFININDSG1FUT
+Gold: tsxzuvaɬkičen
+Prediction: tsxzuvaɬk
+char_acc: 0.6923076923076923                                
+Levenshtein dist:4
+==================================================
+
+Input: aɲčpә</tok>VNO3SAB3PFININDPRS
+Gold: aɲčpәzneˀn
+Prediction: aɲčpәsneˀn
+char_acc: 0.9                                
+Levenshtein dist:1
+==================================================
+
+Input: čʼŋel</tok>VFININDPL3PRS
+Gold: čʼŋelesčeˀn
+Prediction: čʼŋelesčeˀn
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: tniɬ</tok>VNO1SBE3SFINOPTPST
+Gold: tniɬaɬčen
+Prediction: ttniɬaɬxen
+char_acc: 0.1                                
+Levenshtein dist:2
+==================================================
+
+Input: qeni</tok>VFININDSG3PRS
+Gold: qenisč
+Prediction: qenisven
+char_acc: 0.625                                
+Levenshtein dist:3
+==================================================
+
+Input: ezu</tok>VNO3SAB3PIPFVFININDPRS
+Gold: ezuqzuzneˀn
+Prediction: ezuqzuznen
+char_acc: 0.8181818181818182                                
+Levenshtein dist:1
+==================================================
+
+Input: nest</tok>VIPFVFININDPL3
+Gold: nestqzoˀaˀn
+Prediction: nestqzuzen
+char_acc: 0.5454545454545454                                
+Levenshtein dist:4
+==================================================
+
+Input: tsxl</tok>VNO1PBE3SFINIMPCAUS
+Gold: xnәnitsxliˀin
+Prediction: nәntsxliznen
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: ɬotz</tok>VNO1SBE3PFININDFUT
+Gold: tɬotzaɬčeˀn
+Prediction: tɬotzaɬven
+char_acc: 0.7272727272727273                                
+Levenshtein dist:2
+==================================================
+
+Input: toza</tok>VNO3SAB3SFININDPRS
+Gold: tozaznan
+Prediction: tozaznen
+char_acc: 0.875                                
+Levenshtein dist:1
+==================================================
+
+Input: kʼenesi</tok>VCVBNFIN
+Gold: kkʼenesiˀinˀin
+Prediction: kkʼenesiknen
+char_acc: 0.5714285714285714                                
+Levenshtein dist:4
+==================================================
+
+Input: svataˀɬ</tok>VNFINPURP
+Gold: svataˀɬnoke
+Prediction: svataˀɬnoke
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: novaɬez</tok>NNOMPL
+Gold: novaɬezeˀn
+Prediction: novaɬezaˀn
+char_acc: 0.9                                
+Levenshtein dist:1
+==================================================
+
+Input: čʼel</tok>VNO2SAB1SFININDPST
+Gold: čʼelmiŋ
+Prediction: tčʼelŋin
+char_acc: 0.0                                
+Levenshtein dist:3
+==================================================
+
+Input: ŋiksi</tok>VFINIMPSG3
+Gold: xanŋiksivin
+Prediction: xnŋiksixč
+char_acc: 0.09090909090909091                                
+Levenshtein dist:4
+==================================================
+
+Input: neveska</tok>NNOMSG
+Gold: neveska
+Prediction: neveska
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: fiɬ</tok>VITERFININDSG3PRS
+Gold: fiɬatezen
+Prediction: fiɬatesč
+char_acc: 0.6666666666666666                                
+Levenshtein dist:3
+==================================================
+
+Input: seŋ</tok>VACTYFININDPL3PRS
+Gold: seŋzoveˀn
+Prediction: seŋzosč
+char_acc: 0.5555555555555556                                
+Levenshtein dist:4
+==================================================
+
+Input: solo</tok>VNO3SBE3SFININDPRS
+Gold: soloskinen
+Prediction: soloskenan
+char_acc: 0.8                                
+Levenshtein dist:2
+==================================================
+
+Input: әntʼeŋa</tok>VCVBNFIN
+Gold: kәntʼeŋaˀan
+Prediction: kәntʼeŋaˀan
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: tkil</tok>VNO3PAB2SFININDPST
+Gold: ntkilˀin
+Prediction: ntkilnen
+char_acc: 0.75                                
+Levenshtein dist:2
+==================================================
+
+Input: oprelkaj</tok>ADJSG
+Gold: oprelkaj
+Prediction: oprelkaj
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: ləmm</tok>VNO1SAB3SFININDFUT
+Gold: tləmmaɬen
+Prediction: tləmmaɬven
+char_acc: 0.7                                
+Levenshtein dist:1
+==================================================
+
+Input: әnxɬ</tok>VFINIMPSG1
+Gold: mәnxɬkičen
+Prediction: mәnxɬkičen
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: ameɬat</tok>VCVBNFIN
+Gold: kʼameɬatknan
+Prediction: kʼameɬatˀan
+char_acc: 0.6666666666666666                                
+Levenshtein dist:2
+==================================================
+
+Input: eɬč</tok>VNO3SBE3SFINOPTPRS
+Gold: eɬčaˀɬkzuskenan
+Prediction: eɬčaɬen
+char_acc: 0.26666666666666666                                
+Levenshtein dist:8
+==================================================
+
+Input: čʼel</tok>VNO1SAB3SFINIMP
+Gold: mčʼelkičen
+Prediction: mčʼelaxen
+char_acc: 0.5                                
+Levenshtein dist:3
+==================================================
+
+Input: sk</tok>VIPFVFININDSG2PRS
+Gold: skqzozen
+Prediction: skqsusč
+char_acc: 0.375                                
+Levenshtein dist:5
+==================================================
+
+Input: әnk</tok>VNO3PAB3SFININDFUT
+Gold: nәnkaˀɬxkmiŋ
+Prediction: nәnkaɬkičen
+char_acc: 0.4166666666666667                                
+Levenshtein dist:6
+==================================================
+
+Input: učku</tok>VNO2SAB1SFINIMP
+Gold: učkumiŋ
+Prediction: qučkumiŋ
+char_acc: 0.0                                
+Levenshtein dist:1
+==================================================
+
+Input: čil</tok>VNO1PAB3PFININDPST
+Gold: nčilkičeˀn
+Prediction: nčilkičen
+char_acc: 0.8                                
+Levenshtein dist:1
+==================================================
+
+Input: kamlo</tok>NDIMNOMSG
+Gold: kamloɲčaχ
+Prediction: kamločχ
+char_acc: 0.5555555555555556                                
+Levenshtein dist:2
+==================================================
+
+Input: zil</tok>VNO3PAB3SFININDPRS
+Gold: nzilliznen
+Prediction: zillisxenknen
+char_acc: 0.07692307692307693                                
+Levenshtein dist:6
+==================================================
+
+Input: ilvizi</tok>VCVBNFIN
+Gold: kʼilviziknen
+Prediction: kʼilviziknen
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: tirxit</tok>VCVBNFIN
+Gold: ktirxitknen
+Prediction: tirxiti
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: ɬalxta</tok>VCVBNFIN
+Gold: ɬalxtaɬ
+Prediction: kɬalxtaknen
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: čʼevel</tok>VNFINCAUS
+Gold: әnčʼevelal’
+Prediction: әnčʼeveleɬ
+char_acc: 0.7272727272727273                                
+Levenshtein dist:3
+==================================================
+
+Input: kamlo</tok>NDIMNOMPL
+Gold: kamloˀɲč
+Prediction: kamloˀɲč
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: tavol</tok>VCVBNFINOPT
+Gold: tavolaˀɬkas
+Prediction: tavolaɬkas
+char_acc: 0.5454545454545454                                
+Levenshtein dist:1
+==================================================
+
+Input: pevlum</tok>NNOMSG
+Gold: pevlumč
+Prediction: pevlum
+char_acc: 0.8571428571428571                                
+Levenshtein dist:1
+==================================================
+
+Input: taɬata</tok>NNOMSG
+Gold: taɬata
+Prediction: taɬata
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: əss</tok>VNO2SAB1SFINIMPFUT
+Gold: kʼəssaɬmiŋ
+Prediction: qəssamiŋ
+char_acc: 0.1                                
+Levenshtein dist:3
+==================================================
+
+Input: pudusk</tok>NDATSG
+Gold: puduskanke
+Prediction: puduskanke
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: jejpiˀ</tok>NLOCSG
+Gold: jejpiˀnk
+Prediction: jejpiˀink
+char_acc: 0.6666666666666666                                
+Levenshtein dist:1
+==================================================
+
+Input: kaskas</tok>NNOMSG
+Gold: kaskas
+Prediction: kaskas
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: in</tok>VNO3PAB3SIPFVFININDPRS
+Gold: nineqzozen
+Prediction: inqzuskinen
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: čʼŋel</tok>VMSDRFHNFIN
+Gold: čʼŋelkiɬχ
+Prediction: čʼŋelkaɬχ
+char_acc: 0.8888888888888888                                
+Levenshtein dist:1
+==================================================
+
+Input: kʼenez</tok>NLOCSG
+Gold: kʼenezezenk
+Prediction: kʼenezenk
+char_acc: 0.6363636363636364                                
+Levenshtein dist:2
+==================================================
+
+Input: lax</tok>VNO1SBE3SFININDFUT
+Gold: tlaxaɬkenan
+Prediction: tlaxaɬkečan
+char_acc: 0.9090909090909091                                
+Levenshtein dist:1
+==================================================
+
+Input: sittaj</tok>VCVBNFIN
+Gold: sittaj
+Prediction: sittaj
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: əŋksx</tok>VCVBNFINNEG
+Gold: əŋksxkeq
+Prediction: əŋksxkaq
+char_acc: 0.875                                
+Levenshtein dist:1
+==================================================
+
+Input: čsalaj</tok>NNOMSG
+Gold: čsalaj
+Prediction: čsalaj
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: stoval</tok>NDATSG
+Gold: stovalanke
+Prediction: stovalanke
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: ajvaŋ</tok>NABLSG
+Gold: ajvaŋxˀal
+Prediction: ajvaŋxˀal
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: es</tok>VFININDSG3PRS
+Gold: esezen
+Prediction: esvasč
+char_acc: 0.3333333333333333                                
+Levenshtein dist:4
+==================================================
+
+Input: mesok</tok>NNOMPL
+Gold: mesokaˀn
+Prediction: mesokaˀn
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: nu</tok>VFININDSG3PST
+Gold: ønuč
+Prediction: nuvaxen
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: simt</tok>NDIMNOMSG
+Gold: simtčaχ
+Prediction: simtčaχ
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: fsakoj</tok>ADJSG
+Gold: fsakoj
+Prediction: fsakoj
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: laχsχ</tok>NNOMSG
+Gold: laχsχ
+Prediction: laχsχ
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: iɬ</tok>VIPFVFININDPL3
+Gold: iɬqsuveˀn
+Prediction: iɬqzuzen
+char_acc: 0.5555555555555556                                
+Levenshtein dist:3
+==================================================
+
+Input: teŋlaχ</tok>ADJSG
+Gold: teŋlaχ
+Prediction: teŋlaχ
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: mečʼa</tok>NDATSG
+Gold: mečʼake
+Prediction: mečʼanke
+char_acc: 0.625                                
+Levenshtein dist:1
+==================================================
+
+Input: aˀasx</tok>NNOMSG
+Gold: aˀasx
+Prediction: aˀasx
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: la</tok>VNO3SBE3SFININDPST
+Gold: lačiŋnen
+Prediction: laskinen
+char_acc: 0.625                                
+Levenshtein dist:3
+==================================================
+
+Input: edakoj</tok>ADJSG
+Gold: edakoj
+Prediction: edakoj
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: xoron</tok>VCVBNFIN
+Gold: xorones
+Prediction: xoron
+char_acc: 0.7142857142857143                                
+Levenshtein dist:2
+==================================================
+
+Input: ɬa</tok>VNO3SAB1SFINOPTPRS
+Gold: ɬasxonen
+Prediction: ɬaɬmiŋ
+char_acc: 0.25                                
+Levenshtein dist:6
+==================================================
+
+Input: teŋe</tok>VMSDRFHNFIN
+Gold: teŋekiɬχ
+Prediction: teŋekiɬχ
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: narta</tok>NNOMSG
+Gold: narta
+Prediction: narta
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: ɬ</tok>VIPFVFININDPL1PST
+Gold: nɬqsuk
+Prediction: nɬqzuk
+char_acc: 0.8333333333333334                                
+Levenshtein dist:1
+==================================================
+
+Input: silqa</tok>NINSSG
+Gold: silqaɬ
+Prediction: silqaɬ
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: ɬxa</tok>VNO2SAB3SFINIMP
+Gold: qɬxax
+Prediction: qɬxaxč
+char_acc: 0.8333333333333334                                
+Levenshtein dist:1
+==================================================
+
+Input: massu</tok>NNOMPL
+Gold: massuˀn
+Prediction: massuˀn
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: mečak</tok>NNOMSG
+Gold: mečak
+Prediction: mečak
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: fčifč</tok>NNOMSG
+Gold: fčifč
+Prediction: fčifč
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: aˀasx</tok>NNOMPL
+Gold: aˀasxaˀn
+Prediction: aˀasxaˀn
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: staroj</tok>ADJSG
+Gold: staroj
+Prediction: staroj
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: sisi</tok>NDIMPRIVSG
+Gold: sisičkin
+Prediction: sisičeɬ
+char_acc: 0.625                                
+Levenshtein dist:3
+==================================================
+
+Input: xevli</tok>NPRIVPL
+Gold: xevlikiˀn
+Prediction: xevlikin
+char_acc: 0.7777777777777778                                
+Levenshtein dist:1
+==================================================
+
+Input: činuq</tok>NNOMSG
+Gold: činuq
+Prediction: činuq
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: lqlam</tok>NNOMSG
+Gold: lqlam
+Prediction: lqlam
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: sanse</tok>NCOMSG
+Gold: ksansečom
+Prediction: keansexčom
+char_acc: 0.5                                
+Levenshtein dist:2
+==================================================
+
+Input: eˀɲɬo</tok>NDATSG
+Gold: eˀɲɬonke
+Prediction: eˀɲɬonke
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: әnsxu</tok>VCVBNFIN
+Gold: kәnsxuˀin
+Prediction: kәnsxuˀin
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: tabun</tok>NNOMSG
+Gold: tabun
+Prediction: tabun
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: is</tok>VNO2SAB3PFINIMP
+Gold: qʼisxeˀn
+Prediction: qʼisxeˀn
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: sap</tok>NDIMNOMSG
+Gold: sapčaχ
+Prediction: sapčaχ
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: ɬә</tok>VFINIMPSG2
+Gold: qɬәxč
+Prediction: qɬәkasx
+char_acc: 0.42857142857142855                                
+Levenshtein dist:4
+==================================================
+
+Input: әnsč</tok>VCVBNFIN
+Gold: kәnsčiˀin
+Prediction: әnsčki
+char_acc: 0.1111111111111111                                
+Levenshtein dist:4
+==================================================
+
+Input: zil</tok>VCVBNFINNEG
+Gold: zillaq
+Prediction: zilkaq
+char_acc: 0.8333333333333334                                
+Levenshtein dist:1
+==================================================
+
+Input: čxl</tok>VCVBNFINCAUS
+Gold: kəɳčxliˀin
+Prediction: kәnčxliˀin
+char_acc: 0.8                                
+Levenshtein dist:2
+==================================================
+
+Input: l’a</tok>VCVBIPFVNFIN
+Gold: kl’aqzuknen
+Prediction: kl’aqzoknen
+char_acc: 0.9090909090909091                                
+Levenshtein dist:1
+==================================================
+
+Input: babu</tok>NNOMSG
+Gold: babu
+Prediction: babu
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: čʼe</tok>VCVBITERNFIN
+Gold: kčʼetiknen
+Prediction: kčʼetˀin
+char_acc: 0.6                                
+Levenshtein dist:4
+==================================================
+
+Input: uɲɲa</tok>NVOCPL
+Gold: uɲɲasxe
+Prediction: uɲɲaˀnke
+char_acc: 0.5                                
+Levenshtein dist:3
+==================================================
+
+Input: əɳče</tok>NNOMPL
+Gold: əɳčeˀn
+Prediction: əɳčeˀn
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: qulan</tok>ADJSG
+Gold: qulan
+Prediction: qulan
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: qzu</tok>VCVBNFINPRS
+Gold: kqzuzˀin
+Prediction: qzukes
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: kʼzi</tok>VCVBNFIN
+Gold: xkʼziknen
+Prediction: kkʼziknen
+char_acc: 0.8888888888888888                                
+Levenshtein dist:1
+==================================================
+
+Input: mama</tok>NNOMSG
+Gold: mama
+Prediction: mama
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: tefs</tok>VCVBNFIN
+Gold: ktefsˀin
+Prediction: ktefsaˀan
+char_acc: 0.5555555555555556                                
+Levenshtein dist:2
+==================================================
+
+Input: ut</tok>VFINOPTSG2
+Gold: utaɬen
+Prediction: utaɬč
+char_acc: 0.6666666666666666                                
+Levenshtein dist:2
+==================================================
+
+Input: nu</tok>VFINCONDSG1
+Gold: tkʼnuk
+Prediction: tʼnuk
+char_acc: 0.16666666666666666                                
+Levenshtein dist:1
+==================================================
+
+Input: atsl</tok>NDATSG
+Gold: atslanke
+Prediction: atslanke
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: čʼe</tok>VCVBIPFVNFIN
+Gold: kčʼeqzuknen
+Prediction: kčʼeqzuknen
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: es</tok>VFINIMPPL2
+Gold: qʼessx
+Prediction: qʼessx
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: ɬo</tok>VCVBNFINOPTCAUS
+Gold: әnɬovaɬsxanˀin
+Prediction: әɲɬovaɬe
+char_acc: 0.42857142857142855                                
+Levenshtein dist:8
+==================================================
+
+Input: iˀɲɬ</tok>NLOCSG
+Gold: iˀɲɬunk
+Prediction: iˀɲɬenk
+char_acc: 0.8571428571428571                                
+Levenshtein dist:1
+==================================================
+
+Input: әɬč</tok>VCVBNFINNEG
+Gold: әɬčuq
+Prediction: әɬčkuq
+char_acc: 0.5                                
+Levenshtein dist:1
+==================================================
+
+Input: fi</tok>VFINIMPSG2
+Gold: qfikes
+Prediction: qfixč
+char_acc: 0.5                                
+Levenshtein dist:3
+==================================================
+
+Input: әnzu</tok>VCVBNFIN
+Gold: kәnzuˀin
+Prediction: kәnzuˀin
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: әntχ</tok>VCVBNFIN
+Gold: kәntχeˀin
+Prediction: kәntχknen
+char_acc: 0.6666666666666666                                
+Levenshtein dist:3
+==================================================
+
+Input: vel</tok>VCVBNFIN
+Gold: velkas
+Prediction: kvelknen
+char_acc: 0.0                                
+Levenshtein dist:4
+==================================================
+
+Input: pla</tok>VCVBNFIN
+Gold: kplaknen
+Prediction: kplaknen
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: esq</tok>NNOMPL
+Gold: esqeˀn
+Prediction: esqeˀn
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: kup</tok>VCVBNFIN
+Gold: kupsxenki
+Prediction: kkupknen
+char_acc: 0.1111111111111111                                
+Levenshtein dist:5
+==================================================
+
+Input: lo</tok>VCVBNFINCAUS
+Gold: әnloɬeɬ
+Prediction: kәnlosˀan
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: qsi</tok>NINSSG
+Gold: qsiɬ
+Prediction: qsiɬ
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: ɲaɲ</tok>NDATSG
+Gold: ɲaɲanke
+Prediction: ɲaɲanke
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: omt</tok>VCVBNFIN
+Gold: kʼomtʼin
+Prediction: kʼomtknen
+char_acc: 0.5555555555555556                                
+Levenshtein dist:3
+==================================================
+
+Input: pәl</tok>VCVBNFIN
+Gold: kpәlknen
+Prediction: pәlkas
+char_acc: 0.0                                
+Levenshtein dist:4
+==================================================
+
+Input: utk</tok>NNOMPL
+Gold: utkeˀn
+Prediction: utkeˀn
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: әɲčk</tok>VNFIN
+Gold: әɲčkeɬčaχ
+Prediction: әɲčki
+char_acc: 0.4444444444444444                                
+Levenshtein dist:5
+==================================================
+
+Input: loŋ</tok>NNOMSG
+Gold: loŋ
+Prediction: loŋ
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: pɬ</tok>VCVBNFINCAUS
+Gold: kәmpɬˀan
+Prediction: kәɲpɬčiˀin
+char_acc: 0.4                                
+Levenshtein dist:4
+==================================================
+
+Input: qeχ</tok>NABLSG
+Gold: qeχˀal
+Prediction: qeχxˀal
+char_acc: 0.42857142857142855                                
+Levenshtein dist:1
+==================================================
+
+Input: әnx</tok>VCVBNFIN
+Gold: kәnxknen
+Prediction: әnxki
+char_acc: 0.0                                
+Levenshtein dist:4
+==================================================
+
+Input: s</tok>VNO3SBE3PFINCOND
+Gold: kʼsčiŋiˀn
+Prediction: kʼsčŋin
+char_acc: 0.4444444444444444                                
+Levenshtein dist:2
+==================================================
+
+Input: noč</tok>NNOMSG
+Gold: noč
+Prediction: noč
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: čkʼ</tok>ADJPL
+Gold: čkʼlaχaˀn
+Prediction: čkʼalaχaˀn
+char_acc: 0.3                                
+Levenshtein dist:1
+==================================================
+
+Input: uˀ</tok>VNFINPURP
+Gold: uˀelnoke
+Prediction: uˀnoke
+char_acc: 0.25                                
+Levenshtein dist:2
+==================================================
+
+Input: it</tok>VCVBNFIN
+Gold: kʼitknen
+Prediction: kʼitki
+char_acc: 0.625                                
+Levenshtein dist:3
+==================================================
+
+Input: ɬ</tok>VNFINOPT
+Gold: ɬaɬiɬ
+Prediction: ɬvaɬeɬ
+char_acc: 0.16666666666666666                                
+Levenshtein dist:2
+==================================================
+
+Input: kirviɬxet</tok>VIPFVFININDPL3PRS
+Gold: kirviɬxetqzuzeˀn
+Prediction: kirviɬxetqzuˀin
+char_acc: 0.75                                
+Levenshtein dist:3
+==================================================
+
+Input: il’čkuviji</tok>VNO3SAB1SFININDPRS
+Gold: il’čkuvijimˀiŋ
+Prediction: il’čkuvin
+char_acc: 0.5714285714285714                                
+Levenshtein dist:6
+==================================================
+
+Input: kʼezzamtʼkla</tok>NNOMSG
+Gold: kʼezzamtʼklač
+Prediction: kʼezzamtʼklaj
+char_acc: 0.9230769230769231                                
+Levenshtein dist:1
+==================================================
+
+Input: krveɬxet</tok>VNO3SAB3SFININDPRS
+Gold: krveɬxetasčeˀn
+Prediction: krveɬxetasč
+char_acc: 0.7857142857142857                                
+Levenshtein dist:3
+==================================================
+
+Input: ɬanmaja</tok>VNO2SAB1SIPFVFININDPRS
+Gold: ɬanmajaqsumaŋ
+Prediction: ɬanmaqzosx
+char_acc: 0.46153846153846156                                
+Levenshtein dist:7
+==================================================
+
+Input: temjuŋɬxet</tok>VMSDRFHNFIN
+Gold: temjuŋɬxetkiɬχ
+Prediction: temjumŋutkiɬχ
+char_acc: 0.35714285714285715                                
+Levenshtein dist:4
+==================================================
+
+Input: čʼmamɬ</tok>VIPFVFININDSG3PRS
+Gold: čʼmamɬqzosč
+Prediction: čʼmamɬqzuzen
+char_acc: 0.6666666666666666                                
+Levenshtein dist:4
+==================================================
+
+Input: ɬŋizi</tok>VIPFVFININDSG3PRS
+Gold: ɬŋiziqzusč
+Prediction: ɬŋiziqzasxen
+char_acc: 0.6666666666666666                                
+Levenshtein dist:4
+==================================================
+
+Input: čisxuŋ</tok>VNO1SAB3SFINOPTPST
+Gold: tčisxuŋaɬčeˀn
+Prediction: tčisxuŋxen
+char_acc: 0.5384615384615384                                
+Levenshtein dist:4
+==================================================
+
+Input: ikʼsxu</tok>VFINOPTSG2PRS
+Gold: ikʼsxulesč
+Prediction: nikʼsxusč
+char_acc: 0.0                                
+Levenshtein dist:3
+==================================================
+
+Input: әnkʼsi</tok>VNO1SBE3PFININDPST
+Gold: tәnkʼsičeˀn
+Prediction: tәnkʼsiˀn
+char_acc: 0.6363636363636364                                
+Levenshtein dist:2
+==================================================
+
+Input: vetat</tok>VIPFVFININDPL2PRS
+Gold: vetatqzussx
+Prediction: vetatqzussx
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: tajta</tok>VNO1SAB2SIPFVFININDPRS
+Gold: tajtaqzaxen
+Prediction: ttajtaqzosx
+char_acc: 0.09090909090909091                                
+Levenshtein dist:5
+==================================================
+
+Input: kurbuskaj</tok>NNOMSG
+Gold: kurbuskaj
+Prediction: kurbuskaj
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: aɲɬom</tok>VNO3SAB1PIPFVFININDPST
+Gold: aɲɬomqzaɬomneˀn
+Prediction: aɲɬomqzomnen
+char_acc: 0.5333333333333333                                
+Levenshtein dist:3
+==================================================
+
+Input: čiˀŋini</tok>VFINIMPPL2
+Gold: qčiˀŋinisx
+Prediction: qčiˀŋnisxsx
+char_acc: 0.45454545454545453                                
+Levenshtein dist:3
+==================================================
+
+Input: laxɬe</tok>VNO3PBE3SITERFININDPRS
+Gold: laxɬeteskineˀn
+Prediction: laxɬetaskinen
+char_acc: 0.7857142857142857                                
+Levenshtein dist:2
+==================================================
+
+Input: χumst</tok>VIPFVFININDSG3PRS
+Gold: χumstqzusčen
+Prediction: χumstqzosč
+char_acc: 0.75                                
+Levenshtein dist:3
+==================================================
+
+Input: kʼilek</tok>VFININDSG3PRS
+Gold: kʼilekisen
+Prediction: kʼilekesč
+char_acc: 0.7                                
+Levenshtein dist:3
+==================================================
+
+Input: әŋqsx</tok>VNO3SBE3SIPFVFININDPRS
+Gold: әŋqsxqzuskinen
+Prediction: әŋqsxqzuznen
+char_acc: 0.6428571428571429                                
+Levenshtein dist:3
+==================================================
+
+Input: qamzan</tok>VFINOPTSG3PST
+Gold: qamzantaɬč
+Prediction: qamzanaxen
+char_acc: 0.6                                
+Levenshtein dist:4
+==================================================
+
+Input: ɬinnu</tok>VIPFVFININDSG1PST
+Gold: tɬinnuqsun
+Prediction: tɬinnuqzuknen
+char_acc: 0.6153846153846154                                
+Levenshtein dist:4
+==================================================
+
+Input: l’iveklen</tok>VCVBNFIN
+Gold: kl’iveklenkes
+Prediction: l’iveklenkas
+char_acc: 0.0                                
+Levenshtein dist:2
+==================================================
+
+Input: sχetɬ</tok>VFININDSG3PRS
+Gold: sχetɬesč
+Prediction: sχetɬasč
+char_acc: 0.875                                
+Levenshtein dist:1
+==================================================
+
+Input: ilvizi</tok>VFINIMPPL1
+Gold: mnilviziskičen
+Prediction: milvizik
+char_acc: 0.07142857142857142                                
+Levenshtein dist:6
+==================================================
+
+Input: seŋs</tok>VACTYNO3SAB3SFININDPRS
+Gold: seŋssosen
+Prediction: seŋszoznen
+char_acc: 0.5                                
+Levenshtein dist:3
+==================================================
+
+Input: niŋj</tok>VIPFVFININDSG3PRS
+Gold: niŋjeqzusč
+Prediction: niŋjqzuzen
+char_acc: 0.4                                
+Levenshtein dist:4
+==================================================
+
+Input: čʼel</tok>VNO1PAB3SIPFVFININDFUT
+Gold: nčʼelqzaɬen
+Prediction: tčʼelqzusxen
+char_acc: 0.5                                
+Levenshtein dist:4
+==================================================
+
+Input: ɬiveklen</tok>VCVBNFIN
+Gold: kɬiveklenki
+Prediction: kɬiveklenknan
+char_acc: 0.7692307692307693                                
+Levenshtein dist:3
+==================================================
+
+Input: ɬinmit</tok>VNO1SAB3SFINCOND
+Gold: tkʼɬinmitičen
+Prediction: mɬinmitxč
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: gurbuske</tok>NNOMPL
+Gold: gurbuskeˀn
+Prediction: gurbuskeˀn
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: әnta</tok>VFININDSG1PSTCAUS
+Gold: tәntaɬčen
+Prediction: tәntәnakičen
+char_acc: 0.3333333333333333                                
+Levenshtein dist:4
+==================================================
+
+Input: čʼmam</tok>VFININDSG2PRS
+Gold: čʼmamsč
+Prediction: čʼmamasč
+char_acc: 0.625                                
+Levenshtein dist:1
+==================================================
+
+Input: tavol</tok>VNO2SAB1SITERFINIMP
+Gold: ktavolatәsxkmiŋ
+Prediction: mtavolatimŋikm
+char_acc: 0.4666666666666667                                
+Levenshtein dist:7
+==================================================
+
+Input: ɬeruŋ</tok>VFININDSG3PRS
+Gold: ɬeruŋesčen
+Prediction: ɬeruŋasč
+char_acc: 0.7                                
+Levenshtein dist:3
+==================================================
+
+Input: χeni</tok>VNO3SBE3SIPFVFININDPRS
+Gold: χeniqzuskinen
+Prediction: χeniqzusknen
+char_acc: 0.6923076923076923                                
+Levenshtein dist:1
+==================================================
+
+Input: qetet</tok>VFININDPL1FUT
+Gold: nqetetaɬk
+Prediction: tqetetaɬk
+char_acc: 0.8888888888888888                                
+Levenshtein dist:1
+==================================================
+
+Input: әnkʼ</tok>VACTYNO2SAB1SIPFVFINIMP
+Gold: qәnkʼzuqzumiŋ
+Prediction: qәnkʼzomŋimŋ
+char_acc: 0.5384615384615384                                
+Levenshtein dist:5
+==================================================
+
+Input: kʼekʼfe</tok>NDIMNOMPL
+Gold: kʼekʼfeˀɲč
+Prediction: kʼekʼʼefʼeˀɲč
+char_acc: 0.46153846153846156                                
+Levenshtein dist:3
+==================================================
+
+Input: sxese</tok>VFININDSG3PST
+Gold: sxesevin
+Prediction: sxesevin
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: čʼamzanl</tok>NNOMPL
+Gold: čʼamzanlaˀn
+Prediction: čʼamzanlaˀn
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: əlfč</tok>VITERFININDSG2PRS
+Gold: əlfčtesč
+Prediction: əlfčtasč
+char_acc: 0.875                                
+Levenshtein dist:1
+==================================================
+
+Input: sxzuv</tok>VFININDSG1FUT
+Gold: tsxzuvaɬkičen
+Prediction: tsxzuvaɬk
+char_acc: 0.6923076923076923                                
+Levenshtein dist:4
+==================================================
+
+Input: aɲčpә</tok>VNO3SAB3PFININDPRS
+Gold: aɲčpәzneˀn
+Prediction: aɲčpәnˀin
+char_acc: 0.5                                
+Levenshtein dist:3
+==================================================
+
+Input: čʼŋel</tok>VFININDPL3PRS
+Gold: čʼŋelesčeˀn
+Prediction: čʼŋelezeˀn
+char_acc: 0.5454545454545454                                
+Levenshtein dist:2
+==================================================
+
+Input: tniɬ</tok>VNO1SBE3SFINOPTPST
+Gold: tniɬaɬčen
+Prediction: ttniɬaˀɬn
+char_acc: 0.2222222222222222                                
+Levenshtein dist:4
+==================================================
+
+Input: qeni</tok>VFININDSG3PRS
+Gold: qenisč
+Prediction: qenisč
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: ezu</tok>VNO3SAB3PIPFVFININDPRS
+Gold: ezuqzuzneˀn
+Prediction: ezuzuqzuˀin
+char_acc: 0.45454545454545453                                
+Levenshtein dist:5
+==================================================
+
+Input: nest</tok>VIPFVFININDPL3
+Gold: nestqzoˀaˀn
+Prediction: nestqzoˀin
+char_acc: 0.7272727272727273                                
+Levenshtein dist:2
+==================================================
+
+Input: tsxl</tok>VNO1PBE3SFINIMPCAUS
+Gold: xnәnitsxliˀin
+Prediction: nәntsxliznen
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: ɬotz</tok>VNO1SBE3PFININDFUT
+Gold: tɬotzaɬčeˀn
+Prediction: tɬotzataɬčen
+char_acc: 0.5                                
+Levenshtein dist:3
+==================================================
+
+Input: toza</tok>VNO3SAB3SFININDPRS
+Gold: tozaznan
+Prediction: tozaznen
+char_acc: 0.875                                
+Levenshtein dist:1
+==================================================
+
+Input: kʼenesi</tok>VCVBNFIN
+Gold: kkʼenesiˀinˀin
+Prediction: kkʼenesiknen
+char_acc: 0.5714285714285714                                
+Levenshtein dist:4
+==================================================
+
+Input: svataˀɬ</tok>VNFINPURP
+Gold: svataˀɬnoke
+Prediction: svataˀɬnke
+char_acc: 0.7272727272727273                                
+Levenshtein dist:1
+==================================================
+
+Input: novaɬez</tok>NNOMPL
+Gold: novaɬezeˀn
+Prediction: novaɬezaˀn
+char_acc: 0.9                                
+Levenshtein dist:1
+==================================================
+
+Input: čʼel</tok>VNO2SAB1SFININDPST
+Gold: čʼelmiŋ
+Prediction: čʼelŋin
+char_acc: 0.7142857142857143                                
+Levenshtein dist:2
+==================================================
+
+Input: ŋiksi</tok>VFINIMPSG3
+Gold: xanŋiksivin
+Prediction: qŋiksixč
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: neveska</tok>NNOMSG
+Gold: neveska
+Prediction: neveska
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: fiɬ</tok>VITERFININDSG3PRS
+Gold: fiɬatezen
+Prediction: fiɬatesč
+char_acc: 0.6666666666666666                                
+Levenshtein dist:3
+==================================================
+
+Input: seŋ</tok>VACTYFININDPL3PRS
+Gold: seŋzoveˀn
+Prediction: seŋzosˀn
+char_acc: 0.5555555555555556                                
+Levenshtein dist:2
+==================================================
+
+Input: solo</tok>VNO3SBE3SFININDPRS
+Gold: soloskinen
+Prediction: soloskanen
+char_acc: 0.9                                
+Levenshtein dist:1
+==================================================
+
+Input: әntʼeŋa</tok>VCVBNFIN
+Gold: kәntʼeŋaˀan
+Prediction: kәntʼeŋaˀan
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: tkil</tok>VNO3PAB2SFININDPST
+Gold: ntkilˀin
+Prediction: ntkilnen
+char_acc: 0.75                                
+Levenshtein dist:2
+==================================================
+
+Input: oprelkaj</tok>ADJSG
+Gold: oprelkaj
+Prediction: oprelkaj
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: ləmm</tok>VNO1SAB3SFININDFUT
+Gold: tləmmaɬen
+Prediction: tlmmmaɬčen
+char_acc: 0.6                                
+Levenshtein dist:2
+==================================================
+
+Input: әnxɬ</tok>VFINIMPSG1
+Gold: mәnxɬkičen
+Prediction: mәnxɬki
+char_acc: 0.7                                
+Levenshtein dist:3
+==================================================
+
+Input: ameɬat</tok>VCVBNFIN
+Gold: kʼameɬatknan
+Prediction: kʼameɬtknan
+char_acc: 0.5                                
+Levenshtein dist:1
+==================================================
+
+Input: eɬč</tok>VNO3SBE3SFINOPTPRS
+Gold: eɬčaˀɬkzuskenan
+Prediction: eɬčanaɬ
+char_acc: 0.26666666666666666                                
+Levenshtein dist:9
+==================================================
+
+Input: čʼel</tok>VNO1SAB3SFINIMP
+Gold: mčʼelkičen
+Prediction: mčʼelaxč
+char_acc: 0.6                                
+Levenshtein dist:4
+==================================================
+
+Input: sk</tok>VIPFVFININDSG2PRS
+Gold: skqzozen
+Prediction: qskqzosč
+char_acc: 0.0                                
+Levenshtein dist:4
+==================================================
+
+Input: әnk</tok>VNO3PAB3SFININDFUT
+Gold: nәnkaˀɬxkmiŋ
+Prediction: әnkaɬkinen
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: učku</tok>VNO2SAB1SFINIMP
+Gold: učkumiŋ
+Prediction: qčukumiŋ
+char_acc: 0.125                                
+Levenshtein dist:2
+==================================================
+
+Input: čil</tok>VNO1PAB3PFININDPST
+Gold: nčilkičeˀn
+Prediction: nčillan
+char_acc: 0.4                                
+Levenshtein dist:5
+==================================================
+
+Input: kamlo</tok>NDIMNOMSG
+Gold: kamloɲčaχ
+Prediction: kamločχ
+char_acc: 0.5555555555555556                                
+Levenshtein dist:2
+==================================================
+
+Input: zil</tok>VNO3PAB3SFININDPRS
+Gold: nzilliznen
+Prediction: nzilliznen
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: ilvizi</tok>VCVBNFIN
+Gold: kʼilviziknen
+Prediction: kʼilviziˀn
+char_acc: 0.75                                
+Levenshtein dist:3
+==================================================
+
+Input: tirxit</tok>VCVBNFIN
+Gold: ktirxitknen
+Prediction: tirtxit
+char_acc: 0.2727272727272727                                
+Levenshtein dist:6
+==================================================
+
+Input: ɬalxta</tok>VCVBNFIN
+Gold: ɬalxtaɬ
+Prediction: kɬalxtaknen
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: čʼevel</tok>VNFINCAUS
+Gold: әnčʼevelal’
+Prediction: әnčʼeveleɬ
+char_acc: 0.7272727272727273                                
+Levenshtein dist:3
+==================================================
+
+Input: kamlo</tok>NDIMNOMPL
+Gold: kamloˀɲč
+Prediction: kamločχˀɲ
+char_acc: 0.5555555555555556                                
+Levenshtein dist:3
+==================================================
+
+Input: tavol</tok>VCVBNFINOPT
+Gold: tavolaˀɬkas
+Prediction: tavolaɬka
+char_acc: 0.5454545454545454                                
+Levenshtein dist:2
+==================================================
+
+Input: pevlum</tok>NNOMSG
+Gold: pevlumč
+Prediction: pevlum
+char_acc: 0.8571428571428571                                
+Levenshtein dist:1
+==================================================
+
+Input: taɬata</tok>NNOMSG
+Gold: taɬata
+Prediction: taɬta
+char_acc: 0.5                                
+Levenshtein dist:1
+==================================================
+
+Input: əss</tok>VNO2SAB1SFINIMPFUT
+Gold: kʼəssaɬmiŋ
+Prediction: qʼssiŋx
+char_acc: 0.2                                
+Levenshtein dist:6
+==================================================
+
+Input: pudusk</tok>NDATSG
+Gold: puduskanke
+Prediction: puduskanke
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: jejpiˀ</tok>NLOCSG
+Gold: jejpiˀnk
+Prediction: jejpiˀnk
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: kaskas</tok>NNOMSG
+Gold: kaskas
+Prediction: kaskas
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: in</tok>VNO3PAB3SIPFVFININDPRS
+Gold: nineqzozen
+Prediction: innqzuznen
+char_acc: 0.3                                
+Levenshtein dist:4
+==================================================
+
+Input: čʼŋel</tok>VMSDRFHNFIN
+Gold: čʼŋelkiɬχ
+Prediction: čʼŋelkaɬ
+char_acc: 0.7777777777777778                                
+Levenshtein dist:2
+==================================================
+
+Input: kʼenez</tok>NLOCSG
+Gold: kʼenezezenk
+Prediction: kʼenezank
+char_acc: 0.5454545454545454                                
+Levenshtein dist:3
+==================================================
+
+Input: lax</tok>VNO1SBE3SFININDFUT
+Gold: tlaxaɬkenan
+Prediction: tlaxaɬkečan
+char_acc: 0.9090909090909091                                
+Levenshtein dist:1
+==================================================
+
+Input: sittaj</tok>VCVBNFIN
+Gold: sittaj
+Prediction: sittajaq
+char_acc: 0.75                                
+Levenshtein dist:2
+==================================================
+
+Input: əŋksx</tok>VCVBNFINNEG
+Gold: əŋksxkeq
+Prediction: əŋksxiq
+char_acc: 0.625                                
+Levenshtein dist:2
+==================================================
+
+Input: čsalaj</tok>NNOMSG
+Gold: čsalaj
+Prediction: čsalaj
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: stoval</tok>NDATSG
+Gold: stovalanke
+Prediction: stovalanke
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: ajvaŋ</tok>NABLSG
+Gold: ajvaŋxˀal
+Prediction: ajvaŋxˀal
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: es</tok>VFININDSG3PRS
+Gold: esezen
+Prediction: esvin
+char_acc: 0.3333333333333333                                
+Levenshtein dist:3
+==================================================
+
+Input: mesok</tok>NNOMPL
+Gold: mesokaˀn
+Prediction: mesokoˀn
+char_acc: 0.875                                
+Levenshtein dist:1
+==================================================
+
+Input: nu</tok>VFININDSG3PST
+Gold: ønuč
+Prediction: nuven
+char_acc: 0.0                                
+Levenshtein dist:4
+==================================================
+
+Input: simt</tok>NDIMNOMSG
+Gold: simtčaχ
+Prediction: simtčχ
+char_acc: 0.7142857142857143                                
+Levenshtein dist:1
+==================================================
+
+Input: fsakoj</tok>ADJSG
+Gold: fsakoj
+Prediction: fsakoj
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: laχsχ</tok>NNOMSG
+Gold: laχsχ
+Prediction: laχsχ
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: iɬ</tok>VIPFVFININDPL3
+Gold: iɬqsuveˀn
+Prediction: iɬqzuˀin
+char_acc: 0.4444444444444444                                
+Levenshtein dist:4
+==================================================
+
+Input: teŋlaχ</tok>ADJSG
+Gold: teŋlaχ
+Prediction: teŋlaχ
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: mečʼa</tok>NDATSG
+Gold: mečʼake
+Prediction: mečʼanke
+char_acc: 0.625                                
+Levenshtein dist:1
+==================================================
+
+Input: aˀasx</tok>NNOMSG
+Gold: aˀasx
+Prediction: qaˀsx
+char_acc: 0.4                                
+Levenshtein dist:2
+==================================================
+
+Input: la</tok>VNO3SBE3SFININDPST
+Gold: lačiŋnen
+Prediction: laskinen
+char_acc: 0.625                                
+Levenshtein dist:3
+==================================================
+
+Input: edakoj</tok>ADJSG
+Gold: edakoj
+Prediction: edakoj
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: xoron</tok>VCVBNFIN
+Gold: xorones
+Prediction: kxoronknen
+char_acc: 0.0                                
+Levenshtein dist:4
+==================================================
+
+Input: ɬa</tok>VNO3SAB1SFINOPTPRS
+Gold: ɬasxonen
+Prediction: ɬataznen
+char_acc: 0.625                                
+Levenshtein dist:3
+==================================================
+
+Input: teŋe</tok>VMSDRFHNFIN
+Gold: teŋekiɬχ
+Prediction: teŋekaɬχ
+char_acc: 0.875                                
+Levenshtein dist:1
+==================================================
+
+Input: narta</tok>NNOMSG
+Gold: narta
+Prediction: narta
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: ɬ</tok>VIPFVFININDPL1PST
+Gold: nɬqsuk
+Prediction: nɬqzuk
+char_acc: 0.8333333333333334                                
+Levenshtein dist:1
+==================================================
+
+Input: silqa</tok>NINSSG
+Gold: silqaɬ
+Prediction: silqaɬ
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: ɬxa</tok>VNO2SAB3SFINIMP
+Gold: qɬxax
+Prediction: qɬxax
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: massu</tok>NNOMPL
+Gold: massuˀn
+Prediction: massuˀn
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: mečak</tok>NNOMSG
+Gold: mečak
+Prediction: mečka
+char_acc: 0.6                                
+Levenshtein dist:2
+==================================================
+
+Input: fčifč</tok>NNOMSG
+Gold: fčifč
+Prediction: fčifč
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: aˀasx</tok>NNOMPL
+Gold: aˀasxaˀn
+Prediction: aˀasx
+char_acc: 0.625                                
+Levenshtein dist:3
+==================================================
+
+Input: staroj</tok>ADJSG
+Gold: staroj
+Prediction: staroj
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: sisi</tok>NDIMPRIVSG
+Gold: sisičkin
+Prediction: sisičkičen
+char_acc: 0.7                                
+Levenshtein dist:2
+==================================================
+
+Input: xevli</tok>NPRIVPL
+Gold: xevlikiˀn
+Prediction: xevliknen
+char_acc: 0.7777777777777778                                
+Levenshtein dist:2
+==================================================
+
+Input: činuq</tok>NNOMSG
+Gold: činuq
+Prediction: činuq
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: lqlam</tok>NNOMSG
+Gold: lqlam
+Prediction: lqlam
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: sanse</tok>NCOMSG
+Gold: ksansečom
+Prediction: sansečŋ
+char_acc: 0.0                                
+Levenshtein dist:3
+==================================================
+
+Input: eˀɲɬo</tok>NDATSG
+Gold: eˀɲɬonke
+Prediction: eˀɲɬonanke
+char_acc: 0.6                                
+Levenshtein dist:2
+==================================================
+
+Input: әnsxu</tok>VCVBNFIN
+Gold: kәnsxuˀin
+Prediction: kәnsxuˀin
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: tabun</tok>NNOMSG
+Gold: tabun
+Prediction: tabun
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: is</tok>VNO2SAB3PFINIMP
+Gold: qʼisxeˀn
+Prediction: qʼisxˀin
+char_acc: 0.75                                
+Levenshtein dist:2
+==================================================
+
+Input: sap</tok>NDIMNOMSG
+Gold: sapčaχ
+Prediction: sapčaχ
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: ɬә</tok>VFINIMPSG2
+Gold: qɬәxč
+Prediction: qɬxč
+char_acc: 0.4                                
+Levenshtein dist:1
+==================================================
+
+Input: әnsč</tok>VCVBNFIN
+Gold: kәnsčiˀin
+Prediction: kәnsčˀin
+char_acc: 0.5555555555555556                                
+Levenshtein dist:1
+==================================================
+
+Input: zil</tok>VCVBNFINNEG
+Gold: zillaq
+Prediction: zil
+char_acc: 0.5                                
+Levenshtein dist:3
+==================================================
+
+Input: čxl</tok>VCVBNFINCAUS
+Gold: kəɳčxliˀin
+Prediction: kәnčxliˀin
+char_acc: 0.8                                
+Levenshtein dist:2
+==================================================
+
+Input: l’a</tok>VCVBIPFVNFIN
+Gold: kl’aqzuknen
+Prediction: kl’aqzuknen
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: babu</tok>NNOMSG
+Gold: babu
+Prediction: babuˀ
+char_acc: 0.8                                
+Levenshtein dist:1
+==================================================
+
+Input: čʼe</tok>VCVBITERNFIN
+Gold: kčʼetiknen
+Prediction: kčʼetknen
+char_acc: 0.5                                
+Levenshtein dist:1
+==================================================
+
+Input: uɲɲa</tok>NVOCPL
+Gold: uɲɲasxe
+Prediction: uɲɲaˀn
+char_acc: 0.5714285714285714                                
+Levenshtein dist:3
+==================================================
+
+Input: əɳče</tok>NNOMPL
+Gold: əɳčeˀn
+Prediction: əčeˀn
+char_acc: 0.16666666666666666                                
+Levenshtein dist:1
+==================================================
+
+Input: qulan</tok>ADJSG
+Gold: qulan
+Prediction: qulan
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: qzu</tok>VCVBNFINPRS
+Gold: kqzuzˀin
+Prediction: kqzuknen
+char_acc: 0.625                                
+Levenshtein dist:3
+==================================================
+
+Input: kʼzi</tok>VCVBNFIN
+Gold: xkʼziknen
+Prediction: kkʼziknen
+char_acc: 0.8888888888888888                                
+Levenshtein dist:1
+==================================================
+
+Input: mama</tok>NNOMSG
+Gold: mama
+Prediction: mam
+char_acc: 0.75                                
+Levenshtein dist:1
+==================================================
+
+Input: tefs</tok>VCVBNFIN
+Gold: ktefsˀin
+Prediction: ktefsˀin
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: ut</tok>VFINOPTSG2
+Gold: utaɬen
+Prediction: qtusč
+char_acc: 0.16666666666666666                                
+Levenshtein dist:5
+==================================================
+
+Input: nu</tok>VFINCONDSG1
+Gold: tkʼnuk
+Prediction: tnukičen
+char_acc: 0.125                                
+Levenshtein dist:6
+==================================================
+
+Input: atsl</tok>NDATSG
+Gold: atslanke
+Prediction: atslanke
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: čʼe</tok>VCVBIPFVNFIN
+Gold: kčʼeqzuknen
+Prediction: kčʼeqzuknen
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: es</tok>VFINIMPPL2
+Gold: qʼessx
+Prediction: qʼessx
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: ɬo</tok>VCVBNFINOPTCAUS
+Gold: әnɬovaɬsxanˀin
+Prediction: knɬoɬaˀɬan
+char_acc: 0.2857142857142857                                
+Levenshtein dist:8
+==================================================
+
+Input: iˀɲɬ</tok>NLOCSG
+Gold: iˀɲɬunk
+Prediction: iˀɲɬenk
+char_acc: 0.8571428571428571                                
+Levenshtein dist:1
+==================================================
+
+Input: әɬč</tok>VCVBNFINNEG
+Gold: әɬčuq
+Prediction: әɬčkaq
+char_acc: 0.5                                
+Levenshtein dist:2
+==================================================
+
+Input: fi</tok>VFINIMPSG2
+Gold: qfikes
+Prediction: qʼifxč
+char_acc: 0.3333333333333333                                
+Levenshtein dist:4
+==================================================
+
+Input: әnzu</tok>VCVBNFIN
+Gold: kәnzuˀin
+Prediction: kәnzuˀin
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: әntχ</tok>VCVBNFIN
+Gold: kәntχeˀin
+Prediction: kәntχˀin
+char_acc: 0.5555555555555556                                
+Levenshtein dist:1
+==================================================
+
+Input: vel</tok>VCVBNFIN
+Gold: velkas
+Prediction: kvevlknen
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: pla</tok>VCVBNFIN
+Gold: kplaknen
+Prediction: kplaknen
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: esq</tok>NNOMPL
+Gold: esqeˀn
+Prediction: esqˀin
+char_acc: 0.6666666666666666                                
+Levenshtein dist:2
+==================================================
+
+Input: kup</tok>VCVBNFIN
+Gold: kupsxenki
+Prediction: kkupˀin
+char_acc: 0.2222222222222222                                
+Levenshtein dist:6
+==================================================
+
+Input: lo</tok>VCVBNFINCAUS
+Gold: әnloɬeɬ
+Prediction: kәnloˀin
+char_acc: 0.0                                
+Levenshtein dist:4
+==================================================
+
+Input: qsi</tok>NINSSG
+Gold: qsiɬ
+Prediction: qsiˀɬ
+char_acc: 0.6                                
+Levenshtein dist:1
+==================================================
+
+Input: ɲaɲ</tok>NDATSG
+Gold: ɲaɲanke
+Prediction: aɲɲanke
+char_acc: 0.7142857142857143                                
+Levenshtein dist:2
+==================================================
+
+Input: omt</tok>VCVBNFIN
+Gold: kʼomtʼin
+Prediction: kʼomtknen
+char_acc: 0.5555555555555556                                
+Levenshtein dist:3
+==================================================
+
+Input: pәl</tok>VCVBNFIN
+Gold: kpәlknen
+Prediction: kpәllknen
+char_acc: 0.4444444444444444                                
+Levenshtein dist:1
+==================================================
+
+Input: utk</tok>NNOMPL
+Gold: utkeˀn
+Prediction: utkaˀn
+char_acc: 0.8333333333333334                                
+Levenshtein dist:1
+==================================================
+
+Input: әɲčk</tok>VNFIN
+Gold: әɲčkeɬčaχ
+Prediction: әɲčki
+char_acc: 0.4444444444444444                                
+Levenshtein dist:5
+==================================================
+
+Input: loŋ</tok>NNOMSG
+Gold: loŋ
+Prediction: loŋ
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: pɬ</tok>VCVBNFINCAUS
+Gold: kәmpɬˀan
+Prediction: kәnpɬˀin
+char_acc: 0.75                                
+Levenshtein dist:2
+==================================================
+
+Input: qeχ</tok>NABLSG
+Gold: qeχˀal
+Prediction: qeχxˀal
+char_acc: 0.42857142857142855                                
+Levenshtein dist:1
+==================================================
+
+Input: әnx</tok>VCVBNFIN
+Gold: kәnxknen
+Prediction: kәnxknen
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: s</tok>VNO3SBE3PFINCOND
+Gold: kʼsčiŋiˀn
+Prediction: kʼsčŋin
+char_acc: 0.4444444444444444                                
+Levenshtein dist:2
+==================================================
+
+Input: noč</tok>NNOMSG
+Gold: noč
+Prediction: noč
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: čkʼ</tok>ADJPL
+Gold: čkʼlaχaˀn
+Prediction: čkʼalˀan
+char_acc: 0.4444444444444444                                
+Levenshtein dist:4
+==================================================
+
+Input: uˀ</tok>VNFINPURP
+Gold: uˀelnoke
+Prediction: uˀnke
+char_acc: 0.25                                
+Levenshtein dist:3
+==================================================
+
+Input: it</tok>VCVBNFIN
+Gold: kʼitknen
+Prediction: kʼitknen
+char_acc: 1.0                                
+Levenshtein dist:0
+==================================================
+
+Input: ɬ</tok>VNFINOPT
+Gold: ɬaɬiɬ
+Prediction: ɬaɬɬat
+char_acc: 0.5                                
+Levenshtein dist:3
+==================================================
+
+Input: VIPFVFININDPL3PRS</tok>kirviɬxet
+Gold: kirviɬxetqzuzeˀn
+Prediction: k
+char_acc: 0.0625                                
+Levenshtein dist:15
+==================================================
+
+Input: VNO3SAB1SFININDPRS</tok>il’čkuviji
+Gold: il’čkuvijimˀiŋ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:13
+==================================================
+
+Input: NNOMSG</tok>kʼezzamtʼkla
+Gold: kʼezzamtʼklač
+Prediction: k
+char_acc: 0.07692307692307693                                
+Levenshtein dist:12
+==================================================
+
+Input: VNO3SAB3SFININDPRS</tok>krveɬxet
+Gold: krveɬxetasčeˀn
+Prediction: k
+char_acc: 0.07142857142857142                                
+Levenshtein dist:13
+==================================================
+
+Input: VNO2SAB1SIPFVFININDPRS</tok>ɬanmaja
+Gold: ɬanmajaqsumaŋ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:13
+==================================================
+
+Input: VMSDRFHNFIN</tok>temjuŋɬxet
+Gold: temjuŋɬxetkiɬχ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:13
+==================================================
+
+Input: VIPFVFININDSG3PRS</tok>čʼmamɬ
+Gold: čʼmamɬqzosč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:11
+==================================================
+
+Input: VIPFVFININDSG3PRS</tok>ɬŋizi
+Gold: ɬŋiziqzusč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: VNO1SAB3SFINOPTPST</tok>čisxuŋ
+Gold: tčisxuŋaɬčeˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:13
+==================================================
+
+Input: VFINOPTSG2PRS</tok>ikʼsxu
+Gold: ikʼsxulesč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: VNO1SBE3PFININDPST</tok>әnkʼsi
+Gold: tәnkʼsičeˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: VIPFVFININDPL2PRS</tok>vetat
+Gold: vetatqzussx
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:11
+==================================================
+
+Input: VNO1SAB2SIPFVFININDPRS</tok>tajta
+Gold: tajtaqzaxen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:11
+==================================================
+
+Input: NNOMSG</tok>kurbuskaj
+Gold: kurbuskaj
+Prediction: k
+char_acc: 0.1111111111111111                                
+Levenshtein dist:8
+==================================================
+
+Input: VNO3SAB1PIPFVFININDPST</tok>aɲɬom
+Gold: aɲɬomqzaɬomneˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:15
+==================================================
+
+Input: VFINIMPPL2</tok>čiˀŋini
+Gold: qčiˀŋinisx
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: VNO3PBE3SITERFININDPRS</tok>laxɬe
+Gold: laxɬeteskineˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:13
+==================================================
+
+Input: VIPFVFININDSG3PRS</tok>χumst
+Gold: χumstqzusčen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:12
+==================================================
+
+Input: VFININDSG3PRS</tok>kʼilek
+Gold: kʼilekisen
+Prediction: k
+char_acc: 0.1                                
+Levenshtein dist:9
+==================================================
+
+Input: VNO3SBE3SIPFVFININDPRS</tok>әŋqsx
+Gold: әŋqsxqzuskinen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:13
+==================================================
+
+Input: VFINOPTSG3PST</tok>qamzan
+Gold: qamzantaɬč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: VIPFVFININDSG1PST</tok>ɬinnu
+Gold: tɬinnuqsun
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: VCVBNFIN</tok>l’iveklen
+Gold: kl’iveklenkes
+Prediction: k
+char_acc: 0.07692307692307693                                
+Levenshtein dist:12
+==================================================
+
+Input: VFININDSG3PRS</tok>sχetɬ
+Gold: sχetɬesč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: VFINIMPPL1</tok>ilvizi
+Gold: mnilviziskičen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:13
+==================================================
+
+Input: VACTYNO3SAB3SFININDPRS</tok>seŋs
+Gold: seŋssosen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: VIPFVFININDSG3PRS</tok>niŋj
+Gold: niŋjeqzusč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: VNO1PAB3SIPFVFININDFUT</tok>čʼel
+Gold: nčʼelqzaɬen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:11
+==================================================
+
+Input: VCVBNFIN</tok>ɬiveklen
+Gold: kɬiveklenki
+Prediction: k
+char_acc: 0.09090909090909091                                
+Levenshtein dist:10
+==================================================
+
+Input: VNO1SAB3SFINCOND</tok>ɬinmit
+Gold: tkʼɬinmitičen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:12
+==================================================
+
+Input: NNOMPL</tok>gurbuske
+Gold: gurbuskeˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: VFININDSG1PSTCAUS</tok>әnta
+Gold: tәntaɬčen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: VFININDSG2PRS</tok>čʼmam
+Gold: čʼmamsč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: VNO2SAB1SITERFINIMP</tok>tavol
+Gold: ktavolatәsxkmiŋ
+Prediction: k
+char_acc: 0.06666666666666667                                
+Levenshtein dist:14
+==================================================
+
+Input: VFININDSG3PRS</tok>ɬeruŋ
+Gold: ɬeruŋesčen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: VNO3SBE3SIPFVFININDPRS</tok>χeni
+Gold: χeniqzuskinen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:12
+==================================================
+
+Input: VFININDPL1FUT</tok>qetet
+Gold: nqetetaɬk
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: VACTYNO2SAB1SIPFVFINIMP</tok>әnkʼ
+Gold: qәnkʼzuqzumiŋ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:12
+==================================================
+
+Input: NDIMNOMPL</tok>kʼekʼfe
+Gold: kʼekʼfeˀɲč
+Prediction: k
+char_acc: 0.1                                
+Levenshtein dist:9
+==================================================
+
+Input: VFININDSG3PST</tok>sxese
+Gold: sxesevin
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: NNOMPL</tok>čʼamzanl
+Gold: čʼamzanlaˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:11
+==================================================
+
+Input: VITERFININDSG2PRS</tok>əlfč
+Gold: əlfčtesč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: VFININDSG1FUT</tok>sxzuv
+Gold: tsxzuvaɬkičen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:12
+==================================================
+
+Input: VNO3SAB3PFININDPRS</tok>aɲčpә
+Gold: aɲčpәzneˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: VFININDPL3PRS</tok>čʼŋel
+Gold: čʼŋelesčeˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:11
+==================================================
+
+Input: VNO1SBE3SFINOPTPST</tok>tniɬ
+Gold: tniɬaɬčen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: VFININDSG3PRS</tok>qeni
+Gold: qenisč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VNO3SAB3PIPFVFININDPRS</tok>ezu
+Gold: ezuqzuzneˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:11
+==================================================
+
+Input: VIPFVFININDPL3</tok>nest
+Gold: nestqzoˀaˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:11
+==================================================
+
+Input: VNO1PBE3SFINIMPCAUS</tok>tsxl
+Gold: xnәnitsxliˀin
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:13
+==================================================
+
+Input: VNO1SBE3PFININDFUT</tok>ɬotz
+Gold: tɬotzaɬčeˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:11
+==================================================
+
+Input: VNO3SAB3SFININDPRS</tok>toza
+Gold: tozaznan
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: VCVBNFIN</tok>kʼenesi
+Gold: kkʼenesiˀinˀin
+Prediction: k
+char_acc: 0.07142857142857142                                
+Levenshtein dist:13
+==================================================
+
+Input: VNFINPURP</tok>svataˀɬ
+Gold: svataˀɬnoke
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: NNOMPL</tok>novaɬez
+Gold: novaɬezeˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: VNO2SAB1SFININDPST</tok>čʼel
+Gold: čʼelmiŋ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: VFINIMPSG3</tok>ŋiksi
+Gold: xanŋiksivin
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: NNOMSG</tok>neveska
+Gold: neveska
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VITERFININDSG3PRS</tok>fiɬ
+Gold: fiɬatezen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: VACTYFININDPL3PRS</tok>seŋ
+Gold: seŋzoveˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: VNO3SBE3SFININDPRS</tok>solo
+Gold: soloskinen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: VCVBNFIN</tok>әntʼeŋa
+Gold: kәntʼeŋaˀan
+Prediction: k
+char_acc: 0.09090909090909091                                
+Levenshtein dist:10
+==================================================
+
+Input: VNO3PAB2SFININDPST</tok>tkil
+Gold: ntkilˀin
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: ADJSG</tok>oprelkaj
+Gold: oprelkaj
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: VNO1SAB3SFININDFUT</tok>ləmm
+Gold: tləmmaɬen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: VFINIMPSG1</tok>әnxɬ
+Gold: mәnxɬkičen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: VCVBNFIN</tok>ameɬat
+Gold: kʼameɬatknan
+Prediction: k
+char_acc: 0.08333333333333333                                
+Levenshtein dist:11
+==================================================
+
+Input: VNO3SBE3SFINOPTPRS</tok>eɬč
+Gold: eɬčaˀɬkzuskenan
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:14
+==================================================
+
+Input: VNO1SAB3SFINIMP</tok>čʼel
+Gold: mčʼelkičen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: VIPFVFININDSG2PRS</tok>sk
+Gold: skqzozen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: VNO3PAB3SFININDFUT</tok>әnk
+Gold: nәnkaˀɬxkmiŋ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:11
+==================================================
+
+Input: VNO2SAB1SFINIMP</tok>učku
+Gold: učkumiŋ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VNO1PAB3PFININDPST</tok>čil
+Gold: nčilkičeˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: NDIMNOMSG</tok>kamlo
+Gold: kamloɲčaχ
+Prediction: k
+char_acc: 0.1111111111111111                                
+Levenshtein dist:8
+==================================================
+
+Input: VNO3PAB3SFININDPRS</tok>zil
+Gold: nzilliznen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: VCVBNFIN</tok>ilvizi
+Gold: kʼilviziknen
+Prediction: k
+char_acc: 0.08333333333333333                                
+Levenshtein dist:11
+==================================================
+
+Input: VCVBNFIN</tok>tirxit
+Gold: ktirxitknen
+Prediction: k
+char_acc: 0.09090909090909091                                
+Levenshtein dist:10
+==================================================
+
+Input: VCVBNFIN</tok>ɬalxta
+Gold: ɬalxtaɬ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: VNFINCAUS</tok>čʼevel
+Gold: әnčʼevelal’
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:11
+==================================================
+
+Input: NDIMNOMPL</tok>kamlo
+Gold: kamloˀɲč
+Prediction: k
+char_acc: 0.125                                
+Levenshtein dist:7
+==================================================
+
+Input: VCVBNFINOPT</tok>tavol
+Gold: tavolaˀɬkas
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: NNOMSG</tok>pevlum
+Gold: pevlumč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: NNOMSG</tok>taɬata
+Gold: taɬata
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VNO2SAB1SFINIMPFUT</tok>əss
+Gold: kʼəssaɬmiŋ
+Prediction: k
+char_acc: 0.1                                
+Levenshtein dist:9
+==================================================
+
+Input: NDATSG</tok>pudusk
+Gold: puduskanke
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: NLOCSG</tok>jejpiˀ
+Gold: jejpiˀnk
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: NNOMSG</tok>kaskas
+Gold: kaskas
+Prediction: k
+char_acc: 0.16666666666666666                                
+Levenshtein dist:5
+==================================================
+
+Input: VNO3PAB3SIPFVFININDPRS</tok>in
+Gold: nineqzozen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: VMSDRFHNFIN</tok>čʼŋel
+Gold: čʼŋelkiɬχ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: NLOCSG</tok>kʼenez
+Gold: kʼenezezenk
+Prediction: k
+char_acc: 0.09090909090909091                                
+Levenshtein dist:10
+==================================================
+
+Input: VNO1SBE3SFININDFUT</tok>lax
+Gold: tlaxaɬkenan
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: VCVBNFIN</tok>sittaj
+Gold: sittaj
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VCVBNFINNEG</tok>əŋksx
+Gold: əŋksxkeq
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: NNOMSG</tok>čsalaj
+Gold: čsalaj
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: NDATSG</tok>stoval
+Gold: stovalanke
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: NABLSG</tok>ajvaŋ
+Gold: ajvaŋxˀal
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: VFININDSG3PRS</tok>es
+Gold: esezen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: NNOMPL</tok>mesok
+Gold: mesokaˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: VFININDSG3PST</tok>nu
+Gold: ønuč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:4
+==================================================
+
+Input: NDIMNOMSG</tok>simt
+Gold: simtčaχ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: ADJSG</tok>fsakoj
+Gold: fsakoj
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: NNOMSG</tok>laχsχ
+Gold: laχsχ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: VIPFVFININDPL3</tok>iɬ
+Gold: iɬqsuveˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: ADJSG</tok>teŋlaχ
+Gold: teŋlaχ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: NDATSG</tok>mečʼa
+Gold: mečʼake
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: NNOMSG</tok>aˀasx
+Gold: aˀasx
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: VNO3SBE3SFININDPST</tok>la
+Gold: lačiŋnen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: ADJSG</tok>edakoj
+Gold: edakoj
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: VCVBNFIN</tok>xoron
+Gold: xorones
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: VNO3SAB1SFINOPTPRS</tok>ɬa
+Gold: ɬasxonen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: VMSDRFHNFIN</tok>teŋe
+Gold: teŋekiɬχ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: NNOMSG</tok>narta
+Gold: narta
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: VIPFVFININDPL1PST</tok>ɬ
+Gold: nɬqsuk
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: NINSSG</tok>silqa
+Gold: silqaɬ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VNO2SAB3SFINIMP</tok>ɬxa
+Gold: qɬxax
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: NNOMPL</tok>massu
+Gold: massuˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: NNOMSG</tok>mečak
+Gold: mečak
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:4
+==================================================
+
+Input: NNOMSG</tok>fčifč
+Gold: fčifč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: NNOMPL</tok>aˀasx
+Gold: aˀasxaˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: ADJSG</tok>staroj
+Gold: staroj
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: NDIMPRIVSG</tok>sisi
+Gold: sisičkin
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: NPRIVPL</tok>xevli
+Gold: xevlikiˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: NNOMSG</tok>činuq
+Gold: činuq
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: NNOMSG</tok>lqlam
+Gold: lqlam
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: NCOMSG</tok>sanse
+Gold: ksansečom
+Prediction: k
+char_acc: 0.1111111111111111                                
+Levenshtein dist:8
+==================================================
+
+Input: NDATSG</tok>eˀɲɬo
+Gold: eˀɲɬonke
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: VCVBNFIN</tok>әnsxu
+Gold: kәnsxuˀin
+Prediction: k
+char_acc: 0.1111111111111111                                
+Levenshtein dist:8
+==================================================
+
+Input: NNOMSG</tok>tabun
+Gold: tabun
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: VNO2SAB3PFINIMP</tok>is
+Gold: qʼisxeˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: NDIMNOMSG</tok>sap
+Gold: sapčaχ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VFINIMPSG2</tok>ɬә
+Gold: qɬәxč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: VCVBNFIN</tok>әnsč
+Gold: kәnsčiˀin
+Prediction: k
+char_acc: 0.1111111111111111                                
+Levenshtein dist:8
+==================================================
+
+Input: VCVBNFINNEG</tok>zil
+Gold: zillaq
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VCVBNFINCAUS</tok>čxl
+Gold: kəɳčxliˀin
+Prediction: k
+char_acc: 0.1                                
+Levenshtein dist:9
+==================================================
+
+Input: VCVBIPFVNFIN</tok>l’a
+Gold: kl’aqzuknen
+Prediction: k
+char_acc: 0.09090909090909091                                
+Levenshtein dist:10
+==================================================
+
+Input: NNOMSG</tok>babu
+Gold: babu
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:4
+==================================================
+
+Input: VCVBITERNFIN</tok>čʼe
+Gold: kčʼetiknen
+Prediction: k
+char_acc: 0.1                                
+Levenshtein dist:9
+==================================================
+
+Input: NVOCPL</tok>uɲɲa
+Gold: uɲɲasxe
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: NNOMPL</tok>əɳče
+Gold: əɳčeˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: ADJSG</tok>qulan
+Gold: qulan
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: VCVBNFINPRS</tok>qzu
+Gold: kqzuzˀin
+Prediction: k
+char_acc: 0.125                                
+Levenshtein dist:7
+==================================================
+
+Input: VCVBNFIN</tok>kʼzi
+Gold: xkʼziknen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: NNOMSG</tok>mama
+Gold: mama
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:4
+==================================================
+
+Input: VCVBNFIN</tok>tefs
+Gold: ktefsˀin
+Prediction: k
+char_acc: 0.125                                
+Levenshtein dist:7
+==================================================
+
+Input: VFINOPTSG2</tok>ut
+Gold: utaɬen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VFINCONDSG1</tok>nu
+Gold: tkʼnuk
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: NDATSG</tok>atsl
+Gold: atslanke
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: VCVBIPFVNFIN</tok>čʼe
+Gold: kčʼeqzuknen
+Prediction: k
+char_acc: 0.09090909090909091                                
+Levenshtein dist:10
+==================================================
+
+Input: VFINIMPPL2</tok>es
+Gold: qʼessx
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VCVBNFINOPTCAUS</tok>ɬo
+Gold: әnɬovaɬsxanˀin
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:14
+==================================================
+
+Input: NLOCSG</tok>iˀɲɬ
+Gold: iˀɲɬunk
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VCVBNFINNEG</tok>әɬč
+Gold: әɬčuq
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: VFINIMPSG2</tok>fi
+Gold: qfikes
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: VCVBNFIN</tok>әnzu
+Gold: kәnzuˀin
+Prediction: k
+char_acc: 0.125                                
+Levenshtein dist:7
+==================================================
+
+Input: VCVBNFIN</tok>әntχ
+Gold: kәntχeˀin
+Prediction: k
+char_acc: 0.1111111111111111                                
+Levenshtein dist:8
+==================================================
+
+Input: VCVBNFIN</tok>vel
+Gold: velkas
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: VCVBNFIN</tok>pla
+Gold: kplaknen
+Prediction: k
+char_acc: 0.125                                
+Levenshtein dist:7
+==================================================
+
+Input: NNOMPL</tok>esq
+Gold: esqeˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VCVBNFIN</tok>kup
+Gold: kupsxenki
+Prediction: k
+char_acc: 0.1111111111111111                                
+Levenshtein dist:8
+==================================================
+
+Input: VCVBNFINCAUS</tok>lo
+Gold: әnloɬeɬ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: NINSSG</tok>qsi
+Gold: qsiɬ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:4
+==================================================
+
+Input: NDATSG</tok>ɲaɲ
+Gold: ɲaɲanke
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VCVBNFIN</tok>omt
+Gold: kʼomtʼin
+Prediction: k
+char_acc: 0.125                                
+Levenshtein dist:7
+==================================================
+
+Input: VCVBNFIN</tok>pәl
+Gold: kpәlknen
+Prediction: k
+char_acc: 0.125                                
+Levenshtein dist:7
+==================================================
+
+Input: NNOMPL</tok>utk
+Gold: utkeˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: VNFIN</tok>әɲčk
+Gold: әɲčkeɬčaχ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: NNOMSG</tok>loŋ
+Gold: loŋ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:3
+==================================================
+
+Input: VCVBNFINCAUS</tok>pɬ
+Gold: kәmpɬˀan
+Prediction: k
+char_acc: 0.125                                
+Levenshtein dist:7
+==================================================
+
+Input: NABLSG</tok>qeχ
+Gold: qeχˀal
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VCVBNFIN</tok>әnx
+Gold: kәnxknen
+Prediction: k
+char_acc: 0.125                                
+Levenshtein dist:7
+==================================================
+
+Input: VNO3SBE3PFINCOND</tok>s
+Gold: kʼsčiŋiˀn
+Prediction: k
+char_acc: 0.1111111111111111                                
+Levenshtein dist:8
+==================================================
+
+Input: NNOMSG</tok>noč
+Gold: noč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:3
+==================================================
+
+Input: ADJPL</tok>čkʼ
+Gold: čkʼlaχaˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: VNFINPURP</tok>uˀ
+Gold: uˀelnoke
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: VCVBNFIN</tok>it
+Gold: kʼitknen
+Prediction: k
+char_acc: 0.125                                
+Levenshtein dist:7
+==================================================
+
+Input: VNFINOPT</tok>ɬ
+Gold: ɬaɬiɬ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: VIPFVFININDPL3PRS</tok>kirviɬxet
+Gold: kirviɬxetqzuzeˀn
+Prediction: k
+char_acc: 0.0625                                
+Levenshtein dist:15
+==================================================
+
+Input: VNO3SAB1SFININDPRS</tok>il’čkuviji
+Gold: il’čkuvijimˀiŋ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:13
+==================================================
+
+Input: NNOMSG</tok>kʼezzamtʼkla
+Gold: kʼezzamtʼklač
+Prediction: k
+char_acc: 0.07692307692307693                                
+Levenshtein dist:12
+==================================================
+
+Input: VNO3SAB3SFININDPRS</tok>krveɬxet
+Gold: krveɬxetasčeˀn
+Prediction: k
+char_acc: 0.07142857142857142                                
+Levenshtein dist:13
+==================================================
+
+Input: VNO2SAB1SIPFVFININDPRS</tok>ɬanmaja
+Gold: ɬanmajaqsumaŋ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:13
+==================================================
+
+Input: VMSDRFHNFIN</tok>temjuŋɬxet
+Gold: temjuŋɬxetkiɬχ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:13
+==================================================
+
+Input: VIPFVFININDSG3PRS</tok>čʼmamɬ
+Gold: čʼmamɬqzosč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:11
+==================================================
+
+Input: VIPFVFININDSG3PRS</tok>ɬŋizi
+Gold: ɬŋiziqzusč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: VNO1SAB3SFINOPTPST</tok>čisxuŋ
+Gold: tčisxuŋaɬčeˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:13
+==================================================
+
+Input: VFINOPTSG2PRS</tok>ikʼsxu
+Gold: ikʼsxulesč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: VNO1SBE3PFININDPST</tok>әnkʼsi
+Gold: tәnkʼsičeˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: VIPFVFININDPL2PRS</tok>vetat
+Gold: vetatqzussx
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:11
+==================================================
+
+Input: VNO1SAB2SIPFVFININDPRS</tok>tajta
+Gold: tajtaqzaxen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:11
+==================================================
+
+Input: NNOMSG</tok>kurbuskaj
+Gold: kurbuskaj
+Prediction: k
+char_acc: 0.1111111111111111                                
+Levenshtein dist:8
+==================================================
+
+Input: VNO3SAB1PIPFVFININDPST</tok>aɲɬom
+Gold: aɲɬomqzaɬomneˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:15
+==================================================
+
+Input: VFINIMPPL2</tok>čiˀŋini
+Gold: qčiˀŋinisx
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: VNO3PBE3SITERFININDPRS</tok>laxɬe
+Gold: laxɬeteskineˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:13
+==================================================
+
+Input: VIPFVFININDSG3PRS</tok>χumst
+Gold: χumstqzusčen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:12
+==================================================
+
+Input: VFININDSG3PRS</tok>kʼilek
+Gold: kʼilekisen
+Prediction: k
+char_acc: 0.1                                
+Levenshtein dist:9
+==================================================
+
+Input: VNO3SBE3SIPFVFININDPRS</tok>әŋqsx
+Gold: әŋqsxqzuskinen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:13
+==================================================
+
+Input: VFINOPTSG3PST</tok>qamzan
+Gold: qamzantaɬč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: VIPFVFININDSG1PST</tok>ɬinnu
+Gold: tɬinnuqsun
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: VCVBNFIN</tok>l’iveklen
+Gold: kl’iveklenkes
+Prediction: k
+char_acc: 0.07692307692307693                                
+Levenshtein dist:12
+==================================================
+
+Input: VFININDSG3PRS</tok>sχetɬ
+Gold: sχetɬesč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: VFINIMPPL1</tok>ilvizi
+Gold: mnilviziskičen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:13
+==================================================
+
+Input: VACTYNO3SAB3SFININDPRS</tok>seŋs
+Gold: seŋssosen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: VIPFVFININDSG3PRS</tok>niŋj
+Gold: niŋjeqzusč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: VNO1PAB3SIPFVFININDFUT</tok>čʼel
+Gold: nčʼelqzaɬen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:11
+==================================================
+
+Input: VCVBNFIN</tok>ɬiveklen
+Gold: kɬiveklenki
+Prediction: k
+char_acc: 0.09090909090909091                                
+Levenshtein dist:10
+==================================================
+
+Input: VNO1SAB3SFINCOND</tok>ɬinmit
+Gold: tkʼɬinmitičen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:12
+==================================================
+
+Input: NNOMPL</tok>gurbuske
+Gold: gurbuskeˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: VFININDSG1PSTCAUS</tok>әnta
+Gold: tәntaɬčen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: VFININDSG2PRS</tok>čʼmam
+Gold: čʼmamsč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: VNO2SAB1SITERFINIMP</tok>tavol
+Gold: ktavolatәsxkmiŋ
+Prediction: k
+char_acc: 0.06666666666666667                                
+Levenshtein dist:14
+==================================================
+
+Input: VFININDSG3PRS</tok>ɬeruŋ
+Gold: ɬeruŋesčen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: VNO3SBE3SIPFVFININDPRS</tok>χeni
+Gold: χeniqzuskinen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:12
+==================================================
+
+Input: VFININDPL1FUT</tok>qetet
+Gold: nqetetaɬk
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: VACTYNO2SAB1SIPFVFINIMP</tok>әnkʼ
+Gold: qәnkʼzuqzumiŋ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:12
+==================================================
+
+Input: NDIMNOMPL</tok>kʼekʼfe
+Gold: kʼekʼfeˀɲč
+Prediction: k
+char_acc: 0.1                                
+Levenshtein dist:9
+==================================================
+
+Input: VFININDSG3PST</tok>sxese
+Gold: sxesevin
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: NNOMPL</tok>čʼamzanl
+Gold: čʼamzanlaˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:11
+==================================================
+
+Input: VITERFININDSG2PRS</tok>əlfč
+Gold: əlfčtesč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: VFININDSG1FUT</tok>sxzuv
+Gold: tsxzuvaɬkičen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:12
+==================================================
+
+Input: VNO3SAB3PFININDPRS</tok>aɲčpә
+Gold: aɲčpәzneˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: VFININDPL3PRS</tok>čʼŋel
+Gold: čʼŋelesčeˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:11
+==================================================
+
+Input: VNO1SBE3SFINOPTPST</tok>tniɬ
+Gold: tniɬaɬčen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: VFININDSG3PRS</tok>qeni
+Gold: qenisč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VNO3SAB3PIPFVFININDPRS</tok>ezu
+Gold: ezuqzuzneˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:11
+==================================================
+
+Input: VIPFVFININDPL3</tok>nest
+Gold: nestqzoˀaˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:11
+==================================================
+
+Input: VNO1PBE3SFINIMPCAUS</tok>tsxl
+Gold: xnәnitsxliˀin
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:13
+==================================================
+
+Input: VNO1SBE3PFININDFUT</tok>ɬotz
+Gold: tɬotzaɬčeˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:11
+==================================================
+
+Input: VNO3SAB3SFININDPRS</tok>toza
+Gold: tozaznan
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: VCVBNFIN</tok>kʼenesi
+Gold: kkʼenesiˀinˀin
+Prediction: k
+char_acc: 0.07142857142857142                                
+Levenshtein dist:13
+==================================================
+
+Input: VNFINPURP</tok>svataˀɬ
+Gold: svataˀɬnoke
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: NNOMPL</tok>novaɬez
+Gold: novaɬezeˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: VNO2SAB1SFININDPST</tok>čʼel
+Gold: čʼelmiŋ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: VFINIMPSG3</tok>ŋiksi
+Gold: xanŋiksivin
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: NNOMSG</tok>neveska
+Gold: neveska
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VITERFININDSG3PRS</tok>fiɬ
+Gold: fiɬatezen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: VACTYFININDPL3PRS</tok>seŋ
+Gold: seŋzoveˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: VNO3SBE3SFININDPRS</tok>solo
+Gold: soloskinen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: VCVBNFIN</tok>әntʼeŋa
+Gold: kәntʼeŋaˀan
+Prediction: k
+char_acc: 0.09090909090909091                                
+Levenshtein dist:10
+==================================================
+
+Input: VNO3PAB2SFININDPST</tok>tkil
+Gold: ntkilˀin
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: ADJSG</tok>oprelkaj
+Gold: oprelkaj
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: VNO1SAB3SFININDFUT</tok>ləmm
+Gold: tləmmaɬen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: VFINIMPSG1</tok>әnxɬ
+Gold: mәnxɬkičen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: VCVBNFIN</tok>ameɬat
+Gold: kʼameɬatknan
+Prediction: k
+char_acc: 0.08333333333333333                                
+Levenshtein dist:11
+==================================================
+
+Input: VNO3SBE3SFINOPTPRS</tok>eɬč
+Gold: eɬčaˀɬkzuskenan
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:14
+==================================================
+
+Input: VNO1SAB3SFINIMP</tok>čʼel
+Gold: mčʼelkičen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: VIPFVFININDSG2PRS</tok>sk
+Gold: skqzozen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: VNO3PAB3SFININDFUT</tok>әnk
+Gold: nәnkaˀɬxkmiŋ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:11
+==================================================
+
+Input: VNO2SAB1SFINIMP</tok>učku
+Gold: učkumiŋ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VNO1PAB3PFININDPST</tok>čil
+Gold: nčilkičeˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: NDIMNOMSG</tok>kamlo
+Gold: kamloɲčaχ
+Prediction: k
+char_acc: 0.1111111111111111                                
+Levenshtein dist:8
+==================================================
+
+Input: VNO3PAB3SFININDPRS</tok>zil
+Gold: nzilliznen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: VCVBNFIN</tok>ilvizi
+Gold: kʼilviziknen
+Prediction: k
+char_acc: 0.08333333333333333                                
+Levenshtein dist:11
+==================================================
+
+Input: VCVBNFIN</tok>tirxit
+Gold: ktirxitknen
+Prediction: k
+char_acc: 0.09090909090909091                                
+Levenshtein dist:10
+==================================================
+
+Input: VCVBNFIN</tok>ɬalxta
+Gold: ɬalxtaɬ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: VNFINCAUS</tok>čʼevel
+Gold: әnčʼevelal’
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:11
+==================================================
+
+Input: NDIMNOMPL</tok>kamlo
+Gold: kamloˀɲč
+Prediction: k
+char_acc: 0.125                                
+Levenshtein dist:7
+==================================================
+
+Input: VCVBNFINOPT</tok>tavol
+Gold: tavolaˀɬkas
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: NNOMSG</tok>pevlum
+Gold: pevlumč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: NNOMSG</tok>taɬata
+Gold: taɬata
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VNO2SAB1SFINIMPFUT</tok>əss
+Gold: kʼəssaɬmiŋ
+Prediction: k
+char_acc: 0.1                                
+Levenshtein dist:9
+==================================================
+
+Input: NDATSG</tok>pudusk
+Gold: puduskanke
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: NLOCSG</tok>jejpiˀ
+Gold: jejpiˀnk
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: NNOMSG</tok>kaskas
+Gold: kaskas
+Prediction: k
+char_acc: 0.16666666666666666                                
+Levenshtein dist:5
+==================================================
+
+Input: VNO3PAB3SIPFVFININDPRS</tok>in
+Gold: nineqzozen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: VMSDRFHNFIN</tok>čʼŋel
+Gold: čʼŋelkiɬχ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: NLOCSG</tok>kʼenez
+Gold: kʼenezezenk
+Prediction: k
+char_acc: 0.09090909090909091                                
+Levenshtein dist:10
+==================================================
+
+Input: VNO1SBE3SFININDFUT</tok>lax
+Gold: tlaxaɬkenan
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:10
+==================================================
+
+Input: VCVBNFIN</tok>sittaj
+Gold: sittaj
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VCVBNFINNEG</tok>əŋksx
+Gold: əŋksxkeq
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: NNOMSG</tok>čsalaj
+Gold: čsalaj
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: NDATSG</tok>stoval
+Gold: stovalanke
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: NABLSG</tok>ajvaŋ
+Gold: ajvaŋxˀal
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: VFININDSG3PRS</tok>es
+Gold: esezen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: NNOMPL</tok>mesok
+Gold: mesokaˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: VFININDSG3PST</tok>nu
+Gold: ønuč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:4
+==================================================
+
+Input: NDIMNOMSG</tok>simt
+Gold: simtčaχ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: ADJSG</tok>fsakoj
+Gold: fsakoj
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: NNOMSG</tok>laχsχ
+Gold: laχsχ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: VIPFVFININDPL3</tok>iɬ
+Gold: iɬqsuveˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:9
+==================================================
+
+Input: ADJSG</tok>teŋlaχ
+Gold: teŋlaχ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: NDATSG</tok>mečʼa
+Gold: mečʼake
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: NNOMSG</tok>aˀasx
+Gold: aˀasx
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: VNO3SBE3SFININDPST</tok>la
+Gold: lačiŋnen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: ADJSG</tok>edakoj
+Gold: edakoj
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: VCVBNFIN</tok>xoron
+Gold: xorones
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: VNO3SAB1SFINOPTPRS</tok>ɬa
+Gold: ɬasxonen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: VMSDRFHNFIN</tok>teŋe
+Gold: teŋekiɬχ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: NNOMSG</tok>narta
+Gold: narta
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: VIPFVFININDPL1PST</tok>ɬ
+Gold: nɬqsuk
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: NINSSG</tok>silqa
+Gold: silqaɬ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VNO2SAB3SFINIMP</tok>ɬxa
+Gold: qɬxax
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: NNOMPL</tok>massu
+Gold: massuˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: NNOMSG</tok>mečak
+Gold: mečak
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:4
+==================================================
+
+Input: NNOMSG</tok>fčifč
+Gold: fčifč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: NNOMPL</tok>aˀasx
+Gold: aˀasxaˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: ADJSG</tok>staroj
+Gold: staroj
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: NDIMPRIVSG</tok>sisi
+Gold: sisičkin
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: NPRIVPL</tok>xevli
+Gold: xevlikiˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: NNOMSG</tok>činuq
+Gold: činuq
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: NNOMSG</tok>lqlam
+Gold: lqlam
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: NCOMSG</tok>sanse
+Gold: ksansečom
+Prediction: k
+char_acc: 0.1111111111111111                                
+Levenshtein dist:8
+==================================================
+
+Input: NDATSG</tok>eˀɲɬo
+Gold: eˀɲɬonke
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: VCVBNFIN</tok>әnsxu
+Gold: kәnsxuˀin
+Prediction: k
+char_acc: 0.1111111111111111                                
+Levenshtein dist:8
+==================================================
+
+Input: NNOMSG</tok>tabun
+Gold: tabun
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: VNO2SAB3PFINIMP</tok>is
+Gold: qʼisxeˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: NDIMNOMSG</tok>sap
+Gold: sapčaχ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VFINIMPSG2</tok>ɬә
+Gold: qɬәxč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: VCVBNFIN</tok>әnsč
+Gold: kәnsčiˀin
+Prediction: k
+char_acc: 0.1111111111111111                                
+Levenshtein dist:8
+==================================================
+
+Input: VCVBNFINNEG</tok>zil
+Gold: zillaq
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VCVBNFINCAUS</tok>čxl
+Gold: kəɳčxliˀin
+Prediction: k
+char_acc: 0.1                                
+Levenshtein dist:9
+==================================================
+
+Input: VCVBIPFVNFIN</tok>l’a
+Gold: kl’aqzuknen
+Prediction: k
+char_acc: 0.09090909090909091                                
+Levenshtein dist:10
+==================================================
+
+Input: NNOMSG</tok>babu
+Gold: babu
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:4
+==================================================
+
+Input: VCVBITERNFIN</tok>čʼe
+Gold: kčʼetiknen
+Prediction: k
+char_acc: 0.1                                
+Levenshtein dist:9
+==================================================
+
+Input: NVOCPL</tok>uɲɲa
+Gold: uɲɲasxe
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: NNOMPL</tok>əɳče
+Gold: əɳčeˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: ADJSG</tok>qulan
+Gold: qulan
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: VCVBNFINPRS</tok>qzu
+Gold: kqzuzˀin
+Prediction: k
+char_acc: 0.125                                
+Levenshtein dist:7
+==================================================
+
+Input: VCVBNFIN</tok>kʼzi
+Gold: xkʼziknen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: NNOMSG</tok>mama
+Gold: mama
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:4
+==================================================
+
+Input: VCVBNFIN</tok>tefs
+Gold: ktefsˀin
+Prediction: k
+char_acc: 0.125                                
+Levenshtein dist:7
+==================================================
+
+Input: VFINOPTSG2</tok>ut
+Gold: utaɬen
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VFINCONDSG1</tok>nu
+Gold: tkʼnuk
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: NDATSG</tok>atsl
+Gold: atslanke
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: VCVBIPFVNFIN</tok>čʼe
+Gold: kčʼeqzuknen
+Prediction: k
+char_acc: 0.09090909090909091                                
+Levenshtein dist:10
+==================================================
+
+Input: VFINIMPPL2</tok>es
+Gold: qʼessx
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VCVBNFINOPTCAUS</tok>ɬo
+Gold: әnɬovaɬsxanˀin
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:14
+==================================================
+
+Input: NLOCSG</tok>iˀɲɬ
+Gold: iˀɲɬunk
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VCVBNFINNEG</tok>әɬč
+Gold: әɬčuq
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: VFINIMPSG2</tok>fi
+Gold: qfikes
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: VCVBNFIN</tok>әnzu
+Gold: kәnzuˀin
+Prediction: k
+char_acc: 0.125                                
+Levenshtein dist:7
+==================================================
+
+Input: VCVBNFIN</tok>әntχ
+Gold: kәntχeˀin
+Prediction: k
+char_acc: 0.1111111111111111                                
+Levenshtein dist:8
+==================================================
+
+Input: VCVBNFIN</tok>vel
+Gold: velkas
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: VCVBNFIN</tok>pla
+Gold: kplaknen
+Prediction: k
+char_acc: 0.125                                
+Levenshtein dist:7
+==================================================
+
+Input: NNOMPL</tok>esq
+Gold: esqeˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VCVBNFIN</tok>kup
+Gold: kupsxenki
+Prediction: k
+char_acc: 0.1111111111111111                                
+Levenshtein dist:8
+==================================================
+
+Input: VCVBNFINCAUS</tok>lo
+Gold: әnloɬeɬ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: NINSSG</tok>qsi
+Gold: qsiɬ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:4
+==================================================
+
+Input: NDATSG</tok>ɲaɲ
+Gold: ɲaɲanke
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VCVBNFIN</tok>omt
+Gold: kʼomtʼin
+Prediction: k
+char_acc: 0.125                                
+Levenshtein dist:7
+==================================================
+
+Input: VCVBNFIN</tok>pәl
+Gold: kpәlknen
+Prediction: k
+char_acc: 0.125                                
+Levenshtein dist:7
+==================================================
+
+Input: NNOMPL</tok>utk
+Gold: utkeˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: VNFIN</tok>әɲčk
+Gold: әɲčkeɬčaχ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: NNOMSG</tok>loŋ
+Gold: loŋ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:3
+==================================================
+
+Input: VCVBNFINCAUS</tok>pɬ
+Gold: kәmpɬˀan
+Prediction: k
+char_acc: 0.125                                
+Levenshtein dist:7
+==================================================
+
+Input: NABLSG</tok>qeχ
+Gold: qeχˀal
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:6
+==================================================
+
+Input: VCVBNFIN</tok>әnx
+Gold: kәnxknen
+Prediction: k
+char_acc: 0.125                                
+Levenshtein dist:7
+==================================================
+
+Input: VNO3SBE3PFINCOND</tok>s
+Gold: kʼsčiŋiˀn
+Prediction: k
+char_acc: 0.1111111111111111                                
+Levenshtein dist:8
+==================================================
+
+Input: NNOMSG</tok>noč
+Gold: noč
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:3
+==================================================
+
+Input: ADJPL</tok>čkʼ
+Gold: čkʼlaχaˀn
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:8
+==================================================
+
+Input: VNFINPURP</tok>uˀ
+Gold: uˀelnoke
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:7
+==================================================
+
+Input: VCVBNFIN</tok>it
+Gold: kʼitknen
+Prediction: k
+char_acc: 0.125                                
+Levenshtein dist:7
+==================================================
+
+Input: VNFINOPT</tok>ɬ
+Gold: ɬaɬiɬ
+Prediction: k
+char_acc: 0.0                                
+Levenshtein dist:5
+==================================================
+
+Input: VIPFVFININDPL3PRS</tok>kirviɬxet
+Gold: kirviɬxetqzuzeˀn
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM3eNO3P
+char_acc: 0.125                                
+Levenshtein dist:35
+==================================================
+
+Input: VNO3SAB1SFININDPRS</tok>il’čkuviji
+Gold: il’čkuvijimˀiŋ
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.0                                
+Levenshtein dist:42
+==================================================
+
+Input: NNOMSG</tok>kʼezzamtʼkla
+Gold: kʼezzamtʼklač
+Prediction: kNO3Pmu</tok>NOMueNO3PmnNO3PNOMʼeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:33
+==================================================
+
+Input: VNO3SAB3SFININDPRS</tok>krveɬxet
+Gold: krveɬxetasčeˀn
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.0625                                
+Levenshtein dist:40
+==================================================
+
+Input: VNO2SAB1SIPFVFININDPRS</tok>ɬanmaja
+Gold: ɬanmajaqsumaŋ
+Prediction: kNO3Pmk</tok>NOMknNO3Pmn</tok>NOMɬeNO3P
+char_acc: 0.0                                
+Levenshtein dist:37
+==================================================
+
+Input: VMSDRFHNFIN</tok>temjuŋɬxet
+Gold: temjuŋɬxetkiɬχ
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMeeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:33
+==================================================
+
+Input: VIPFVFININDSG3PRS</tok>čʼmamɬ
+Gold: čʼmamɬqzosč
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOM3eNO3P
+char_acc: 0.0625                                
+Levenshtein dist:35
+==================================================
+
+Input: VIPFVFININDSG3PRS</tok>ɬŋizi
+Gold: ɬŋiziqzusč
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM3eNO3P
+char_acc: 0.0                                
+Levenshtein dist:39
+==================================================
+
+Input: VNO1SAB3SFINOPTPST</tok>čisxuŋ
+Gold: tčisxuŋaɬčeˀn
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMseNO3P
+char_acc: 0.0                                
+Levenshtein dist:35
+==================================================
+
+Input: VFINOPTSG2PRS</tok>ikʼsxu
+Gold: ikʼsxulesč
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOM</tok>eNO3P
+char_acc: 0.0625                                
+Levenshtein dist:40
+==================================================
+
+Input: VNO1SBE3PFININDPST</tok>әnkʼsi
+Gold: tәnkʼsičeˀn
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMәeNO3P
+char_acc: 0.125                                
+Levenshtein dist:35
+==================================================
+
+Input: VIPFVFININDPL2PRS</tok>vetat
+Gold: vetatqzussx
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMPLeNO3P
+char_acc: 0.0                                
+Levenshtein dist:37
+==================================================
+
+Input: VNO1SAB2SIPFVFININDPRS</tok>tajta
+Gold: tajtaqzaxen
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOM</tok>eNO3P
+char_acc: 0.0625                                
+Levenshtein dist:39
+==================================================
+
+Input: NNOMSG</tok>kurbuskaj
+Gold: kurbuskaj
+Prediction: kNO3Pmu</tok>NOMueNO3PmnNO3PNOMkeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:33
+==================================================
+
+Input: VNO3SAB1PIPFVFININDPST</tok>aɲɬom
+Gold: aɲɬomqzaɬomneˀn
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMaeNO3P
+char_acc: 0.0                                
+Levenshtein dist:34
+==================================================
+
+Input: VFINIMPPL2</tok>čiˀŋini
+Gold: qčiˀŋinisx
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMŋeNO3P
+char_acc: 0.0                                
+Levenshtein dist:38
+==================================================
+
+Input: VNO3PBE3SITERFININDPRS</tok>laxɬe
+Gold: laxɬeteskineˀn
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOM</tok>eNO3P
+char_acc: 0.0625                                
+Levenshtein dist:38
+==================================================
+
+Input: VIPFVFININDSG3PRS</tok>χumst
+Gold: χumstqzusčen
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM3eNO3P
+char_acc: 0.0625                                
+Levenshtein dist:35
+==================================================
+
+Input: VFININDSG3PRS</tok>kʼilek
+Gold: kʼilekisen
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM3eNO3P
+char_acc: 0.0625                                
+Levenshtein dist:35
+==================================================
+
+Input: VNO3SBE3SIPFVFININDPRS</tok>әŋqsx
+Gold: әŋqsxqzuskinen
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMәeNO3P
+char_acc: 0.0                                
+Levenshtein dist:34
+==================================================
+
+Input: VFINOPTSG3PST</tok>qamzan
+Gold: qamzantaɬč
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM3eNO3P
+char_acc: 0.0625                                
+Levenshtein dist:36
+==================================================
+
+Input: VIPFVFININDSG1PST</tok>ɬinnu
+Gold: tɬinnuqsun
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMSGeNO3P
+char_acc: 0.0                                
+Levenshtein dist:36
+==================================================
+
+Input: VCVBNFIN</tok>l’iveklen
+Gold: kl’iveklenkes
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOM</tok>eNO3P
+char_acc: 0.125                                
+Levenshtein dist:36
+==================================================
+
+Input: VFININDSG3PRS</tok>sχetɬ
+Gold: sχetɬesč
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOM3eNO3P
+char_acc: 0.0                                
+Levenshtein dist:35
+==================================================
+
+Input: VFINIMPPL1</tok>ilvizi
+Gold: mnilviziskičen
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.0                                
+Levenshtein dist:41
+==================================================
+
+Input: VACTYNO3SAB3SFININDPRS</tok>seŋs
+Gold: seŋssosen
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMseNO3P
+char_acc: 0.0625                                
+Levenshtein dist:35
+==================================================
+
+Input: VIPFVFININDSG3PRS</tok>niŋj
+Gold: niŋjeqzusč
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOM3eNO3P
+char_acc: 0.0                                
+Levenshtein dist:36
+==================================================
+
+Input: VNO1PAB3SIPFVFININDFUT</tok>čʼel
+Gold: nčʼelqzaɬen
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.0625                                
+Levenshtein dist:42
+==================================================
+
+Input: VCVBNFIN</tok>ɬiveklen
+Gold: kɬiveklenki
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMɬeNO3P
+char_acc: 0.125                                
+Levenshtein dist:33
+==================================================
+
+Input: VNO1SAB3SFINCOND</tok>ɬinmit
+Gold: tkʼɬinmitičen
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMɬeNO3P
+char_acc: 0.0                                
+Levenshtein dist:33
+==================================================
+
+Input: NNOMPL</tok>gurbuske
+Gold: gurbuskeˀn
+Prediction: kNO3Pmu</tok>NOMueNO3Pmn</tok>NOMgeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:35
+==================================================
+
+Input: VFININDSG1PSTCAUS</tok>әnta
+Gold: tәntaɬčen
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMCAUSeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:37
+==================================================
+
+Input: VFININDSG2PRS</tok>čʼmam
+Gold: čʼmamsč
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMPRSeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:37
+==================================================
+
+Input: VNO2SAB1SITERFINIMP</tok>tavol
+Gold: ktavolatәsxkmiŋ
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOM</tok>eNO3P
+char_acc: 0.0625                                
+Levenshtein dist:38
+==================================================
+
+Input: VFININDSG3PRS</tok>ɬeruŋ
+Gold: ɬeruŋesčen
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM3eNO3P
+char_acc: 0.0                                
+Levenshtein dist:37
+==================================================
+
+Input: VNO3SBE3SIPFVFININDPRS</tok>χeni
+Gold: χeniqzuskinen
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMχeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:36
+==================================================
+
+Input: VFININDPL1FUT</tok>qetet
+Gold: nqetetaɬk
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMqeNO3P
+char_acc: 0.0                                
+Levenshtein dist:36
+==================================================
+
+Input: VACTYNO2SAB1SIPFVFINIMP</tok>әnkʼ
+Gold: qәnkʼzuqzumiŋ
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMәeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:35
+==================================================
+
+Input: NDIMNOMPL</tok>kʼekʼfe
+Gold: kʼekʼfeˀɲč
+Prediction: kNO3Pmu</tok>NOMueNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.0625                                
+Levenshtein dist:40
+==================================================
+
+Input: VFININDSG3PST</tok>sxese
+Gold: sxesevin
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM3eNO3P
+char_acc: 0.0                                
+Levenshtein dist:37
+==================================================
+
+Input: NNOMPL</tok>čʼamzanl
+Gold: čʼamzanlaˀn
+Prediction: kNO3Pmu</tok>NOMueNO3PmnNO3PNOMaeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:34
+==================================================
+
+Input: VITERFININDSG2PRS</tok>əlfč
+Gold: əlfčtesč
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMSGeNO3P
+char_acc: 0.0                                
+Levenshtein dist:36
+==================================================
+
+Input: VFININDSG1FUT</tok>sxzuv
+Gold: tsxzuvaɬkičen
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMseNO3P
+char_acc: 0.0                                
+Levenshtein dist:34
+==================================================
+
+Input: VNO3SAB3PFININDPRS</tok>aɲčpә
+Gold: aɲčpәzneˀn
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMaeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:37
+==================================================
+
+Input: VFININDPL3PRS</tok>čʼŋel
+Gold: čʼŋelesčeˀn
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM3eNO3P
+char_acc: 0.0625                                
+Levenshtein dist:37
+==================================================
+
+Input: VNO1SBE3SFINOPTPST</tok>tniɬ
+Gold: tniɬaɬčen
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOM</tok>eNO3P
+char_acc: 0.0625                                
+Levenshtein dist:39
+==================================================
+
+Input: VFININDSG3PRS</tok>qeni
+Gold: qenisč
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM3eNO3P
+char_acc: 0.0                                
+Levenshtein dist:37
+==================================================
+
+Input: VNO3SAB3PIPFVFININDPRS</tok>ezu
+Gold: ezuqzuzneˀn
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMeeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:35
+==================================================
+
+Input: VIPFVFININDPL3</tok>nest
+Gold: nestqzoˀaˀn
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM3eNO3P
+char_acc: 0.0625                                
+Levenshtein dist:37
+==================================================
+
+Input: VNO1PBE3SFINIMPCAUS</tok>tsxl
+Gold: xnәnitsxliˀin
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMseNO3P
+char_acc: 0.0                                
+Levenshtein dist:37
+==================================================
+
+Input: VNO1SBE3PFININDFUT</tok>ɬotz
+Gold: tɬotzaɬčeˀn
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.0625                                
+Levenshtein dist:41
+==================================================
+
+Input: VNO3SAB3SFININDPRS</tok>toza
+Gold: tozaznan
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOM</tok>eNO3P
+char_acc: 0.0                                
+Levenshtein dist:39
+==================================================
+
+Input: VCVBNFIN</tok>kʼenesi
+Gold: kkʼenesiˀinˀin
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMʼeNO3P
+char_acc: 0.125                                
+Levenshtein dist:35
+==================================================
+
+Input: VNFINPURP</tok>svataˀɬ
+Gold: svataˀɬnoke
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMseNO3P
+char_acc: 0.0                                
+Levenshtein dist:34
+==================================================
+
+Input: NNOMPL</tok>novaɬez
+Gold: novaɬezeˀn
+Prediction: kNO3Pmu</tok>NOMueNO3PmnNO3PNOMeeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:34
+==================================================
+
+Input: VNO2SAB1SFININDPST</tok>čʼel
+Gold: čʼelmiŋ
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.0                                
+Levenshtein dist:42
+==================================================
+
+Input: VFINIMPSG3</tok>ŋiksi
+Gold: xanŋiksivin
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM3eNO3P
+char_acc: 0.0625                                
+Levenshtein dist:37
+==================================================
+
+Input: NNOMSG</tok>neveska
+Gold: neveska
+Prediction: kNO3Pmu</tok>NOMueNO3PmnNO3PNOMeeNO3P
+char_acc: 0.0                                
+Levenshtein dist:35
+==================================================
+
+Input: VITERFININDSG3PRS</tok>fiɬ
+Gold: fiɬatezen
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOM3eNO3P
+char_acc: 0.0625                                
+Levenshtein dist:34
+==================================================
+
+Input: VACTYFININDPL3PRS</tok>seŋ
+Gold: seŋzoveˀn
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM3eNO3P
+char_acc: 0.0                                
+Levenshtein dist:36
+==================================================
+
+Input: VNO3SBE3SFININDPRS</tok>solo
+Gold: soloskinen
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMseNO3P
+char_acc: 0.0                                
+Levenshtein dist:35
+==================================================
+
+Input: VCVBNFIN</tok>әntʼeŋa
+Gold: kәntʼeŋaˀan
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMәeNO3P
+char_acc: 0.125                                
+Levenshtein dist:33
+==================================================
+
+Input: VNO3PAB2SFININDPST</tok>tkil
+Gold: ntkilˀin
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.0                                
+Levenshtein dist:41
+==================================================
+
+Input: ADJSG</tok>oprelkaj
+Gold: oprelkaj
+Prediction: kNO3Pmč</tok>NOMčeNO3PmnNO3PNOMoeNO3P
+char_acc: 0.0                                
+Levenshtein dist:35
+==================================================
+
+Input: VNO1SAB3SFININDFUT</tok>ləmm
+Gold: tləmmaɬen
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.0625                                
+Levenshtein dist:41
+==================================================
+
+Input: VFINIMPSG1</tok>әnxɬ
+Gold: mәnxɬkičen
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOM</tok>eNO3P
+char_acc: 0.0                                
+Levenshtein dist:38
+==================================================
+
+Input: VCVBNFIN</tok>ameɬat
+Gold: kʼameɬatknan
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMaeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:33
+==================================================
+
+Input: VNO3SBE3SFINOPTPRS</tok>eɬč
+Gold: eɬčaˀɬkzuskenan
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMeeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:33
+==================================================
+
+Input: VNO1SAB3SFINIMP</tok>čʼel
+Gold: mčʼelkičen
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.0                                
+Levenshtein dist:40
+==================================================
+
+Input: VIPFVFININDSG2PRS</tok>sk
+Gold: skqzozen
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMPRSeNO3P
+char_acc: 0.0                                
+Levenshtein dist:37
+==================================================
+
+Input: VNO3PAB3SFININDFUT</tok>әnk
+Gold: nәnkaˀɬxkmiŋ
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMәeNO3P
+char_acc: 0.125                                
+Levenshtein dist:36
+==================================================
+
+Input: VNO2SAB1SFINIMP</tok>učku
+Gold: učkumiŋ
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOM</tok>eNO3P
+char_acc: 0.0                                
+Levenshtein dist:40
+==================================================
+
+Input: VNO1PAB3PFININDPST</tok>čil
+Gold: nčilkičeˀn
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.0625                                
+Levenshtein dist:41
+==================================================
+
+Input: NDIMNOMSG</tok>kamlo
+Gold: kamloɲčaχ
+Prediction: kNO3Pmu</tok>NOMueNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.125                                
+Levenshtein dist:41
+==================================================
+
+Input: VNO3PAB3SFININDPRS</tok>zil
+Gold: nzilliznen
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMzeNO3P
+char_acc: 0.0                                
+Levenshtein dist:37
+==================================================
+
+Input: VCVBNFIN</tok>ilvizi
+Gold: kʼilviziknen
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.0625                                
+Levenshtein dist:40
+==================================================
+
+Input: VCVBNFIN</tok>tirxit
+Gold: ktirxitknen
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOM</tok>eNO3P
+char_acc: 0.125                                
+Levenshtein dist:37
+==================================================
+
+Input: VCVBNFIN</tok>ɬalxta
+Gold: ɬalxtaɬ
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMaeNO3P
+char_acc: 0.0                                
+Levenshtein dist:35
+==================================================
+
+Input: VNFINCAUS</tok>čʼevel
+Gold: әnčʼevelal’
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMeeNO3P
+char_acc: 0.0                                
+Levenshtein dist:37
+==================================================
+
+Input: NDIMNOMPL</tok>kamlo
+Gold: kamloˀɲč
+Prediction: kNO3Pmu</tok>NOMueNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.125                                
+Levenshtein dist:41
+==================================================
+
+Input: VCVBNFINOPT</tok>tavol
+Gold: tavolaˀɬkas
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMaeNO3P
+char_acc: 0.0                                
+Levenshtein dist:36
+==================================================
+
+Input: NNOMSG</tok>pevlum
+Gold: pevlumč
+Prediction: kNO3Pmu</tok>NOMueNO3Pmn</tok>NOMeeNO3P
+char_acc: 0.0                                
+Levenshtein dist:37
+==================================================
+
+Input: NNOMSG</tok>taɬata
+Gold: taɬata
+Prediction: kNO3Pmu</tok>NOMueNO3PmnNO3PNOMaeNO3P
+char_acc: 0.0                                
+Levenshtein dist:35
+==================================================
+
+Input: VNO2SAB1SFINIMPFUT</tok>əss
+Gold: kʼəssaɬmiŋ
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMəeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:37
+==================================================
+
+Input: NDATSG</tok>pudusk
+Gold: puduskanke
+Prediction: kNO3Pmu</tok>NOMueNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.0625                                
+Levenshtein dist:39
+==================================================
+
+Input: NLOCSG</tok>jejpiˀ
+Gold: jejpiˀnk
+Prediction: kNO3Pmu</tok>NOMueNO3Pmn</tok>NOMeeNO3P
+char_acc: 0.0                                
+Levenshtein dist:36
+==================================================
+
+Input: NNOMSG</tok>kaskas
+Gold: kaskas
+Prediction: kNO3Pmu</tok>NOMueNO3PmnNO3PNOMaeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:34
+==================================================
+
+Input: VNO3PAB3SIPFVFININDPRS</tok>in
+Gold: nineqzozen
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOM</tok>eNO3P
+char_acc: 0.0                                
+Levenshtein dist:39
+==================================================
+
+Input: VMSDRFHNFIN</tok>čʼŋel
+Gold: čʼŋelkiɬχ
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMŋeNO3P
+char_acc: 0.0                                
+Levenshtein dist:37
+==================================================
+
+Input: NLOCSG</tok>kʼenez
+Gold: kʼenezezenk
+Prediction: kNO3Pmu</tok>NOMueNO3Pmn</tok>NOMkeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:35
+==================================================
+
+Input: VNO1SBE3SFININDFUT</tok>lax
+Gold: tlaxaɬkenan
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOM</tok>eNO3P
+char_acc: 0.1875                                
+Levenshtein dist:38
+==================================================
+
+Input: VCVBNFIN</tok>sittaj
+Gold: sittaj
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMseNO3P
+char_acc: 0.0                                
+Levenshtein dist:36
+==================================================
+
+Input: VCVBNFINNEG</tok>əŋksx
+Gold: əŋksxkeq
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMŋeNO3P
+char_acc: 0.0                                
+Levenshtein dist:34
+==================================================
+
+Input: NNOMSG</tok>čsalaj
+Gold: čsalaj
+Prediction: kNO3Pmu</tok>NOMueNO3PmnNO3PNOMseNO3P
+char_acc: 0.0                                
+Levenshtein dist:36
+==================================================
+
+Input: NDATSG</tok>stoval
+Gold: stovalanke
+Prediction: kNO3Pmu</tok>NOMueNO3PmnNO3PNOMseNO3P
+char_acc: 0.0                                
+Levenshtein dist:33
+==================================================
+
+Input: NABLSG</tok>ajvaŋ
+Gold: ajvaŋxˀal
+Prediction: kNO3Pmu</tok>NOMueNO3PmnNO3PNOMaeNO3P
+char_acc: 0.0                                
+Levenshtein dist:36
+==================================================
+
+Input: VFININDSG3PRS</tok>es
+Gold: esezen
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM3eNO3P
+char_acc: 0.0                                
+Levenshtein dist:37
+==================================================
+
+Input: NNOMPL</tok>mesok
+Gold: mesokaˀn
+Prediction: kNO3Pmu</tok>NOMueNO3Pmn</tok>NOMseNO3P
+char_acc: 0.0                                
+Levenshtein dist:35
+==================================================
+
+Input: VFININDSG3PST</tok>nu
+Gold: ønuč
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOM3eNO3P
+char_acc: 0.0                                
+Levenshtein dist:36
+==================================================
+
+Input: NDIMNOMSG</tok>simt
+Gold: simtčaχ
+Prediction: kNO3Pmu</tok>NOMueNO3Pmn</tok>NOMseNO3P
+char_acc: 0.0625                                
+Levenshtein dist:37
+==================================================
+
+Input: ADJSG</tok>fsakoj
+Gold: fsakoj
+Prediction: kNO3Pmč</tok>NOMčeNO3Pmn</tok>NOMfeNO3P
+char_acc: 0.0                                
+Levenshtein dist:37
+==================================================
+
+Input: NNOMSG</tok>laχsχ
+Gold: laχsχ
+Prediction: kNO3Pmu</tok>NOMueNO3Pmn</tok>NOMaeNO3P
+char_acc: 0.0                                
+Levenshtein dist:38
+==================================================
+
+Input: VIPFVFININDPL3</tok>iɬ
+Gold: iɬqsuveˀn
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOM3eNO3P
+char_acc: 0.0                                
+Levenshtein dist:35
+==================================================
+
+Input: ADJSG</tok>teŋlaχ
+Gold: teŋlaχ
+Prediction: kNO3Pmč</tok>NOMčeNO3PmnNO3PNOMeeNO3P
+char_acc: 0.0                                
+Levenshtein dist:35
+==================================================
+
+Input: NDATSG</tok>mečʼa
+Gold: mečʼake
+Prediction: kNO3Pmu</tok>NOMueNO3PmnNO3PNOM</tok>eNO3P
+char_acc: 0.0                                
+Levenshtein dist:38
+==================================================
+
+Input: NNOMSG</tok>aˀasx
+Gold: aˀasx
+Prediction: kNO3Pmu</tok>NOMueNO3PmnNO3PNOMaeNO3P
+char_acc: 0.0                                
+Levenshtein dist:36
+==================================================
+
+Input: VNO3SBE3SFININDPST</tok>la
+Gold: lačiŋnen
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMaeNO3P
+char_acc: 0.0                                
+Levenshtein dist:37
+==================================================
+
+Input: ADJSG</tok>edakoj
+Gold: edakoj
+Prediction: kNO3Pmč</tok>NOMčeNO3Pmn</tok>NOMeeNO3P
+char_acc: 0.0                                
+Levenshtein dist:37
+==================================================
+
+Input: VCVBNFIN</tok>xoron
+Gold: xorones
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOM</tok>eNO3P
+char_acc: 0.0                                
+Levenshtein dist:39
+==================================================
+
+Input: VNO3SAB1SFINOPTPRS</tok>ɬa
+Gold: ɬasxonen
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMaeNO3P
+char_acc: 0.0                                
+Levenshtein dist:36
+==================================================
+
+Input: VMSDRFHNFIN</tok>teŋe
+Gold: teŋekiɬχ
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMŋeNO3P
+char_acc: 0.0                                
+Levenshtein dist:33
+==================================================
+
+Input: NNOMSG</tok>narta
+Gold: narta
+Prediction: kNO3Pmu</tok>NOMueNO3Pmn</tok>NOMaeNO3P
+char_acc: 0.0                                
+Levenshtein dist:36
+==================================================
+
+Input: VIPFVFININDPL1PST</tok>ɬ
+Gold: nɬqsuk
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMPLeNO3P
+char_acc: 0.0                                
+Levenshtein dist:38
+==================================================
+
+Input: NINSSG</tok>silqa
+Gold: silqaɬ
+Prediction: kNO3Pmu</tok>NOMueNO3PmnNO3PNOMseNO3P
+char_acc: 0.0                                
+Levenshtein dist:36
+==================================================
+
+Input: VNO2SAB3SFINIMP</tok>ɬxa
+Gold: qɬxax
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMɬeNO3P
+char_acc: 0.0                                
+Levenshtein dist:36
+==================================================
+
+Input: NNOMPL</tok>massu
+Gold: massuˀn
+Prediction: kNO3Pmu</tok>NOMueNO3PmnNO3PNOMaeNO3P
+char_acc: 0.0                                
+Levenshtein dist:34
+==================================================
+
+Input: NNOMSG</tok>mečak
+Gold: mečak
+Prediction: kNO3Pmu</tok>NOMueNO3PmnNO3PNOMeeNO3P
+char_acc: 0.0                                
+Levenshtein dist:35
+==================================================
+
+Input: NNOMSG</tok>fčifč
+Gold: fčifč
+Prediction: kNO3Pmu</tok>NOMueNO3Pmn</tok>NOMfeNO3P
+char_acc: 0.0                                
+Levenshtein dist:38
+==================================================
+
+Input: NNOMPL</tok>aˀasx
+Gold: aˀasxaˀn
+Prediction: kNO3Pmu</tok>NOMueNO3PmnNO3PNOMaeNO3P
+char_acc: 0.0                                
+Levenshtein dist:36
+==================================================
+
+Input: ADJSG</tok>staroj
+Gold: staroj
+Prediction: kNO3Pmč</tok>NOMčeNO3Pmn</tok>NOMseNO3P
+char_acc: 0.0                                
+Levenshtein dist:37
+==================================================
+
+Input: NDIMPRIVSG</tok>sisi
+Gold: sisičkin
+Prediction: kNO3Pmu</tok>NOMunNO3Pmn</tok>NOMseNO3P
+char_acc: 0.0625                                
+Levenshtein dist:37
+==================================================
+
+Input: NPRIVPL</tok>xevli
+Gold: xevlikiˀn
+Prediction: kNO3Pmu</tok>NOMueNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.0                                
+Levenshtein dist:42
+==================================================
+
+Input: NNOMSG</tok>činuq
+Gold: činuq
+Prediction: kNO3Pmu</tok>NOMueNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.0625                                
+Levenshtein dist:43
+==================================================
+
+Input: NNOMSG</tok>lqlam
+Gold: lqlam
+Prediction: kNO3Pmu</tok>NOMueNO3PmnNO3PNOMqeNO3P
+char_acc: 0.0                                
+Levenshtein dist:36
+==================================================
+
+Input: NCOMSG</tok>sanse
+Gold: ksansečom
+Prediction: kNO3Pmu</tok>NOMueNO3Pmn</tok>NOMseNO3P
+char_acc: 0.0625                                
+Levenshtein dist:35
+==================================================
+
+Input: NDATSG</tok>eˀɲɬo
+Gold: eˀɲɬonke
+Prediction: kNO3Pmu</tok>NOMueNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.0625                                
+Levenshtein dist:40
+==================================================
+
+Input: VCVBNFIN</tok>әnsxu
+Gold: kәnsxuˀin
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMseNO3P
+char_acc: 0.0625                                
+Levenshtein dist:34
+==================================================
+
+Input: NNOMSG</tok>tabun
+Gold: tabun
+Prediction: kNO3Pmu</tok>NOMueNO3PmnNO3PNOMaeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:34
+==================================================
+
+Input: VNO2SAB3PFINIMP</tok>is
+Gold: qʼisxeˀn
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMseNO3P
+char_acc: 0.0                                
+Levenshtein dist:37
+==================================================
+
+Input: NDIMNOMSG</tok>sap
+Gold: sapčaχ
+Prediction: kNO3Pmu</tok>NOMueNO3PmnNO3PNOMseNO3P
+char_acc: 0.0                                
+Levenshtein dist:36
+==================================================
+
+Input: VFINIMPSG2</tok>ɬә
+Gold: qɬәxč
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.0                                
+Levenshtein dist:44
+==================================================
+
+Input: VCVBNFIN</tok>әnsč
+Gold: kәnsčiˀin
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMseNO3P
+char_acc: 0.0625                                
+Levenshtein dist:34
+==================================================
+
+Input: VCVBNFINNEG</tok>zil
+Gold: zillaq
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMzeNO3P
+char_acc: 0.0                                
+Levenshtein dist:38
+==================================================
+
+Input: VCVBNFINCAUS</tok>čxl
+Gold: kəɳčxliˀin
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.0625                                
+Levenshtein dist:42
+==================================================
+
+Input: VCVBIPFVNFIN</tok>l’a
+Gold: kl’aqzuknen
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMaeNO3P
+char_acc: 0.125                                
+Levenshtein dist:33
+==================================================
+
+Input: NNOMSG</tok>babu
+Gold: babu
+Prediction: kNO3Pmu</tok>NOMueNO3PmnNO3PNOMaeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:36
+==================================================
+
+Input: VCVBITERNFIN</tok>čʼe
+Gold: kčʼetiknen
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMʼeNO3P
+char_acc: 0.125                                
+Levenshtein dist:34
+==================================================
+
+Input: NVOCPL</tok>uɲɲa
+Gold: uɲɲasxe
+Prediction: kNO3Pmu</tok>NOMueNO3PmnNO3PNOM</tok>eNO3P
+char_acc: 0.0                                
+Levenshtein dist:40
+==================================================
+
+Input: NNOMPL</tok>əɳče
+Gold: əɳčeˀn
+Prediction: kNO3Pmu</tok>NOMueNO3Pmn</tok>NOMəeNO3P
+char_acc: 0.0                                
+Levenshtein dist:37
+==================================================
+
+Input: ADJSG</tok>qulan
+Gold: qulan
+Prediction: kNO3Pmč</tok>NOMčeNO3PmnNO3PNOMqeNO3P
+char_acc: 0.0                                
+Levenshtein dist:36
+==================================================
+
+Input: VCVBNFINPRS</tok>qzu
+Gold: kqzuzˀin
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMqeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:35
+==================================================
+
+Input: VCVBNFIN</tok>kʼzi
+Gold: xkʼziknen
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMʼeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:35
+==================================================
+
+Input: NNOMSG</tok>mama
+Gold: mama
+Prediction: kNO3Pmu</tok>NOMueNO3PmnNO3PNOMaeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:34
+==================================================
+
+Input: VCVBNFIN</tok>tefs
+Gold: ktefsˀin
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMeeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:35
+==================================================
+
+Input: VFINOPTSG2</tok>ut
+Gold: utaɬen
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.0                                
+Levenshtein dist:41
+==================================================
+
+Input: VFINCONDSG1</tok>nu
+Gold: tkʼnuk
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOM</tok>eNO3P
+char_acc: 0.0                                
+Levenshtein dist:38
+==================================================
+
+Input: NDATSG</tok>atsl
+Gold: atslanke
+Prediction: kNO3Pmu</tok>NOMueNO3Pmn</tok>NOMaeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:35
+==================================================
+
+Input: VCVBIPFVNFIN</tok>čʼe
+Gold: kčʼeqzuknen
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMeeNO3P
+char_acc: 0.125                                
+Levenshtein dist:35
+==================================================
+
+Input: VFINIMPPL2</tok>es
+Gold: qʼessx
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMseNO3P
+char_acc: 0.0                                
+Levenshtein dist:37
+==================================================
+
+Input: VCVBNFINOPTCAUS</tok>ɬo
+Gold: әnɬovaɬsxanˀin
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMɬeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:37
+==================================================
+
+Input: NLOCSG</tok>iˀɲɬ
+Gold: iˀɲɬunk
+Prediction: kNO3Pmu</tok>NOMueNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.0                                
+Levenshtein dist:41
+==================================================
+
+Input: VCVBNFINNEG</tok>әɬč
+Gold: әɬčuq
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMәeNO3P
+char_acc: 0.0                                
+Levenshtein dist:36
+==================================================
+
+Input: VFINIMPSG2</tok>fi
+Gold: qfikes
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMfeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:37
+==================================================
+
+Input: VCVBNFIN</tok>әnzu
+Gold: kәnzuˀin
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMәeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:35
+==================================================
+
+Input: VCVBNFIN</tok>әntχ
+Gold: kәntχeˀin
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMәeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:33
+==================================================
+
+Input: VCVBNFIN</tok>vel
+Gold: velkas
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMeeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:37
+==================================================
+
+Input: VCVBNFIN</tok>pla
+Gold: kplaknen
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMpeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:35
+==================================================
+
+Input: NNOMPL</tok>esq
+Gold: esqeˀn
+Prediction: kNO3Pmu</tok>NOMueNO3Pmn</tok>NOMseNO3P
+char_acc: 0.0                                
+Levenshtein dist:37
+==================================================
+
+Input: VCVBNFIN</tok>kup
+Gold: kupsxenki
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMkeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:33
+==================================================
+
+Input: VCVBNFINCAUS</tok>lo
+Gold: әnloɬeɬ
+Prediction: kNO3Pmk</tok>NOMknNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.0                                
+Levenshtein dist:41
+==================================================
+
+Input: NINSSG</tok>qsi
+Gold: qsiɬ
+Prediction: kNO3Pmu</tok>NOMunNO3Pmn</tok>NOMseNO3P
+char_acc: 0.0                                
+Levenshtein dist:38
+==================================================
+
+Input: NDATSG</tok>ɲaɲ
+Gold: ɲaɲanke
+Prediction: kNO3Pmu</tok>NOMunNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.0                                
+Levenshtein dist:41
+==================================================
+
+Input: VCVBNFIN</tok>omt
+Gold: kʼomtʼin
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMoeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:35
+==================================================
+
+Input: VCVBNFIN</tok>pәl
+Gold: kpәlknen
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMpeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:35
+==================================================
+
+Input: NNOMPL</tok>utk
+Gold: utkeˀn
+Prediction: kNO3Pmu</tok>NOMueNO3Pmn</tok>NOMueNO3P
+char_acc: 0.0                                
+Levenshtein dist:34
+==================================================
+
+Input: VNFIN</tok>әɲčk
+Gold: әɲčkeɬčaχ
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMәeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:37
+==================================================
+
+Input: NNOMSG</tok>loŋ
+Gold: loŋ
+Prediction: kNO3Pmu</tok>NOMueNO3Pmn</tok>NOMŋeNO3P
+char_acc: 0.0                                
+Levenshtein dist:37
+==================================================
+
+Input: VCVBNFINCAUS</tok>pɬ
+Gold: kәmpɬˀan
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMpeNO3P
+char_acc: 0.125                                
+Levenshtein dist:36
+==================================================
+
+Input: NABLSG</tok>qeχ
+Gold: qeχˀal
+Prediction: kNO3Pmu</tok>NOMueNO3Pmn</tok>NOMqeNO3P
+char_acc: 0.0                                
+Levenshtein dist:37
+==================================================
+
+Input: VCVBNFIN</tok>әnx
+Gold: kәnxknen
+Prediction: kNO3Pmk</tok>NOMkeNO3PmnNO3PNOMәeNO3P
+char_acc: 0.0625                                
+Levenshtein dist:33
+==================================================
+
+Input: VNO3SBE3PFINCOND</tok>s
+Gold: kʼsčiŋiˀn
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMseNO3P
+char_acc: 0.0625                                
+Levenshtein dist:37
+==================================================
+
+Input: NNOMSG</tok>noč
+Gold: noč
+Prediction: kNO3Pmu</tok>NOMueNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.0                                
+Levenshtein dist:42
+==================================================
+
+Input: ADJPL</tok>čkʼ
+Gold: čkʼlaχaˀn
+Prediction: kNO3Pmč</tok>NOMčeNO3Pmn</tok>NOMʼeNO3P
+char_acc: 0.0                                
+Levenshtein dist:36
+==================================================
+
+Input: VNFINPURP</tok>uˀ
+Gold: uˀelnoke
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.125                                
+Levenshtein dist:39
+==================================================
+
+Input: VCVBNFIN</tok>it
+Gold: kʼitknen
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOM</tok>eNO3P
+char_acc: 0.0625                                
+Levenshtein dist:39
+==================================================
+
+Input: VNFINOPT</tok>ɬ
+Gold: ɬaɬiɬ
+Prediction: kNO3Pmk</tok>NOMkeNO3Pmn</tok>NOMɬeNO3P
+char_acc: 0.0                                
+Levenshtein dist:38
+==================================================
