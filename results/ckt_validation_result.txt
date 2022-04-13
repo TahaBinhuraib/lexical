@@ -1,0 +1,14 @@
+Language: ckt
+Seed: 0
+dim: 512
+max_step: 2                    
+warmup_steps: 2
+Tag_location: prepend
+n_layer: 2                    
+n_batch: 256
+Copy: True
+accuracy: 0.0                    
+f1: 0.3022847100175747
+bleu: 2.92066091906621e-155
+character accuracy: 0.007936507936507936
+==================================================
