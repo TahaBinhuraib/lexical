@@ -12,6 +12,7 @@ warmup_steps=1000
 valid_steps=100
 
 cd ..
+mkdir logs
 
 for seed in ${seeds[@]}; do
     for language in ${languages[@]}; do
