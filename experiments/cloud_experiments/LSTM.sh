@@ -22,7 +22,7 @@ valid_steps=500
 
 
 i=0
-mkdir logs
+mkdir -p logs
 
 for seed in ${seeds[@]}; do
     for language in ${languages[@]}; do
