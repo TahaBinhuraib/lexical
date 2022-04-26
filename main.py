@@ -2,6 +2,7 @@ import datetime
 import json
 import os
 import random
+import subprocess
 from asyncore import write
 from statistics import mean
 
@@ -53,7 +54,7 @@ flags.DEFINE_bool("early_stopping", True, "earlystopping regularization")
 flags.DEFINE_integer("patience", 7, "early stopping patience")
 flags.DEFINE_bool("lr_schedule", True, "noam lr scheduler")
 flags.DEFINE_bool("qxy", True, "train pretrained qxy")
-flags.DEFINE_bool("copy", True, "enable copy mechanism")
+flags.DEFINE_bool("copy", False, "enable copy mechanism")
 flags.DEFINE_bool("highdrop", False, "high drop mechanism")
 flags.DEFINE_bool("highdroptest", False, "high drop at test")
 flags.DEFINE_float("highdropvalue", 0.5, "high drop value")
@@ -279,11 +280,23 @@ def validate(model, val_dataset, vis=False, final=False, writer=None, references
         f1 = 2 * prec * rec / (prec + rec)
 
     if vis:
-        with open(f"./results/{FLAGS.language}_validation_result.txt", "a") as f:
+        commit_hash = subprocess.run(
+            "git rev-parse HEAD", shell=True, check=True, capture_output=True
+        )
+        commit_hash = commit_hash.stdout.strip()
+        commit_hash = str(commit_hash)
+
+        path = f"./experiments/commit_hash_{commit_hash}/{FLAGS.language}/batch_{FLAGS.n_batch}_hidden_{FLAGS.n_layers}_dim_{FLAGS.dim}/seed_{FLAGS.seed}"
+        try:
+            os.makedirs(path, exist_ok=False)
+        except FileExistsError:
+            pass
+
+        with open(f"{path}/results.txt", "a") as f:
             f.write(
                 f'Language: {FLAGS.language}\nSeed: {FLAGS.seed}\ndim: {FLAGS.dim}\nmax_step: {FLAGS.max_step}\
                     \nwarmup_steps: {FLAGS.warmup_steps}\nTag_location: {FLAGS.tag_location}\nn_layer: {FLAGS.n_layers}\
-                    \nn_batch: {FLAGS.n_batch}\nCopy: {FLAGS.copy}\naccuracy: {acc}\
+                    \nn_batch: {FLAGS.n_batch}\nCopy: {FLAGS.copy}\nlr: {FLAGS.lr}\ndropout: {FLAGS.dropout}\naccuracy: {acc}\
                     \nf1: {f1}\nbleu: {bleu_score}\ncharacter accuracy: {mean(acc_list)}\n{"="*50}\n'
             )
 
@@ -473,6 +486,7 @@ def main(argv):
     else:
         model = torch.load(FLAGS.load_model)
 
+    model.load_state_dict(torch.load("checkpoint.pt"))
     with hlog.task("train evaluation"):
         validate(model, train_items, vis=False, references=references)
 
