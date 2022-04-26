@@ -22,6 +22,7 @@ valid_steps=500
 
 
 i=0
+mkdir logs
 
 for seed in ${seeds[@]}; do
     for language in ${languages[@]}; do
@@ -32,7 +33,7 @@ for seed in ${seeds[@]}; do
                         for lstmlayer in ${lstmlayers[@]}; do
                         if [[ $i -eq $SLURM_ARRAY_TASK_ID ]]; then
                         
-                                main.py \
+                                python main.py \
                                 --seed $seed\
                                 --language $language\
                                 --n_layers $lstmlayer\
