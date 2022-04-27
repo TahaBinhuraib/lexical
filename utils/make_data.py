@@ -11,6 +11,9 @@ def generate_data(
     validate_tags,
     train_output,
     validate_output,
+    test_input,
+    test_tags,
+    test_output,
     vocab_x,
     vocab_y,
     tag_location,
@@ -31,18 +34,31 @@ def generate_data(
         if tag_location == "prepend":
             x_validation.append(tag + [Vocab.TOK] + input)
 
+    x_test = []
+    for input, tag in zip(test_input, test_tags):
+        if tag_location == "append":
+            x_test.append(input + [Vocab.TOK] + tag)
+        if tag_location == "prepend":
+            x_test.append(tag + [Vocab.TOK] + input)
+
     study = []
     for x, y in zip(x_train, train_output):
         study.append((x, y))
 
-    test = []
+    validate = []
     for x, y in zip(x_validation, validate_output):
+        validate.append((x, y))
+
+    test = []
+    for x, y in zip(x_test, test_output):
         test.append((x, y))
 
     max_x = len(max(x_train, key=len))
     max_y = len(max(train_output, key=len))
-    train_items, test_items = encode(study, vocab_x, vocab_y), encode(test, vocab_x, vocab_y)
+    train_items, validate_items = encode(study, vocab_x, vocab_y), encode(
+        validate, vocab_x, vocab_y
+    )
 
-    val_items = test_items
+    test_items = encode(test, vocab_x, vocab_y)
 
-    return train_items, test_items, val_items, study, test, max_x, max_y
+    return train_items, validate_items, test_items, study, test, validate, max_x, max_y

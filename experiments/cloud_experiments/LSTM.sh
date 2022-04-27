@@ -7,7 +7,7 @@
 #SBATCH --qos=high
 #SBATCH --constrain=xeon-g6
 #SBATCH --gres=gpu:volta:1
-#SBATCH --array=0-2915
+#SBATCH --array=0-3887
 
 languages=("ame" "bra" "ckt" "itl")
 seeds=(0 1 2)
@@ -45,6 +45,7 @@ for seed in ${seeds[@]}; do
                                 --warmup_steps ${warmup_steps}\
                                 --valid_steps ${valid_steps}\
                                 --copy True > ./logs/logs_seed_{$seed}_lan_{$language}_batch_{$batch}_dim_{$dim}_layer_{$lstmlayer}.txt 2> ./logs/err_seed_{$seed}_lan_{$language}_batch_{$batch}_dim_{$dim}_layer_{$lstmlayer}.txt
+                                rm checkpoint.pt
                         fi
                         i=$(( i + 1 ))
 

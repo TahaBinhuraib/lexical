@@ -397,7 +397,7 @@ def main(argv):
 
         train_input, train_output, train_tags = myutil.read_data(train_path)
         validate_input, validate_output, validate_tags = myutil.read_data(dev_path)
-        test_input, test_tags = myutil.read_test_data(test_path)
+        test_input, test_output, test_tags = myutil.read_data(test_path)
 
         characters = myutil.get_chars(
             train_input + train_output + validate_input + validate_output
@@ -416,13 +416,25 @@ def main(argv):
             vocab_x.add(c)
             vocab_y.add(c)
 
-        train_items, test_items, val_items, study, test, max_x, max_y = generate_data(
+        (
+            train_items,
+            validate_items,
+            test_items,
+            study,
+            test,
+            validatation,
+            max_x,
+            max_y,
+        ) = generate_data(
             train_input,
             train_tags,
             validate_input,
             validate_tags,
             train_output,
             validate_output,
+            test_input,
+            test_tags,
+            test_output,
             vocab_x,
             vocab_y,
             FLAGS.tag_location,
@@ -479,7 +491,7 @@ def main(argv):
             acc, f1, bscore = train(
                 model,
                 train_items,
-                val_items,
+                validate_items,
                 writer=writer,
                 references=references,
             )
@@ -490,8 +502,8 @@ def main(argv):
     with hlog.task("train evaluation"):
         validate(model, train_items, vis=False, references=references)
 
-    with hlog.task("val evaluation"):
-        validate(model, val_items, vis=True, references=references)
+    with hlog.task("test evaluation"):
+        validate(model, test_items, vis=True, references=references)
 
     # with hlog.task("test evaluation (greedy)"):
     #     validate(
