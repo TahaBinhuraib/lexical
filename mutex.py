@@ -17,8 +17,7 @@ LossTrack = collections.namedtuple("LossTrack", "nll mlogpyx pointkl")
 class Mutex(nn.Module):
     def __init__(
         self,
-        vocab_x,
-        vocab_y,
+        tokenizer,
         emb,
         dim,
         copy=False,
@@ -38,8 +37,7 @@ class Mutex(nn.Module):
 
         super().__init__()
 
-        self.vocab_x = vocab_x
-        self.vocab_y = vocab_y
+        self.tokenizer = tokenizer
         self.rnntype = rnntype
         self.bidirectional = bidirectional
         self.dim = dim
@@ -48,8 +46,7 @@ class Mutex(nn.Module):
         self.MAXLEN_X = max_len_x
         self.MAXLEN_Y = max_len_y
         self.pyx = EncDec(
-            vocab_x,
-            vocab_y,
+            tokenizer,
             emb,
             dim,
             copy=copy,
@@ -63,8 +60,7 @@ class Mutex(nn.Module):
         )
         if qxy:
             self.qxy = EncDec(
-                vocab_y,
-                vocab_x,
+                tokenizer,
                 emb,
                 dim,
                 copy=copy,

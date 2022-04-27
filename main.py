@@ -13,25 +13,34 @@ import torch
 import torch.utils.data as torch_data
 from absl import app, flags
 from nltk.translate.bleu_score import corpus_bleu
+from regex import F
+from tokenizers import ByteLevelBPETokenizer
 from torch import nn, optim
 from torch.utils.tensorboard import SummaryWriter
 from tqdm import tqdm
+from transformers import (
+    BartConfig,
+    BartForConditionalGeneration,
+    BartModel,
+    BartTokenizerFast,
+)
 
 import hlog
 import utils.myutil as myutil
 from data import collate, encode, encode_io, eval_format, get_fig2_exp
 from mutex import EarlyStopping, MultiIter, Mutex, RecordLoss, Vocab
 from src import NoamLR, SoftAlign
-from utils.make_data import generate_data
+from utils.make_data import generate_data, generate_data_for_tokenizer
 
 sns.set()
 FLAGS = flags.FLAGS
 flags.DEFINE_string("language_task", "morphology", "folder to find data")
 flags.DEFINE_string("tag_location", "prepend", "determines if we prepend or append the tags")
+flags.DEFINE_string("encoding", "bpe", "deterimenes type of encoding")
 flags.DEFINE_string("language", "tur", "low resource language")
 flags.DEFINE_integer("dim", 512, "trasnformer dimension")
 flags.DEFINE_integer("n_layers", 2, "number of rnn layers")
-flags.DEFINE_integer("n_batch", 256, "batch size")
+flags.DEFINE_integer("n_batch", 20, "batch size")
 flags.DEFINE_float("gclip", 0.5, "gradient clip")
 flags.DEFINE_integer("n_epochs", 2, "number of training epochs")
 flags.DEFINE_integer("beam_size", 5, "beam search size")
@@ -214,14 +223,14 @@ def validate(model, val_dataset, vis=False, final=False, writer=None, references
             for i, seq in enumerate(pred):
                 true_char = 0
                 input_ref = input[:, i].cpu().detach().numpy().tolist()
-                input_ref = eval_format(model.vocab_x, input_ref)
+                input_ref = eval_format(model.tokenizer, input_ref)
                 ref = out[:, i].numpy().tolist()
-                ref = eval_format(model.vocab_y, ref)
-                pred_here = eval_format(model.vocab_y, pred[i])
+                ref = eval_format(model.tokenizer, ref)
+                pred_here = eval_format(model.tokenizer, pred[i])
                 if references is None:
                     cur_references.append([ref])
                 else:
-                    inpref = " ".join(model.vocab_x.decode(inp[0 : lens[i], i].numpy().tolist()))
+                    inpref = " ".join(model.tokenizer.decode(inp[0 : lens[i], i].numpy().tolist()))
                     cur_references.append(references[inpref])
 
                 len_ref = len(ref)
@@ -386,50 +395,95 @@ def main(argv):
     np.random.seed(FLAGS.seed)
     torch.manual_seed(FLAGS.seed)
 
-    vocab_x = Vocab()
-    vocab_y = Vocab()
-    references = None
-
-    if FLAGS.language_task == "morphology":
+    if FLAGS.encoding == "bpe":
+        references = None
         train_path = f"data_2021/{FLAGS.language}/{FLAGS.language}.train"
         dev_path = f"data_2021/{FLAGS.language}/{FLAGS.language}.dev"
         test_path = f"data_2021/{FLAGS.language}/{FLAGS.language}.test"
 
-        train_input, train_output, train_tags = myutil.read_data(train_path)
-        validate_input, validate_output, validate_tags = myutil.read_data(dev_path)
-        test_input, test_tags = myutil.read_test_data(test_path)
-
-        characters = myutil.get_chars(
-            train_input + train_output + validate_input + validate_output
+        file_path, special_tokens = myutil.make_data_for_tokenizer(
+            train_path, dev_path, FLAGS.language
         )
-        tags = myutil.get_tags(train_tags + validate_tags)
-
-        if FLAGS.copy:
-            for tag in tags:
-                vocab_x.add(tag)
-                vocab_y.add(tag)
-        else:
-            for tag in tags:
-                vocab_x.add(tag)
-
-        for c in characters:
-            vocab_x.add(c)
-            vocab_y.add(c)
-
-        train_items, test_items, val_items, study, test, max_x, max_y = generate_data(
+        tokenizer = ByteLevelBPETokenizer()
+        # Train the tokenizer
+        tokenizer.train(
+            files=file_path, vocab_size=50_000, min_frequency=1, special_tokens=special_tokens
+        )
+        os.mkdir(f"bart_local_{FLAGS.language}")
+        tokenizer.save_model(f"./bart_local_{FLAGS.language}")
+        tokenizer = BartTokenizerFast.from_pretrained(f"bart_local_{FLAGS.language}")
+        print(len(tokenizer))
+        train_input, train_output, train_tags = myutil.read_data_bpe(train_path)
+        validate_input, validate_output, validate_tags = myutil.read_data_bpe(dev_path)
+        (
+            train_items,
+            test_items,
+            val_items,
+            study,
+            test,
+            max_x,
+            max_y,
+        ) = generate_data_for_tokenizer(
             train_input,
             train_tags,
             validate_input,
             validate_tags,
             train_output,
             validate_output,
-            vocab_x,
-            vocab_y,
-            FLAGS.tag_location,
+            tokenizer,
         )
 
         max_len_x = max_x
         max_len_y = max_y
+
+    else:
+        vocab_x = Vocab()
+        vocab_y = Vocab()
+        references = None
+
+        if FLAGS.language_task == "morphology":
+            train_path = f"data_2021/{FLAGS.language}/{FLAGS.language}.train"
+            dev_path = f"data_2021/{FLAGS.language}/{FLAGS.language}.dev"
+            test_path = f"data_2021/{FLAGS.language}/{FLAGS.language}.test"
+
+            train_input, train_output, train_tags = myutil.read_data(train_path)
+            validate_input, validate_output, validate_tags = myutil.read_data(dev_path)
+            test_input, test_tags = myutil.read_test_data(test_path)
+
+            characters = myutil.get_chars(
+                train_input + train_output + validate_input + validate_output
+            )
+            tags = myutil.get_tags(train_tags + validate_tags)
+
+            if FLAGS.copy:
+                for tag in tags:
+                    vocab_x.add(tag)
+                    vocab_y.add(tag)
+            else:
+                for tag in tags:
+                    vocab_x.add(tag)
+
+            for c in characters:
+                vocab_x.add(c)
+                vocab_y.add(c)
+
+            train_items, test_items, val_items, study, test, max_x, max_y = generate_data(
+                train_input,
+                train_tags,
+                validate_input,
+                validate_tags,
+                train_output,
+                validate_output,
+                vocab_x,
+                vocab_y,
+                FLAGS.tag_location,
+            )
+
+            max_len_x = max_x
+            max_len_y = max_y
+            print(vocab_x.pad())
+            print(type(vocab_x.eos()))
+            quit()
 
     if FLAGS.copy:
         # vocab_y = vocab_x.merge(vocab_y)
@@ -439,8 +493,8 @@ def main(argv):
     else:
         copy_translation = None
 
-    hlog.value("vocab_x\n", vocab_x)
-    hlog.value("vocab_y\n", vocab_y)
+    # hlog.value("vocab_x\n", vocab_x)
+    # hlog.value("vocab_y\n", vocab_y)
     hlog.value("study\n", study)
     hlog.value("test\n", test)
 
@@ -457,8 +511,7 @@ def main(argv):
 
     if FLAGS.load_model == "":
         model = Mutex(
-            vocab_x,
-            vocab_y,
+            tokenizer,
             FLAGS.dim,
             FLAGS.dim,
             max_len_x=max_len_x,
@@ -470,8 +523,9 @@ def main(argv):
             dropout=FLAGS.dropout,
             temp=FLAGS.temp,
             qxy=FLAGS.qxy,
-            bidirectional=FLAGS.bidirectional,  # TODO remember human data was bidirectional
+            bidirectional=FLAGS.bidirectional,
         ).to(DEVICE)
+
         if copy_translation is not None:
             model.pyx.decoder.copy_translation = copy_translation
 
@@ -492,11 +546,6 @@ def main(argv):
 
     with hlog.task("val evaluation"):
         validate(model, val_items, vis=True, references=references)
-
-    # with hlog.task("test evaluation (greedy)"):
-    #     validate(
-    #         model, test_items, vis=True, final=False, references=references
-    #     )
 
     # with hlog.task("test evaluation (beam)"):
     #     validate(model, test_items, vis=False, final=True)

@@ -4,6 +4,7 @@ from collections import defaultdict
 from random import choice, random
 
 import numpy as np
+from transformers import TF_DPR_QUESTION_ENCODER_PRETRAINED_MODEL_ARCHIVE_LIST
 
 
 def edit_distance(str1, str2):
@@ -115,3 +116,70 @@ def get_chars(l):
 def get_tags(l):
     flat_list = [tag for sublist in l for tag in sublist]
     return list(set(flat_list))
+
+
+def _read_data(filename):
+    with codecs.open(filename, "r", "utf-8") as inp:
+        lines = inp.readlines()
+    inputs = []
+    outputs = []
+    tags = []
+    for l in lines:
+        l = l.strip().split("\t")
+        if l:
+            inputs.append(l[0])
+            outputs.append(l[1])
+            tags.append(re.split("\W+", l[2]))
+
+    return inputs, outputs, tags
+
+
+def read_data_for_tokenizer(filename):
+    with codecs.open(filename, "r", "utf-8") as inp:
+        lines = inp.readlines()
+    inputs = []
+    outputs = []
+    for l in lines:
+        l = l.strip().split("\t")
+        if l:
+            inputs.append(l[0])
+            outputs.append(l[1])
+
+    return inputs, outputs
+
+
+def make_data_for_tokenizer(train_path, dev_path, language):
+    special_tokens = ["<pad>", "<s>", "</s>", "<copy>", "<unk>", "</tok>", "<mask>"]
+
+    train_input, train_output = read_data_for_tokenizer(train_path)
+    validate_input, validate_output = read_data_for_tokenizer(dev_path)
+    raw_data = train_input + train_output + validate_input + validate_output
+
+    with open(f"generated_data/{language}_data.txt", "w") as f:
+        for item in raw_data:
+            f.write("%s\n" % item)
+
+    _, _, train_tags = _read_data(train_path)
+    _, _, validate_tags = _read_data(dev_path)
+    tags = get_tags(train_tags + validate_tags)
+    for tag in tags:
+        special_tokens.append("tag")
+
+    return f"generated_data/{language}_data.txt", special_tokens
+
+
+def read_data_bpe(filename):
+    with codecs.open(filename, "r", "utf-8") as inp:
+        lines = inp.readlines()
+    inputs = []
+    outputs = []
+    tags = []
+    for l in lines:
+        l = l.strip().split("\t")
+        if l:
+            inputs.append(l[0])
+            outputs.append(l[1])
+            tags.append(" ".join(l[2].split(";")))
+
+    return inputs, outputs, tags
+    

@@ -28,11 +28,10 @@ def encode_io(datum, vocab_x, vocab_y):
     )
 
 
-def eval_format(vocab, seq):
-    if vocab.eos() in seq:
-        seq = seq[: seq.index(vocab.eos()) + 1]
-    seq = seq[1:-1]
-    return vocab.decode(seq)
+def eval_format(tokenizer, seq):
+    text = tokenizer.decode(seq, skip_special_tokens=True)
+
+    return text
 
 
 def collate(batch):
