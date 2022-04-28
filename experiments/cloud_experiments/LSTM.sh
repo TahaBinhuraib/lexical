@@ -16,8 +16,8 @@ lrs=(1 0.1 0.01)
 lstmdims=(128 256 512)
 dropouts=(0.1 0.3 0.4)
 lstmlayers=(1 2 3 4)
-max_step=4000
-warmup_steps=2000
+max_step=20000
+warmup_steps=4000
 valid_steps=500
 
 
