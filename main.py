@@ -81,10 +81,12 @@ def read_augmented_file(file, vocab_x, vocab_y):
     return edata
 
 
-def train(model, train_dataset, val_dataset, writer=None, references=None):
+def train(model, train_dataset, val_dataset, PATH=None, writer=None, references=None):
     opt = optim.Adam(model.parameters(), lr=FLAGS.lr, betas=(0.9, 0.998))
     if FLAGS.early_stopping:
-        early_stopping = EarlyStopping(patience=FLAGS.patience, verbose=True)
+        early_stopping = EarlyStopping(
+            patience=FLAGS.patience, verbose=True, path=PATH + "/checkpoint.pt"
+        )
     if FLAGS.lr_schedule:
         # scheduler = AdafactorSchedule(opt)
         scheduler = NoamLR(opt, FLAGS.dim, warmup_steps=FLAGS.warmup_steps)
@@ -152,6 +154,7 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
                         acc, f1, val_loss, bscore = validate(
                             model,
                             val_dataset,
+                            PATH=PATH,
                             writer=writer,
                             references=references,
                             vis=False,
@@ -183,7 +186,7 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
     return acc, f1, bscore
 
 
-def validate(model, val_dataset, vis=False, final=False, writer=None, references=None):
+def validate(model, val_dataset, PATH=None, vis=False, final=False, writer=None, references=None):
     model.eval()
     val_loader = torch_data.DataLoader(
         val_dataset,
@@ -280,19 +283,7 @@ def validate(model, val_dataset, vis=False, final=False, writer=None, references
         f1 = 2 * prec * rec / (prec + rec)
 
     if vis:
-        commit_hash = subprocess.run(
-            "git rev-parse HEAD", shell=True, check=True, capture_output=True
-        )
-        commit_hash = commit_hash.stdout.strip()
-        commit_hash = str(commit_hash)
-
-        path = f"./experiments/commit_hash_{commit_hash}/{FLAGS.language}/batch_{FLAGS.n_batch}_hidden_{FLAGS.n_layers}_dim_{FLAGS.dim}/seed_{FLAGS.seed}"
-        try:
-            os.makedirs(path, exist_ok=False)
-        except FileExistsError:
-            pass
-
-        with open(f"{path}/results.txt", "a") as f:
+        with open(f"{PATH}/results.txt", "a") as f:
             f.write(
                 f'Language: {FLAGS.language}\nSeed: {FLAGS.seed}\ndim: {FLAGS.dim}\nmax_step: {FLAGS.max_step}\
                     \nwarmup_steps: {FLAGS.warmup_steps}\nTag_location: {FLAGS.tag_location}\nn_layer: {FLAGS.n_layers}\
@@ -385,6 +376,15 @@ def main(argv):
     random.seed(FLAGS.seed)
     np.random.seed(FLAGS.seed)
     torch.manual_seed(FLAGS.seed)
+    GIT_HASH = subprocess.run("git rev-parse HEAD", shell=True, check=True, capture_output=True)
+    GIT_HASH = GIT_HASH.stdout.strip()
+    GIT_HASH = str(GIT_HASH)
+
+    PATH = f"./experiments/commit_hash_{GIT_HASH}/{FLAGS.language}/batch_{FLAGS.n_batch}_hidden_{FLAGS.n_layers}_dim_{FLAGS.dim}/seed_{FLAGS.seed}"
+    try:
+        os.makedirs(PATH, exist_ok=False)
+    except FileExistsError:
+        pass
 
     vocab_x = Vocab()
     vocab_y = Vocab()
@@ -489,21 +489,19 @@ def main(argv):
 
         with hlog.task("train model"):
             acc, f1, bscore = train(
-                model,
-                train_items,
-                validate_items,
-                writer=writer,
-                references=references,
+                model, train_items, validate_items, PATH=PATH, writer=writer, references=references
             )
     else:
         model = torch.load(FLAGS.load_model)
 
-    model.load_state_dict(torch.load("checkpoint.pt"))
+    model.load_state_dict(torch.load(PATH + "/checkpoint.pt"))
     with hlog.task("train evaluation"):
-        validate(model, train_items, vis=False, references=references)
+        validate(model, train_items, PATH=PATH, vis=False, references=references)
 
     with hlog.task("test evaluation"):
-        validate(model, test_items, vis=True, references=references)
+        validate(model, test_items, PATH=PATH, vis=True, references=references)
+
+    os.remove(PATH + "/checkpoint.pt")
 
     # with hlog.task("test evaluation (greedy)"):
     #     validate(
