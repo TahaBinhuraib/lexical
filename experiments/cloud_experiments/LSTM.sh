@@ -44,8 +44,7 @@ for seed in ${seeds[@]}; do
                                 --max_step ${max_step}\
                                 --warmup_steps ${warmup_steps}\
                                 --valid_steps ${valid_steps}\
-                                --copy True > ./logs/logs_seed_{$seed}_lan_{$language}_batch_{$batch}_dim_{$dim}_layer_{$lstmlayer}.txt 2> ./logs/err_seed_{$seed}_lan_{$language}_batch_{$batch}_dim_{$dim}_layer_{$lstmlayer}.txt
-                                rm checkpoint.pt
+                                --copy True > ./logs/logs_seed_${seed}_lan_${language}_batch_${batch}_dim_${dim}_layer_${lstmlayer}.txt 2> ./logs/err_seed_${seed}_lan_${language}_batch_${batch}_dim_${dim}_layer_${lstmlayer}.txt
                         fi
                         i=$(( i + 1 ))
 
