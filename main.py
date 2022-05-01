@@ -38,9 +38,9 @@ flags.DEFINE_string("language_task", "morphology", "folder to find data")
 flags.DEFINE_string("tag_location", "prepend", "determines if we prepend or append the tags")
 flags.DEFINE_string("encoding", "bpe", "deterimenes type of encoding")
 flags.DEFINE_string("language", "tur", "low resource language")
-flags.DEFINE_integer("dim", 512, "trasnformer dimension")
+flags.DEFINE_integer("dim", 256, "trasnformer dimension")
 flags.DEFINE_integer("n_layers", 2, "number of rnn layers")
-flags.DEFINE_integer("n_batch", 20, "batch size")
+flags.DEFINE_integer("n_batch", 10, "batch size")
 flags.DEFINE_float("gclip", 0.5, "gradient clip")
 flags.DEFINE_integer("n_epochs", 2, "number of training epochs")
 flags.DEFINE_integer("beam_size", 5, "beam search size")
@@ -265,7 +265,10 @@ def validate(model, val_dataset, vis=False, final=False, writer=None, references
                             hlog.value("gold", ref)
                             hlog.value("pred", pred_here)
                             f.write(
-                                f"\n\nInput: {''.join(input_ref)}\nGold: {''.join(ref)}\nPrediction: {''.join(pred_here)}\nchar_acc: {acc_here}\
+                                f"\n\nInput: {''.join(input_ref)}\ninput_ids:{input[:, i].cpu().detach().numpy().tolist()}\
+                                \nGold: {''.join(ref)}\nPrediction: {''.join(pred_here)}\
+                                \nGold_ids: {out[:, i].numpy().tolist()}\
+                                \nPredicted_ids: {pred[i]}\n\nchar_acc: {acc_here}\
                                 \nLevenshtein dist:{myutil.edit_distance(''.join(ref), ''.join(pred_here))}\n{'='*50}"
                             )
 
