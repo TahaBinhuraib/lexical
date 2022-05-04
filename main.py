@@ -103,10 +103,7 @@ def train(model, train_dataset, val_dataset, PATH=None, writer=None, references=
         )
     else:
         train_loader = torch_data.DataLoader(
-            train_dataset,
-            batch_size=FLAGS.n_batch,
-            shuffle=FLAGS.shuffle,
-            collate_fn=collate,
+            train_dataset, batch_size=FLAGS.n_batch, shuffle=FLAGS.shuffle, collate_fn=collate,
         )
 
     best_f1 = best_acc = -np.inf
@@ -123,12 +120,7 @@ def train(model, train_dataset, val_dataset, PATH=None, writer=None, references=
         for inp, out, lens in tqdm(train_loader):
             if not is_running():
                 break
-            nll = model(
-                inp.to(DEVICE),
-                out.to(DEVICE),
-                lens=lens.to(DEVICE),
-                recorder=recorder,
-            )
+            nll = model(inp.to(DEVICE), out.to(DEVICE), lens=lens.to(DEVICE), recorder=recorder,)
             steps += 1
             loss = nll / FLAGS.accum_count
             loss.backward()
@@ -189,10 +181,7 @@ def train(model, train_dataset, val_dataset, PATH=None, writer=None, references=
 def validate(model, val_dataset, PATH=None, vis=False, final=False, writer=None, references=None):
     model.eval()
     val_loader = torch_data.DataLoader(
-        val_dataset,
-        batch_size=FLAGS.n_batch,
-        shuffle=False,
-        collate_fn=collate,
+        val_dataset, batch_size=FLAGS.n_batch, shuffle=False, collate_fn=collate,
     )
     total = correct = loss = tp = fp = fn = 0
     acc_list = []
@@ -249,7 +238,7 @@ def validate(model, val_dataset, PATH=None, vis=False, final=False, writer=None,
                 fn += fn_here
                 total += 1
                 if vis:
-                    with open(f"./generations/{FLAGS.language}_validation.txt", "a") as f:
+                    with open(f"{PATH}/lan_{FLAGS.language}_generations.txt", "a") as f:
                         with hlog.task(total):
                             hlog.value("label", correct_here)
                             hlog.value("tp", tp_here)
@@ -378,9 +367,13 @@ def main(argv):
     torch.manual_seed(FLAGS.seed)
     GIT_HASH = subprocess.run("git rev-parse HEAD", shell=True, check=True, capture_output=True)
     GIT_HASH = GIT_HASH.stdout.strip()
-    GIT_HASH = str(GIT_HASH)
+    GIT_HASH = str(GIT_HASH)[2:-2]
 
-    PATH = f"./experiments/commit_hash_{GIT_HASH}/{FLAGS.language}/batch_{FLAGS.n_batch}_hidden_{FLAGS.n_layers}_dim_{FLAGS.dim}/seed_{FLAGS.seed}"
+    today = datetime.date.today()
+    month_day = today.strftime("%m-%d")
+    month_day = str(month_day)
+
+    PATH = f"./experiments/{GIT_HASH}_date_{month_day}/{FLAGS.language}/batch_{FLAGS.n_batch}_hidden_{FLAGS.n_layers}_dim_{FLAGS.dim}_lr_{FLAGS.lr}_dropout_{FLAGS.dropout}/seed_{FLAGS.seed}"
     try:
         os.makedirs(PATH, exist_ok=False)
     except FileExistsError:
