@@ -43,7 +43,8 @@ for seed in ${seeds[@]}; do
                                 --dim $lstmdim\
                                 --max_step ${max_step}\
                                 --warmup_steps ${warmup_steps}\
-                                --valid_steps ${valid_steps} > ./logs/logs_seed_{$seed}_lan_{$language}_batch_{$batch}_dim_{$lstmdim}_layer_{$lstmlayer}_lr{$lr}_dropout_{$dropout}.txt 2> ./logs/err_seed_{$seed}_lan_{$language}_batch_{$batch}_dim_{$lstmdim}_layer_{$lstmlayer}_lr{$lr}_dropout_{$dropout}.txt
+                                --valid_steps ${valid_steps}\
+                                --copy True > ./logs/logs_seed_{$seed}_lan_{$language}_batch_{$batch}_dim_{$lstmdim}_layer_{$lstmlayer}_lr{$lr}_dropout_{$dropout}.txt 2> ./logs/err_seed_{$seed}_lan_{$language}_batch_{$batch}_dim_{$lstmdim}_layer_{$lstmlayer}_lr{$lr}_dropout_{$dropout}.txt
                         fi
                         i=$(( i + 1 ))
 
