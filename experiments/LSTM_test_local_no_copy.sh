@@ -1,19 +1,21 @@
 #!/bin/bash
 
-languages=("ame" "bra" "ckt" "itl")
-seeds=(0)
-bathces=(20 40)
+languages=("ame" "bra")
+seeds=(1 2)
+bathces=(20)
 lrs=(1)
-lstmdims=(128 256)
-dropouts=(0.1 0.3)
-lstmlayers=(4 6)
-max_step=2000
-warmup_steps=1000
-valid_steps=100
+lstmdims=(256)
+dropouts=(0.2)
+lstmlayers=(2 4)
+max_step=2
+warmup_steps=1
+valid_steps=1
 
 cd ..
-mkdir logs
+mkdir -p logs
+mkdir -p logs/time_exp
 
+SECONDS=0
 for seed in ${seeds[@]}; do
     for language in ${languages[@]}; do
         for lr in ${lrs[@]}; do
@@ -32,8 +34,7 @@ for seed in ${seeds[@]}; do
                             --dim $lstmdim\
                             --max_step ${max_step}\
                             --warmup_steps ${warmup_steps}\
-                            --valid_steps ${valid_steps}\
-                            --copy True > ./logs/logs_seed_{$seed}_lan_{$language}_batch_{$batch}_dim_{$dim}_layer_{$lstmlayer}.txt 2> ./logs/err_seed_{$seed}_lan_{$language}_batch_{$batch}_dim_{$dim}_layer_{$lstmlayer}.txt
+                            --valid_steps ${valid_steps} > ./logs/logs_seed_{$seed}_lan_{$language}_batch_{$batch}_dim_{$lstmdim}_layer_{$lstmlayer}_lr{$lr}_dropout_{$dropout}_copy_false.txt 2> ./logs/err_seed_{$seed}_lan_{$language}_batch_{$batch}_dim_{$lstmdim}_layer_{$lstmlayer}_lr{$lr}_dropout_{$dropout}_copy_false.txt
 
                         done
                     done
@@ -42,3 +43,5 @@ for seed in ${seeds[@]}; do
         done
     done
 done
+ELAPSED="Elapsed: $(($SECONDS / 3600))hrs $((($SECONDS / 60) % 60))min $(($SECONDS % 60))sec"
+echo ${ELAPSED} > ./logs/time_exp/time_copy_false.txt

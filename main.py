@@ -369,11 +369,7 @@ def main(argv):
     GIT_HASH = GIT_HASH.stdout.strip()
     GIT_HASH = str(GIT_HASH)[2:-2]
 
-    today = datetime.date.today()
-    month_day = today.strftime("%m-%d")
-    month_day = str(month_day)
-
-    PATH = f"./experiments/{GIT_HASH}_date_{month_day}/{FLAGS.language}/batch_{FLAGS.n_batch}_hidden_{FLAGS.n_layers}_dim_{FLAGS.dim}_lr_{FLAGS.lr}_dropout_{FLAGS.dropout}/seed_{FLAGS.seed}"
+    PATH = f"./experiments/{GIT_HASH}/{FLAGS.language}/batch_{FLAGS.n_batch}_hidden_{FLAGS.n_layers}_dim_{FLAGS.dim}_lr_{FLAGS.lr}_dropout_{FLAGS.dropout}/seed_{FLAGS.seed}/copy_{FLAGS.copy}"
     try:
         os.makedirs(PATH, exist_ok=False)
     except FileExistsError:
