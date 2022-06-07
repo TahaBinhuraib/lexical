@@ -277,7 +277,7 @@ def validate(model, val_dataset, PATH=None, vis=False, final=False, writer=None,
                 f'Language: {FLAGS.language}\nSeed: {FLAGS.seed}\ndim: {FLAGS.dim}\nmax_step: {FLAGS.max_step}\
                     \nwarmup_steps: {FLAGS.warmup_steps}\nTag_location: {FLAGS.tag_location}\nn_layer: {FLAGS.n_layers}\
                     \nn_batch: {FLAGS.n_batch}\nCopy: {FLAGS.copy}\nlr: {FLAGS.lr}\ndropout: {FLAGS.dropout}\naccuracy: {acc}\
-                    \nf1: {f1}\nbleu: {bleu_score}\ncharacter accuracy: {mean(acc_list)}\n{"="*50}\n'
+                    \nf1: {f1}\nbleu: {bleu_score}\nself_attention: True\ncharacter accuracy: {mean(acc_list)}\n{"="*50}\n'
             )
 
     hlog.value("acc", acc)
