@@ -26,7 +26,7 @@ class Mutex(nn.Module):
         max_len_x=8,
         max_len_y=8,
         n_layers=1,
-        self_att=False,
+        self_att=True,
         attention=True,
         dropout=0.0,
         bidirectional=True,
