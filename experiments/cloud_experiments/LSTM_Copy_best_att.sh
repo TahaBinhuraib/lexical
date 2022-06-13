@@ -11,7 +11,7 @@
 
 languages=("ame" "bra" "afb" "ail" "amh" "ara" "arz" "aym" "bul" "ces" "ckb" "ckt" "cni" "deu" "evn" "gup" "heb" "ind" "itl" "kmr" "kod" "krl" "lud" "mag" "nld" "olo" "pol" "por" "rus" "sah" "see" "spa" "syc" "tur" "tyv" "vep")
 seeds=(1 2)
-bathc=120
+batch=120
 lr=1
 lstmdim=256
 dropout=0.4
@@ -27,20 +27,19 @@ mkdir -p logs/time_exp
 SECONDS=0
 for seed in ${seeds[@]}; do
     for language in ${languages[@]}; do
-        if [[ $i -eq $SLURM_ARRAY_TASK_ID ]]; then
-        
+        if [[ $i -eq $SLURM_ARRAY_TASK_ID ]]; then        
                 python main.py \
-                --seed $seed\
-                --language $language\
-                --n_layers $lstmlayer\
-                --n_batch $batch\
-                --lr $lr\
-                --dropout $dropout\
-                --dim $lstmdim\
-                --max_step ${max_step}\
-                --warmup_steps ${warmup_steps}\
-                --valid_steps ${valid_steps}\
-                --copy True > ./logs/logs_seed_{$seed}_lan_{$language}_batch_{$batch}_dim_{$lstmdim}_layer_{$lstmlayer}_lr{$lr}_dropout_{$dropout}_copy_true_selfattention.txt 2> ./logs/err_seed_{$seed}_lan_{$language}_batch_{$batch}_dim_{$lstmdim}_layer_{$lstmlayer}_lr{$lr}_dropout_{$dropout}_copy_true_selfattention.txt
+                --seed $seed \
+                --language $language \
+                --n_layers $lstmlayer \
+                --n_batch $batch \
+                --lr $lr \
+                --dropout $dropout \
+                --dim $lstmdim \
+                --max_step ${max_step} \
+                --warmup_steps ${warmup_steps} \
+                --valid_steps ${valid_steps} \
+                --copy True > ./logs/logs_seed_${seed}_lan_${language}_batch_${batch}_dim_${lstmdim}_layer_${lstmlayer}_lr${lr}_dropout_${dropout}_copy_true_selfattention.txt 2> ./logs/err_seed_${seed}_lan_${language}_batch_${batch}_dim_${lstmdim}_layer_${lstmlayer}_lr${lr}_dropout_${dropout}_copy_true_selfattention.txt
         fi
         i=$(( i + 1 ))
 
