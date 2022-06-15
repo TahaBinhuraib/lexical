@@ -110,10 +110,7 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
         )
     else:
         train_loader = torch_data.DataLoader(
-            train_dataset,
-            batch_size=FLAGS.n_batch,
-            shuffle=FLAGS.shuffle,
-            collate_fn=collate,
+            train_dataset, batch_size=FLAGS.n_batch, shuffle=FLAGS.shuffle, collate_fn=collate,
         )
 
     best_f1 = best_acc = -np.inf
@@ -130,12 +127,7 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
         for inp, out, lens in tqdm(train_loader):
             if not is_running():
                 break
-            nll = model(
-                inp.to(DEVICE),
-                out.to(DEVICE),
-                lens=lens.to(DEVICE),
-                recorder=recorder,
-            )
+            nll = model(inp.to(DEVICE), out.to(DEVICE), lens=lens.to(DEVICE), recorder=recorder,)
             steps += 1
             loss = nll / FLAGS.accum_count
             loss.backward()
@@ -159,11 +151,7 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
                     with hlog.task(accum_steps):
                         hlog.value("curr loss", train_loss / train_batches)
                         acc, f1, val_loss, bscore = validate(
-                            model,
-                            val_dataset,
-                            writer=writer,
-                            references=references,
-                            vis=False,
+                            model, val_dataset, writer=writer, references=references, vis=False,
                         )
                         model.train()
                         hlog.value("acc", acc)
@@ -195,10 +183,7 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
 def validate(model, val_dataset, vis=False, final=False, writer=None, references=None):
     model.eval()
     val_loader = torch_data.DataLoader(
-        val_dataset,
-        batch_size=FLAGS.n_batch,
-        shuffle=False,
-        collate_fn=collate,
+        val_dataset, batch_size=FLAGS.n_batch, shuffle=False, collate_fn=collate,
     )
     total = correct = loss = tp = fp = fn = 0
     acc_list = []
@@ -410,7 +395,7 @@ def main(argv):
         tokenizer = ByteLevelBPETokenizer()
         # Train the tokenizer
         tokenizer.train(
-            files=file_path, vocab_size=50_000, min_frequency=1, special_tokens=special_tokens
+            files=file_path, vocab_size=500, min_frequency=1, special_tokens=special_tokens
         )
         os.mkdir(f"bart_local_{FLAGS.language}")
         tokenizer.save_model(f"./bart_local_{FLAGS.language}")
@@ -534,11 +519,7 @@ def main(argv):
 
         with hlog.task("train model"):
             acc, f1, bscore = train(
-                model,
-                train_items,
-                val_items,
-                writer=writer,
-                references=references,
+                model, train_items, val_items, writer=writer, references=references,
             )
     else:
         model = torch.load(FLAGS.load_model)
