@@ -110,7 +110,10 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
         )
     else:
         train_loader = torch_data.DataLoader(
-            train_dataset, batch_size=FLAGS.n_batch, shuffle=FLAGS.shuffle, collate_fn=collate,
+            train_dataset,
+            batch_size=FLAGS.n_batch,
+            shuffle=FLAGS.shuffle,
+            collate_fn=collate,
         )
 
     best_f1 = best_acc = -np.inf
@@ -127,7 +130,12 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
         for inp, out, lens in tqdm(train_loader):
             if not is_running():
                 break
-            nll = model(inp.to(DEVICE), out.to(DEVICE), lens=lens.to(DEVICE), recorder=recorder,)
+            nll = model(
+                inp.to(DEVICE),
+                out.to(DEVICE),
+                lens=lens.to(DEVICE),
+                recorder=recorder,
+            )
             steps += 1
             loss = nll / FLAGS.accum_count
             loss.backward()
@@ -151,7 +159,11 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
                     with hlog.task(accum_steps):
                         hlog.value("curr loss", train_loss / train_batches)
                         acc, f1, val_loss, bscore = validate(
-                            model, val_dataset, writer=writer, references=references, vis=False,
+                            model,
+                            val_dataset,
+                            writer=writer,
+                            references=references,
+                            vis=False,
                         )
                         model.train()
                         hlog.value("acc", acc)
@@ -183,7 +195,10 @@ def train(model, train_dataset, val_dataset, writer=None, references=None):
 def validate(model, val_dataset, vis=False, final=False, writer=None, references=None):
     model.eval()
     val_loader = torch_data.DataLoader(
-        val_dataset, batch_size=FLAGS.n_batch, shuffle=False, collate_fn=collate,
+        val_dataset,
+        batch_size=FLAGS.n_batch,
+        shuffle=False,
+        collate_fn=collate,
     )
     total = correct = loss = tp = fp = fn = 0
     acc_list = []
@@ -403,6 +418,7 @@ def main(argv):
         print(len(tokenizer))
         train_input, train_output, train_tags = myutil.read_data_bpe(train_path)
         validate_input, validate_output, validate_tags = myutil.read_data_bpe(dev_path)
+        test_input, test_output, test_tags = myutil.read_data_bpe(dev_path)
         (
             train_items,
             test_items,
@@ -418,6 +434,9 @@ def main(argv):
             validate_tags,
             train_output,
             validate_output,
+            test_input,
+            test_tags,
+            test_output,
             tokenizer,
         )
 
@@ -436,7 +455,7 @@ def main(argv):
 
             train_input, train_output, train_tags = myutil.read_data(train_path)
             validate_input, validate_output, validate_tags = myutil.read_data(dev_path)
-            test_input, test_tags = myutil.read_test_data(test_path)
+            test_input, test_output, test_tags = myutil.read_data(test_path)
 
             characters = myutil.get_chars(
                 train_input + train_output + validate_input + validate_output
@@ -519,7 +538,11 @@ def main(argv):
 
         with hlog.task("train model"):
             acc, f1, bscore = train(
-                model, train_items, val_items, writer=writer, references=references,
+                model,
+                train_items,
+                val_items,
+                writer=writer,
+                references=references,
             )
     else:
         model = torch.load(FLAGS.load_model)
@@ -528,8 +551,8 @@ def main(argv):
     with hlog.task("train evaluation"):
         validate(model, train_items, vis=False, references=references)
 
-    with hlog.task("val evaluation"):
-        validate(model, val_items, vis=True, references=references)
+    with hlog.task("test evaluation"):
+        validate(model, test_items, vis=True, references=references)
 
     # with hlog.task("test evaluation (beam)"):
     #     validate(model, test_items, vis=False, final=True)

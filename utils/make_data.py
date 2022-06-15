@@ -55,6 +55,9 @@ def generate_data_for_tokenizer(
     validate_tags,
     train_output,
     validate_output,
+    test_input,
+    test_tags,
+    test_output,
     tokenizer,
 ):
     """Generate the data needed for the low_resource language task"""
@@ -66,18 +69,26 @@ def generate_data_for_tokenizer(
     for input, tag in zip(validate_input, validate_tags):
         x_validation.append(input + " " + tag)
 
+    x_test = []
+    for input, tag in zip(test_input, test_tags):
+        x_test.append(input + " " + tag)
+
     study = []
     for x, y in zip(x_train, train_output):
         study.append((x, y))
 
     test = []
-    for x, y in zip(x_validation, validate_output):
+    for x, y in zip(x_test, test_output):
         test.append((x, y))
+
+    validate = []
+    for x, y in zip(x_validation, validate_output):
+        validate.append((x, y))
 
     max_x = len(max(x_train, key=len))
     max_y = len(max(train_output, key=len))
     train_items, test_items = encode_bpe(study, test, tokenizer, max_x, max_y)
-    val_items = test_items
+    _, val_items = encode_bpe(study, validate, tokenizer, max_x, max_y)
     return train_items, test_items, val_items, study, test, max_x, max_y
 
 
