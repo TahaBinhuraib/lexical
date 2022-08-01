@@ -7,7 +7,7 @@
 #SBATCH --qos=high
 #SBATCH --constrain=xeon-g6
 #SBATCH --gres=gpu:volta:1
-#SBATCH --array=0-71
+#SBATCH --array=0-9
 
 languages=("ail" "itl" "ame" "bra" "ckt")
 seeds=(1 2)
