@@ -9,9 +9,9 @@
 #SBATCH --gres=gpu:volta:1
 #SBATCH --array=0-71
 
-languages=("ame" "bra" "afb" "ail" "amh" "ara" "arz" "aym" "bul" "ces" "ckb" "ckt" "cni" "deu" "evn" "gup" "heb" "ind" "itl" "kmr" "kod" "krl" "lud" "mag" "nld" "olo" "pol" "por" "rus" "sah" "see" "spa" "syc" "tur" "tyv" "vep")
+languages=("ail" "itl" "ame" "bra" "ckt")
 seeds=(1 2)
-bathc=120
+batch=120
 lr=1
 lstmdim=256
 dropout=0.4
@@ -40,7 +40,7 @@ for seed in ${seeds[@]}; do
                 --max_step ${max_step}\
                 --warmup_steps ${warmup_steps}\
                 --valid_steps ${valid_steps}\
-                --copy True > ./logs/logs_seed_{$seed}_lan_{$language}_batch_{$batch}_dim_{$lstmdim}_layer_{$lstmlayer}_lr{$lr}_dropout_{$dropout}_copy_true.txt 2> ./logs/err_seed_{$seed}_lan_{$language}_batch_{$batch}_dim_{$lstmdim}_layer_{$lstmlayer}_lr{$lr}_dropout_{$dropout}_copy_true.txt
+                --copy True > ./logs/logs_seed_${seed}_lan_${language}_batch_${batch}_dim_${lstmdim}_layer_${lstmlayer}_lr${lr}_dropout_${dropout}_copy_true.txt 2> ./logs/err_seed_${seed}_lan_${language}_batch_${batch}_dim_${lstmdim}_layer_${lstmlayer}_lr${lr}_dropout_${dropout}_copy_true.txt
         fi
         i=$(( i + 1 ))
 

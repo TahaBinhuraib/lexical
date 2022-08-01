@@ -490,8 +490,6 @@ def main(argv):
     with hlog.task("test evaluation"):
         validate(model, test_items, PATH=PATH, vis=True, references=references)
 
-    os.remove(PATH + "/checkpoint.pt")
-
     # with hlog.task("test evaluation (greedy)"):
     #     validate(
     #         model, test_items, vis=True, final=False, references=references
