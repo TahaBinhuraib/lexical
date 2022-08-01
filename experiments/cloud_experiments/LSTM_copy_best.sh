@@ -9,7 +9,7 @@
 #SBATCH --gres=gpu:volta:1
 #SBATCH --array=0-71
 
-languages=("ame" "bra" "afb" "ail" "amh" "ara" "arz" "aym" "bul" "ces" "ckb" "ckt" "cni" "deu" "evn" "gup" "heb" "ind" "itl" "kmr" "kod" "krl" "lud" "mag" "nld" "olo" "pol" "por" "rus" "sah" "see" "spa" "syc" "tur" "tyv" "vep")
+languages=("ail" "itl" "ame" "bra" "ckt")
 seeds=(1 2)
 batch=120
 lr=1
